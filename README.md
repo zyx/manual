@@ -16,7 +16,11 @@ Install [gitbook](https://github.com/GitbookIO/gitbook) with
 
 	npm install gitbook-cli -g
 
-Run
+Install gitbook plugins with
+
+	gitbook install
+
+Build with
 
 	make run
 

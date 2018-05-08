@@ -1,4 +1,13 @@
 {
+	"plugins": [
+		"insert-logo-link"
+	],
+	"pluginsConfig": {
+		"insert-logo-link": {
+			"src": "images/logo.png",
+			"url": "https://vcvrack.com/"
+		}
+	},
 	"structure": {
 		"readme": "Introduction.md",
 		"summary": "TOC.md",
