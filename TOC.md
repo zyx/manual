@@ -11,3 +11,4 @@
 	- Architecture
 	- Contributing
 - [Glossary](Glossary.md)
+- [Edit on GitHub](https://github.com/VCVRack/manual)
