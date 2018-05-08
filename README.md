@@ -5,7 +5,8 @@ The scope of the manual is the VCV Rack application. It does not include individ
 ### Contributions
 
 Send a pull request to this repository with your edits.
-Major changes like new pages and sections are welcome, as well as minor fixes like grammar, spelling, and reorganization.
+Major changes like new pages and complete overhauls are welcome, as well as minor fixes like grammar, spelling, and reorganization.
+Your PR will be accepted if it is a net positive benefit to readers.
 
 ### Building
 

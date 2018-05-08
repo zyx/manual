@@ -4,7 +4,7 @@ The *Core* plugin is actually not a plugin at all.
 It's built in to the Rack application itself, but you can add Core modules to your rack just like normal modules.
 
 ### Audio
-![](images/Core/Audio.m.png)
+![Core Audio](images/Core/Audio.m.png)
 
 The *Audio* module merges the virtual Rack world with the physical hardware world.
 The **INPUT** section sends up to 8 Rack signals to a hardware audio device for playback, and the **OUTPUT** section sends up to 8 hardware signals into Rack.
@@ -13,7 +13,7 @@ The **INPUT** section sends up to 8 Rack signals to a hardware audio device for 
 - Core Audio on Mac
 - WASAPI and ASIO on Windows
 - ALSA on Linux
-- [VCV Bridge](#Bridge) (described in a below section) on all OS's, although there are no Bridge plugins for Linux at this time
+- VCV Bridge (described in a below section) on all OS's, although there are no Bridge plugins for Linux at this time
 
 After a driver is selected, a particular **device** can be chosen for the driver.
 If the device has more than 8 inputs or outputs, you can select the desired range of outputs, offset by a factor of 8.
@@ -30,38 +30,38 @@ Note: Using multiple Audio modules is experimental and may crash Rack or render 
 Most DAWs avoid this feature entirely by restricting audio to a single input and a single output device for stability reasons, but if using multiple audio devices in Rack works with your configuration, more power to you!
 
 ### MIDI-1
-![](images/Core/MIDI-1.m.png)
+![Core MIDI-1](images/Core/MIDI-1.m.png)
 
 *Coming soon*
 
 ### MIDI-4
-![](images/Core/MIDI-4.m.png)
+![Core MIDI-4](images/Core/MIDI-4.m.png)
 
 *Coming soon*
 
 ### MIDI-CC
-![](images/Core/MIDI-CC.m.png)
+![Core MIDI-CC](images/Core/MIDI-CC.m.png)
 
 *Coming soon*
 
 ### MIDI-Trig
-![](images/Core/MIDI-Trig.m.png)
+![Core MIDI-Trig](images/Core/MIDI-Trig.m.png)
 
 *Coming soon*
 
 ### Blank
-![](images/Core/Blank.m.png)
+![Core Blank](images/Core/Blank.m.png)
 
 Useful for adding space between modules in your rack.
 You can resize the panel by dragging the edges horizontally, with a minimum size of 2HP.
 
 ### Notes
-![](images/Core/Notes.m.png)
+![Core Notes](images/Core/Notes.m.png)
 
 Useful for adding patch notes, section titles for organization, instructions, and author information to your patches.
 You can copy and paste text with Ctrl+C and Ctrl+V.
 
-### Bridge
+### VCV Bridge
 
 Rack is a standalone DAW-like application and not a VST/AU plugin because of the major limitations of these formats.
 It is common to think of physical modular synthesizers as entire self-contained DAWs, and many people use Rack as a complete DAW to compose music and build patches without other software.
