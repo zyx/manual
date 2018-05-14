@@ -28,6 +28,6 @@ If your computer is offline, you may download plugins using another computer and
 
 *Install third-party plugins at your own risk. Like VST plugins, installing plugins from unknown sources may compromise your computer and personal information.*
 
-Download the plugin ZIP package from the vendor's website to `<Rack local directory>/plugins` (See [Where is <Rack local directory>?](https://vcvrack.com/manual/FAQ.html#rack-local-directory)). Rack will extract and load the plugin upon launch.
+Download the plugin ZIP package from the vendor's website to `<Rack local directory>/plugins` (See [Where is the "Rack local directory"?](FAQ.md#where-is-the-rack-local-directory)). Rack will extract and load the plugin upon launch.
 
 Note: Do not download the plugin via GitHub's green "Clone or download" button. These are source code ZIP packages and do not contain the compiled plugin binary. If the vendor distributes their plugin with GitHub, look in the "Releases" section for the compiled ZIP packages.

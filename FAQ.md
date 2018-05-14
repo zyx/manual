@@ -7,17 +7,17 @@ Don't worry, Rack 1.0 will also be free open-source software.
 
 In order for Rack to earn its "1.0" designation, it must improve in the following three fronts.
 
-#### Compatibility
+##### Compatibility
 Since I am an "indie developer", I cannot yet afford to test Rack on every combination of hardware on the market.
 With the introduction of commercial VCV plugin sales, I will soon be able to invest in hardware that is known to have compatibility problems with Rack.
 If you are willing to lend me hardware to test, email contact@vcvrack.com for details.
 
-#### Stability
+##### Stability
 Rack is not ready to be trusted for live use, although some musicians have used it successfully in live performances.
 In order for Rack to be considered "stable", it must produce audio with no clicks or pops on modern hardware for several minutes and must crash less than once per several days of continuous use.
 Currently, stability in Rack is the most developed among these three fronts.
 
-#### Performance
+##### Performance
 Depending on your CPU and graphics card, Rack may consume high CPU/GPU resources and therefore increase your laptop's fan speed.
 I am aware of this, so there is no need to inform me.
 
@@ -67,8 +67,10 @@ Depending on the usefulness of your request, it may take 15 minutes or 24 months
 
 Save a patch to `<Rack local directory>/template.vcv`, and it will be loaded after clearing the rack.
 
-### <a name="rack-local-directory"></a>Where is \<Rack local directory\>?
+### Where is the "Rack local directory"?
 
 - MacOS: `Documents/Rack/`
 - Windows: `My Documents/Rack/`
 - Linux: `~/.Rack/`
+
+In development builds of Rack, it is your current working directory.
