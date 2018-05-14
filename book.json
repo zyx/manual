@@ -1,7 +1,8 @@
 {
   "plugins": [
     "insert-logo-link",
-    "github-edit"
+    "github-edit",
+    "katex"
   ],
   "pluginsConfig": {
     "insert-logo-link": {
