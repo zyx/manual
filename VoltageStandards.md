@@ -27,6 +27,7 @@ However, because of the [Gibbs phenomenon](https://en.wikipedia.org/wiki/Gibbs_p
 
 Thus, trigger inputs in Rack should use `SchmittTrigger` from `digital.hpp` with a low threshold of about **0.1V** and a high threshold of around **1 to 2V**.
 For example, Audible Instruments modules are triggered once the input reaches 1.7V and can only be retriggered after the signal drops to or below 0V.
+Rack plugins can implement this with `schmittTrigger.process(rescale(x, 0.1f, 2.f, 0.f, 1.f))`
 
 Trigger sources should produce **5 to 10V** with a duration of 1 millisecond.
 An easy way to do this is to use `PulseGenerator` from `digital.hpp`.
