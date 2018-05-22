@@ -10,7 +10,7 @@
 ### Plugin Development
 - [Tutorial](PluginDevelopmentTutorial.md)
 - [Voltage Standards](VoltageStandards.md)
-- DSP (TODO)
+- [DSP][DSP.md]
 
 ### Rack Development
 - [ABI/API Version](Version.md)
