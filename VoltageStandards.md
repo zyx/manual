@@ -35,7 +35,7 @@ An easy way to do this is to use `PulseGenerator` from `digital.hpp`.
 ### Pitch
 
 Most Eurorack manufacturers use the **1V/octave** standard.
-The relationship between frequency $$f$$ and voltage $$V$$ is $$f = f_0 \cdot 2^{V}$$, where $$f_0$$ is an arbitrary baseline set by a pitch knob or the note C4 ($$f_0 =$$ 261.626 Hz).
+The relationship between frequency $f$ and voltage $V$ is $f = f_0 \cdot 2^{V}$, where $f_0$ is an arbitrary baseline set by a pitch knob or the note C4 (MIDI note 60, $f_0 =$ 261.626 Hz).
 
 ### NaNs and Infinity
 
