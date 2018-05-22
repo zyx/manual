@@ -1,3 +1,4 @@
+# Table of Contents
 
 ### Rack
 
@@ -10,7 +11,7 @@
 ### Plugin Development
 - [Tutorial](PluginDevelopmentTutorial.md)
 - [Voltage Standards](VoltageStandards.md)
-- [DSP][DSP.md]
+- [DSP](DSP.md)
 
 ### Rack Development
 - [ABI/API Version](Version.md)

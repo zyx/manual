@@ -1,8 +1,13 @@
 {
+  "title": "VCV Rack Manual",
+  "description": "Documentation for VCV Rack, the open-source virtual modular synthesizer",
+  "author": "VCV",
+  "language": "en",
   "plugins": [
     "insert-logo-link",
     "github-edit",
-    "katex-plus"
+    "katex-plus",
+    "-sharing"
   ],
   "pluginsConfig": {
     "insert-logo-link": {
@@ -18,5 +23,10 @@
     "readme": "Introduction.md",
     "summary": "TOC.md",
     "glossary": "Glossary.md"
+  },
+  "pdf": {
+    "fontSize": 12,
+    "fontFamily": "DejaVu Sans",
+    "paperSize": "a5"
   }
 }
