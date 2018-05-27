@@ -1,9 +1,9 @@
 # Voltage Standards
 
-Rack input and output values (carried by cables) are in voltage units.
-You can measure absolute voltage levels using the Fundamental Scope.
+In Rack, input and output values carried by patch cables are in voltage units (V).
+You can measure absolute voltage levels using modules like Fundamental Scope.
 
-Rack attempts to model Eurorack standards as accurately as possible, but this is a problem for two reasons: there are very few actual "standards" in Eurorack (The only rule is that you can always find a module which breaks the rule), and a few changes must be made due to using a finite sample rate (digital) vs. an infinite sample rate (analog).
+Rack attempts to model Eurorack standards as accurately as possible, but this is a problem for two reasons: there are very few actual "standards" in Eurorack (The only rule is that you can always find a module which breaks the rule), and there are a few differences between digital (finite sample rate) and analog (infinite sample rate).
 
 ### Audio and Modulation
 
@@ -12,13 +12,13 @@ Audio outputs are typically **±5V** (before bandlimiting is applied), and CV mo
 ### Output Saturation
 
 In Eurorack, power supplies supply **-12 to 12V**.
-No voltage should be generated beyond this range, since it would be (mostly) impossible to obtain in Eurorack.
-Additionally, protection diodes on the ±12V rails usually drop the range to ±11.7V.
+No voltage should be generated beyond this range, since it would be mostly impossible to obtain in Eurorack.
+Additionally, protection diodes on the ±12V rails usually drop the range to about ±11.7V.
 
 However, if you do not want to model analog output saturation for simplicity or performance reasons, that is perfectly fine.
-It is best to allow voltages outside this range rather than use hard clipping with `clampf(out, -1.f, 1.f)` because in the best case they will be attenuated by a module downstream, and in the worst case, they will be hard clipped by the Audio Interface.
+It is much better to allow voltages outside this range rather than use hard clipping with `clampf(out, -1.f, 1.f)` because in the best case they will be attenuated by a module downstream, and in the worst case, they will be hard clipped by the Audio module from Core.
 
-If your module applies gain to an input, it is a good idea to saturate the output.
+If your module is capable of applying >1x gain to an input, it is a good idea to saturate the output.
 
 ### Triggers
 

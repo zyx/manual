@@ -95,6 +95,8 @@ If you do not have all platforms for building, other plugin developers will be h
 
 To list your plugin on the [VCV Plugin Manager](https://vcvrack.com/plugins.html), see the [VCV community repository README](https://github.com/VCVRack/community#for-plugin-developers).
 
+If you wish to sell your plugin on the [VCV Store](https://vcvrack.com/plugins.html), email contact@vcvrack.com for details.
+
 ### Maintaining
 
 Since Rack is currently in Beta and moving very quickly, breaking changes may be made to the Rack plugin API.

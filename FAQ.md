@@ -73,4 +73,4 @@ Save a patch to `<Rack local directory>/template.vcv`, and it will be loaded aft
 - Windows: `My Documents/Rack/`
 - Linux: `~/.Rack/`
 
-In development builds of Rack, it is your current working directory.
+In development builds of Rack, it is your current working directory instead.
