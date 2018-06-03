@@ -22,4 +22,5 @@ Edit this manual at https://github.com/VCVRack/manual.
 - Patchstorage: https://patchstorage.com/platform/vcv-rack/
 - Discord: https://discord.gg/wxa89Mh
 - Reddit: https://www.reddit.com/r/vcvrack/
+- Twitch: https://www.twitch.tv/communities/vcvrackcommunity
 - IRC: http://freenode.net/ #VCVRack

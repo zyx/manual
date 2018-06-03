@@ -4,12 +4,12 @@ Once Rack is installed and launched *(see [Installing](Installing.html))*, you w
 
 ![Initial patch](images/initialpatch.png)
 
-Add a module by right-clicking on an empty space on the rack, or simply press `<enter>`.
-Select the [Core](Core.html) plugin and then Audio to connect Rack to an audio output on your computer.
+Add a module by right-clicking on an empty space on the rack or by pressing `<enter>`.
+Select the [Core](Core.html) plugin and then Audio to connect Rack to an audio device on your computer.
 
 ![Module Browser](images/modulebrowser.png)
 
-You can move the module around the rack by clicking and dragging an empty space on its panel.
+You can move the module by clicking and dragging an empty space on its panel.
 Select an audio driver and device by clicking on Audio's digital display.
 
 ![Audio interface patch](images/audiopatch.png)

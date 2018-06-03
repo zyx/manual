@@ -14,8 +14,8 @@
 - [DSP](DSP.md)
 
 ### Rack Development
+- [Contributing](Contributing.md)
 - [ABI/API Version](Version.md)
-- Contributing (TODO)
 
 ---
 
