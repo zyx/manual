@@ -2,8 +2,8 @@
 
 ### Power meter
 
-When power meters are enabled, Rack measures the amount of time spent processing each module in *mS* (microsamples).
-In many ways, this is analogous to the limit imposed by hardware modular synthesizers in *mA* (milliamperes).
+When power meters are enabled, Rack measures the amount of time spent processing each module in *mS* (millisamples).
+In many ways, this is analogous to the module power limit imposed by hardware modular synthesizers in *mA* (milliamperes).
 
 The total amount of time spent processing all modules must equal **1000 mS**.
 To achieve this, the [Audio](Core.md#audio) module from [Core](Core.md) uses your audio device's high-precision clock to regulate Rack's processing loop, so it idles for some amount of mS until this total is met.
