@@ -5,6 +5,7 @@
 - [Quick Start](QuickStart.md)
 - [Installing](Installing.md)
 - [FAQ](FAQ.md)
+- [Toolbar](Toolbar.md)
 - [Core](Core.md)
 - [Bridge](Bridge.md)
 
