@@ -2,7 +2,7 @@
 build:
 	gitbook build
 
-all: build pdf
+all: build
 
 run:
 	gitbook serve --port 8080
