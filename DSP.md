@@ -97,7 +97,7 @@ $$s = \frac{1}{T} \ln{z} \approx \frac{2}{T} \frac{1 - z^{-1}}{1 + z^{-1}}$$
 
 This is known as the [Bilinear transform](https://en.wikipedia.org/wiki/Bilinear_transform).
 In digital form, the rational transfer function is written as
-$$H(z) = \frac{\sum_{n=0}^N b_n s^{-n}}{\sum_{m=0}^M a_m s^{-m}}$$
+$$H(z) = \frac{\sum_{n=0}^N b_n z^{-n}}{\sum_{m=0}^M a_m z^{-m}}$$
 Note that the orders $N$ and $M$ are not necessarily equal to the orders $P$ and $Q$ of the analog form, and we obtain a new set of numbers $a_m$ and $b_n$ called the *digital filter coefficients*.
 
 The *zeros* of the filter are the nonzero values of $z$ which give a zero numerator, and the *poles* are the nonzero values of $z$ which give a zero denominator.
@@ -127,6 +127,6 @@ $$\sum_{m=0}^M a_m y_{k-m} = \sum_{n=0}^N b_n x_{k-n}$$
 Usually $a_0$ is normalized to 1, and $y_k$ can be written explicitly.
 $$y_k = \sum_{n=0}^N b_n x_{k-n} - \sum_{m=1} a_m y_{k-m}$$
 
-For $N, M = 2$, this is a [biquad filter](https://en.wikipedia.org/wiki/Digital_biquad_filter), a very fast, numerically stable, and reasonably good sounding filter.
+For $N, M = 2$, this is a [biquad filter](https://en.wikipedia.org/wiki/Digital_biquad_filter), a very fast, numerically stable (assuming the transfer function itself is mathematical stable), and reasonably good sounding filter.
 
 $$H(z) = \frac{b_0 + b_1 z^{-1} + b_2 z^{-2}}{1 + a_1 z^{-1} + a_2 z^{-2}}$$
