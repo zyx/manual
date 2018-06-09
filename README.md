@@ -8,6 +8,8 @@ Send a pull request to this repository with your edits.
 Major changes like new pages and complete overhauls are welcome, as well as minor fixes like grammar, spelling, and reorganization.
 Your PR will be accepted if it is a net positive benefit to readers.
 
+The LaTeX renderer supports [these functions](https://khan.github.io/KaTeX/function-support.html).
+
 ### Building
 
 Install [Node](https://nodejs.org/en/). Make sure `npm` is in your PATH.
