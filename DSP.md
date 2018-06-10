@@ -55,17 +55,17 @@ However, after bandlimiting, all harmonics above $f_{sr}/2$ become zero, so its 
 
 The curve produced by a bandlimited discontinuity is known as the [Gibbs phenomenon](https://en.wikipedia.org/wiki/Gibbs_phenomenon).
 A DSP algorithm attempting to model a jump found in sawtooth or square waves must include this effect, such as by inserting a minBLEP or polyBLEP signal for each discontinuity.
-Otherwise higher harmonics, like the high-frequency sine wave above, will pollute the spectrum below $f_{sr}/2$.
+Otherwise, higher harmonics, like the high-frequency sine wave above, will pollute the spectrum below $f_{sr}/2$.
 
 Even signals containing no discontinuities, such as a triangle wave with harmonic amplitudes $(-1)^k / k^2$, must be correctly bandlimited or aliasing will occur.
-One possible method is to realize that a triangle wave is an integrated square wave, and an integrator is just a filter with a -20dB per [decade](https://en.wikipedia.org/wiki/Decade_(log_scale)) slope.
+One possible method is to realize that a triangle wave is an integrated square wave, and an integrator is just a filter with a -20dB per [decade](https://en.wikipedia.org/wiki/Decade_%28log_scale%29) slope.
 Since linear filters commute, a bandlimited integrated square wave is just an integrated bandlimited square wave.
 
 The most general approach is to generate samples at a high sample rate, apply a FIR or polyphase filter, and downsample by an integer factor (known as decimation).
 
 For more specific applications, more advances techniques exist for certain cases.
-Aliasing is required for many processes, including waveform generation, waveshaping, distortion, saturation, and typically all nonlinear processes.
-It is sometimes *not* required for reverb, linear filters, audio-rate FM of sine signals (which is why primitive digital chips in the 80's were able to sound reasonably good), mixing signals, and most other linear processes.
+Anti-aliasing is required for many processes, including waveform generation, waveshaping, distortion, saturation, and typically all nonlinear processes.
+It is sometimes *not* required for reverb, linear filters, audio-rate FM of sine signals (which is why primitive digital chips in the 80's were able to sound reasonably good), adding signals, and most other linear processes.
 
 
 ### Linear filters
@@ -116,13 +116,13 @@ Note that the above formula is the convolution between vectors $y$ and $b$, and 
 $$y \ast b = \mathcal{F}^{-1} \{ \mathcal{F}\{y\} \cdot \mathcal{F}\{b\} \}$$
 where $\cdot$ is element-wise multiplication.
 
-While the naive FIR formula above is $O(n^2)$ when processing blocks of $n$ samples, the FFT FIR method is $O(\log n)$.
+While the naive FIR formula above is $O(N^2)$ when processing blocks of $N$ samples, the FFT FIR method is $O(\log N)$.
 A disadvantage of the FFT FIR method is that the signal must be delayed by $N$ samples to produce any output.
 You can combine the naive and FFT methods into a hybrid approach with the [overlap-add](https://en.wikipedia.org/wiki/Overlap%E2%80%93add_method) or [overlap-save](https://en.wikipedia.org/wiki/Overlap%E2%80%93save_method) methods.
 
 #### IIR filters
 
-An infinite impulse response (IIR) filter is a general rational transfer function. Applying the $H(z)$ operator to an input and output signal,
+An infinite impulse response (IIR) filter is a general rational transfer function. By multiplying the denominator of the rational $H(z)$ definition above on both sides and applying it to an input and output signal,
 $$\sum_{m=0}^M a_m y_{k-m} = \sum_{n=0}^N b_n x_{k-n}$$
 Usually $a_0$ is normalized to 1, and $y_k$ can be written explicitly.
 $$y_k = \sum_{n=0}^N b_n x_{k-n} - \sum_{m=1} a_m y_{k-m}$$

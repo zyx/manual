@@ -23,4 +23,5 @@ Edit this manual at https://github.com/VCVRack/manual.
 - Discord: https://discord.gg/wxa89Mh
 - Reddit: https://www.reddit.com/r/vcvrack/
 - Twitch: https://www.twitch.tv/communities/vcvrackcommunity
+- VCV Rack Developers Slack: [vcvrackdevelopers.slack.com](https://vcvrackdevelopers.slack.com/join/shared_invite/enQtMzczNzY2NDUzMTczLWM2Mjg0ZjEzNDQ2YTEwYjFiZTA3MzE4NTRjMjg5ZjRkZDAwMDk5M2I4NmIzYmEyZGY1NGQ4YWE4NzkzZjlhMmI)
 - IRC: http://freenode.net/ #VCVRack
