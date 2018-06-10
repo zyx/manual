@@ -122,10 +122,10 @@ You can combine the naive and FFT methods into a hybrid approach with the [overl
 
 #### IIR filters
 
-An infinite impulse response (IIR) filter is a general rational transfer function. By multiplying the denominator of the rational $H(z)$ definition above on both sides and applying it to an input and output signal,
+An infinite impulse response (IIR) filter is a general rational transfer function. By multiplying the denominator of the rational $H(z)$ definition above on both sides and applying it to an input and output signal, we obtain
 $$\sum_{m=0}^M a_m y_{k-m} = \sum_{n=0}^N b_n x_{k-n}$$
 Usually $a_0$ is normalized to 1, and $y_k$ can be written explicitly.
-$$y_k = \sum_{n=0}^N b_n x_{k-n} - \sum_{m=1} a_m y_{k-m}$$
+$$y_k = \sum_{n=0}^N b_n x_{k-n} - \sum_{m=1}^M a_m y_{k-m}$$
 
 For $N, M = 2$, this is a [biquad filter](https://en.wikipedia.org/wiki/Digital_biquad_filter), a very fast, numerically stable (assuming the transfer function itself is mathematical stable), and reasonably good sounding filter.
 
