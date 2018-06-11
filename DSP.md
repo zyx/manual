@@ -5,7 +5,7 @@ One of its many applications is to generate and process audio from virtual/digit
 
 There are many online resources and books for learning DSP.
 
-- [Digital signal processing](https://en.wikipedia.org/wiki/Digital_signal_processing)
+- [Digital signal processing Wikipedia](https://en.wikipedia.org/wiki/Digital_signal_processing)
 - [DSPRelated.com](https://www.dsprelated.com/)
 - [Signal Processing Stack Exchange](https://dsp.stackexchange.com/)
 - [Digital Signal Processing MIT OpenCourseWare](https://ocw.mit.edu/resources/res-6-008-digital-signal-processing-spring-2011/)
@@ -17,10 +17,47 @@ Eventually this will become organized, but it is currently a *work-in-progress*.
 If anything here is inaccurate, you can [edit it yourself](https://github.com/VCVRack/manual) or [open an issue](https://github.com/VCVRack/manual/issues) in the manual's source repository.
 Image credits are from Wikipedia.
 
+### Signals
+
+A *signal* is a function $x(t): \mathbb{R} \rightarrow \mathbb{R}$ of amplitudes (voltages, sound pressure levels, etc.) defined on a time continuum, and a *sequence* is a function $x(n): \mathbb{Z} \rightarrow \mathbb{R}$ defined only at integer points, often written as $x_n$.
+In other words, a signal is an infinitely long continuum of values with infinite time detail, and a sequence is an infinitely long stream of samples at evenly-spaced isolated points in time.
+
+Analog hardware produces and processes signals, while digital algorithms handle sequences of samples (often called *digital signals*.)
+
+
+### Fourier analysis
+
+In DSP you often encounter periodic signals that repeat at a frequency $f$, like cyclic waveforms.
+You may be aware that periodic signals are composed of multiple harmonics (shifted cosine waves) with frequencies $fk$ for $k = 1, 2, 3, \ldots$.
+In fact, a periodic signal can be *defined* by the amplitudes and phases of all of its harmonics.
+For simplicity, if $x(t)$ is a periodic signal with $f=1$, then
+$$ x(t) = A_0 + \sum_{k=1}^\infty A_k \cos \left( 2\pi k t + \phi_k \right) $$
+where $A_0$ is the *DC component* (the signal's average offset from zero), $A_k$ is the amplitude of harmonic $k$, and $\phi_k$ is its angular phase.
+Each term of the sum is a simple harmonic signal, and when superimposed, they reconstruct the original signal.
+
+As it turns out, not only periodic signals but *all* signals have a unique decomposition into shifted cosines.
+However, instead of integer harmonics, you must consider all frequencies $f$, and instead of a discrete sum, you must integrate over all shifted cosines of real-numbered frequencies.
+Furthermore, it is easier to combine the amplitude and phase into a single complex-valued component $X(f) = A(f) e^{i \phi(f)}$.
+With these modifications, the decomposition becomes
+$$ x(t) = \int_{-\infty}^\infty X(f) e^{2\pi i t f} df $$
+The $X(f)$ component can be calculated with
+$$ X(f) = \int_{-\infty}^\infty x(t) e^{-2\pi i t f} dt $$
+This is known as the [Fourier transform](https://en.wikipedia.org/wiki/Fourier_transform).
+
+For a digital periodic signal with period $N$, no harmonics above $N/2$ can be represented, so its decomposition is truncated.
+$$ x_k = \sum_{n=0}^{N/2} X_n e^{2\pi i kn / N} $$
+Its inverse is
+$$ X_n = \sum_{k=0}^{N} x_k e^{-2\pi i kn / N} $$
+Since the sequence $x_k$ is real-valued, the components $X_n$ are conjugate symmetric across $N/2$, i.e. $X_n = X_{N-n}^\ast$, so we have $N/2 + 1$ unique harmonic components.
+This is the (real) [discrete Fourier transform](https://en.wikipedia.org/wiki/Discrete_Fourier_transform) (DFT).
+
+The [fast Fourier transform](https://en.wikipedia.org/wiki/Fast_Fourier_transform) (FFT) is a method that surprisingly computes the DFT of a block of $N$ samples in $O(N \log N)$ steps rather than $O(N^2)$ like the DFT by using a recursive [dynamic programming](https://en.wikipedia.org/wiki/Dynamic_programming) algorithm, while being more numerically stable than the naive sum.
+This makes the DFT feasible in high-performance DSP when processing blocks of samples.
+The larger the block size, the lower the average number of steps required per sample.
+FFT algorithms exist in many libraries, like [pffft](https://bitbucket.org/jpommier/pffft/) used in VCV Rack itself.
+
 
 ### Sampling
-
-A *signal* is a function $f(t): \mathbb{R} \rightarrow \mathbb{R}$ of amplitudes (voltages, sound pressure levels, etc.) defined on a time continuum, and a *sequence* is a function $f(n): \mathbb{Z} \rightarrow \mathbb{R}$ defined only at integer points, often written as $f_n$.
 
 The [Nyquist–Shannon sampling theorem](https://en.wikipedia.org/wiki/Nyquist%E2%80%93Shannon_sampling_theorem) states that a signal with no frequency components higher than half the sample rate $f_{sr}$ can be sampled and reconstructed without losing information.
 In other words, if you bandlimit a signal (with a brickwall lowpass filter at $f_{sr}/2$) and sample points at $f_{sr}$, you can reconstruct the bandlimited signal by finding the unique signal which passes through all points and has no frequency components higher than $f_{sr}/2$.
@@ -116,7 +153,7 @@ Note that the above formula is the convolution between vectors $y$ and $b$, and 
 $$y \ast b = \mathcal{F}^{-1} \{ \mathcal{F}\{y\} \cdot \mathcal{F}\{b\} \}$$
 where $\cdot$ is element-wise multiplication.
 
-While the naive FIR formula above is $O(N^2)$ when processing blocks of $N$ samples, the FFT FIR method is $O(\log N)$.
+While the naive FIR formula above is $O(N^2)$ when processing blocks of $N$ samples, the FFT FIR method is $O(N \log N)$.
 A disadvantage of the FFT FIR method is that the signal must be delayed by $N$ samples to produce any output.
 You can combine the naive and FFT methods into a hybrid approach with the [overlap-add](https://en.wikipedia.org/wiki/Overlap%E2%80%93add_method) or [overlap-save](https://en.wikipedia.org/wiki/Overlap%E2%80%93save_method) methods.
 
