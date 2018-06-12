@@ -67,7 +67,7 @@ The signal is integrated for a small fraction of the sample time $1/f_{sr}$ to o
 
 Analog-to-digital converters (ADCs) convert a digital value to an amplitude and hold it for a fraction of the sample time.
 A [reconstruction filter](https://en.wikipedia.org/wiki/Reconstruction_filter) is applied, producing a signal close to the original bandlimited signal.
-High-quality ADCs may include digital upsampling before reconstruction .
+High-quality ADCs may include digital upsampling before reconstruction.
 [Dithering](https://en.wikipedia.org/wiki/Dither) may be done but is mostly unnecessary for bit depths higher than 16.
 
 Of course, noise may also be introduced in each of these steps.
@@ -142,9 +142,22 @@ A linear filter is stable (its [impulse response](https://en.wikipedia.org/wiki/
 
 We should now have all the tools we need to digitally implement any linear analog filter response $H(s)$ and vise-versa.
 
+#### IIR filters
+
+An infinite impulse response (IIR) filter is a digital filter that implements all possible rational transfer functions.
+By multiplying the denominator of the rational $H(z)$ definition above on both sides and applying it to an input $x_k$ and output $y_k$, we obtain
+$$\sum_{m=0}^M a_m y_{k-m} = \sum_{n=0}^N b_n x_{k-n}$$
+Usually $a_0$ is normalized to 1, and $y_k$ can be written explicitly.
+$$y_k = \sum_{n=0}^N b_n x_{k-n} - \sum_{m=1}^M a_m y_{k-m}$$
+This iterative process can be computed for each sample
+
+For $N, M = 2$, this is a [biquad filter](https://en.wikipedia.org/wiki/Digital_biquad_filter), which is very fast, numerically stable (assuming the transfer function itself is mathematical stable), and a reasonably good sounding filter.
+
+$$H(z) = \frac{b_0 + b_1 z^{-1} + b_2 z^{-2}}{1 + a_1 z^{-1} + a_2 z^{-2}}$$
+
 #### FIR filters
 
-A finite impulse response (FIR) filter is a digital filter with $M = 0$ (a transfer function denominator of 1). For an input $x_k$ and output $y_k$,
+A finite impulse response (FIR) filter is a specific case of an IIR filter with $M = 0$ (a transfer function denominator of 1). For an input and output signal,
 $$y_k = \sum_{n=0}^N b_n x_{k-n}$$
 They are computationally straightforward and always stable since they have no poles.
 
@@ -153,17 +166,45 @@ Note that the above formula is the convolution between vectors $y$ and $b$, and 
 $$y \ast b = \mathcal{F}^{-1} \{ \mathcal{F}\{y\} \cdot \mathcal{F}\{b\} \}$$
 where $\cdot$ is element-wise multiplication.
 
-While the naive FIR formula above is $O(N^2)$ when processing blocks of $N$ samples, the FFT FIR method is $O(N \log N)$.
-A disadvantage of the FFT FIR method is that the signal must be delayed by $N$ samples to produce any output.
-You can combine the naive and FFT methods into a hybrid approach with the [overlap-add](https://en.wikipedia.org/wiki/Overlap%E2%80%93add_method) or [overlap-save](https://en.wikipedia.org/wiki/Overlap%E2%80%93save_method) methods.
+While the naive FIR formula above requires $O(N)$ computations per sample, the FFT FIR method requires an average of $O(\log N)$ computations per sample when processing blocks of $N$ samples.
+A disadvantage of the FFT FIR method is that the signal must be delayed by $N$ samples before any output can be determined.
+You can combine the naive and FFT methods into a hybrid approach with the [overlap-add](https://en.wikipedia.org/wiki/Overlap%E2%80%93add_method) or [overlap-save](https://en.wikipedia.org/wiki/Overlap%E2%80%93save_method) methods, allowing you to process smaller blocks of size $M < N$ at a slightly worse $O((N/M) \log M)$ average computations per sample.
 
-#### IIR filters
 
-An infinite impulse response (IIR) filter is a general rational transfer function. By multiplying the denominator of the rational $H(z)$ definition above on both sides and applying it to an input and output signal, we obtain
-$$\sum_{m=0}^M a_m y_{k-m} = \sum_{n=0}^N b_n x_{k-n}$$
-Usually $a_0$ is normalized to 1, and $y_k$ can be written explicitly.
-$$y_k = \sum_{n=0}^N b_n x_{k-n} - \sum_{m=1}^M a_m y_{k-m}$$
+### Impulse responses
 
-For $N, M = 2$, this is a [biquad filter](https://en.wikipedia.org/wiki/Digital_biquad_filter), a very fast, numerically stable (assuming the transfer function itself is mathematical stable), and reasonably good sounding filter.
+Sometimes we need to simulate non-rational transfer functions.
+Consider a general transfer function $H(f)$, written in terms of $f$ rather than $s$ for simplicity.
+Our original definition of a transfer function for an input $x(t)$ and output $y(t)$ is
+$$ Y(f) = H(f) X(f) $$
+and by applying the convolution theorem again, we obtain
+$$ y(t) = (h \ast x)(t) = \int_{-\infty}^\infty h(\tau) x(t - \tau) d\tau $$
+where $h(t)$ is the *impulse response* of our filter.
 
-$$H(z) = \frac{b_0 + b_1 z^{-1} + b_2 z^{-2}}{1 + a_1 z^{-1} + a_2 z^{-2}}$$
+The signal $h(t)$ is the result of processing a [delta function](https://en.wikipedia.org/wiki/Dirac_delta_function) through our filter, since $\delta(t)$ is the "identity" function of convolution, i.e. $h(t) = (h \ast \delta)(t)$.
+Clapping your hands or popping a balloon (both good approximations of $\delta$) in a large cathedral will generate a very sophisticated impulse response, which can be recorded and processed in a FIR filter algorithm to reproduce arbitrary sounds as if they were performed in the cathedral.
+
+Repeating this process in the digital realm gives us the discrete convolution.
+$$ y_k = \sum_{n=-\infty}^\infty h_n x_k $$
+Note that $h_n$ is both non-causal (nonzero for negative $t$ or $n$) and infinitely long, which is addressed later.
+
+
+#### Brickwall filter
+
+An example of a non-rational transfer function is the ideal lowpass filter that fully attenuates all frequencies higher than $f_c$ and passes all frequencies below $f_c$.
+Including [negative frequencies](https://en.wikipedia.org/wiki/Negative_frequency), its transfer function is
+$$
+H(f) = \begin{cases}
+	1 & \text{if } -f_c \leq f \leq f_c \\
+	0 & \text{otherwise}
+\end{cases}
+$$
+The inverse Fourier transform of $H(f)$ is
+$$ h(t) = 2 f_c \operatorname{sinc}(2 f_c t) $$
+where $\operatorname{sinc}(x) = \sin(\pi x) / (\pi x)$ is the [normalized sinc function](https://en.wikipedia.org/wiki/Sinc_function).
+Although the impulse response is infinitely long, restricting it to a finite range $[-T, T]$ and shifting it forward by $T$ produces a finite causal impulse response that can be solved by a fast FIR algorithm to produce a close approximation of an ideal brickwall filter.
+
+
+### Window functions
+
+*Coming soon*
