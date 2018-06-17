@@ -145,7 +145,7 @@ We should now have all the tools we need to digitally implement any linear analo
 #### IIR filters
 
 An infinite impulse response (IIR) filter is a digital filter that implements all possible rational transfer functions.
-By multiplying the denominator of the rational $H(z)$ definition above on both sides and applying it to an input $x_k$ and output $y_k$, we obtain
+By multiplying the denominator of the rational $H(z)$ definition above on both sides and applying it to an input $x_k$ and output $y_k$, we obtain the difference relation
 $$\sum_{m=0}^M a_m y_{k-m} = \sum_{n=0}^N b_n x_{k-n}$$
 Usually $a_0$ is normalized to 1, and $y_k$ can be written explicitly.
 $$y_k = \sum_{n=0}^N b_n x_{k-n} - \sum_{m=1}^M a_m y_{k-m}$$
@@ -157,7 +157,7 @@ $$H(z) = \frac{b_0 + b_1 z^{-1} + b_2 z^{-2}}{1 + a_1 z^{-1} + a_2 z^{-2}}$$
 
 #### FIR filters
 
-A finite impulse response (FIR) filter is a specific case of an IIR filter with $M = 0$ (a transfer function denominator of 1). For an input and output signal,
+A finite impulse response (FIR) filter is a specific case of an IIR filter with $M = 0$ (a transfer function denominator of 1). For an input and output signal, the difference relation is
 $$y_k = \sum_{n=0}^N b_n x_{k-n}$$
 They are computationally straightforward and always stable since they have no poles.
 
@@ -185,7 +185,7 @@ The signal $h(t)$ is the result of processing a [delta function](https://en.wiki
 Clapping your hands or popping a balloon (both good approximations of $\delta$) in a large cathedral will generate a very sophisticated impulse response, which can be recorded and processed in a FIR filter algorithm to reproduce arbitrary sounds as if they were performed in the cathedral.
 
 Repeating this process in the digital realm gives us the discrete convolution.
-$$ y_k = \sum_{n=-\infty}^\infty h_n x_k $$
+$$ y_k = \sum_{n=-\infty}^\infty h_n x_{k-n} $$
 Note that $h_n$ is both non-causal (nonzero for negative $t$ or $n$) and infinitely long, which is addressed later.
 
 
@@ -205,6 +205,17 @@ where $\operatorname{sinc}(x) = \sin(\pi x) / (\pi x)$ is the [normalized sinc f
 Although the impulse response is infinitely long, restricting it to a finite range $[-T, T]$ and shifting it forward by $T$ produces a finite causal impulse response that can be solved by a fast FIR algorithm to produce a close approximation of an ideal brickwall filter.
 
 
-### Window functions
+### To-do
 
-*Coming soon*
+- digital filters
+	- windows
+- oscillators
+	- minimum phase filters
+	- minBLEP/polyBLEP
+- analog circuit modeling
+	- integration techniques
+- optimization (will wait for https://github.com/VCVRack/manual/issues/3 to be completed)
+	- profiling
+	- mathematical optimization
+	- vector instructions
+	- compiler optimization

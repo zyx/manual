@@ -10,6 +10,7 @@ Edit this manual at https://github.com/VCVRack/manual.
 ### Communities
 
 - Website: https://vcvrack.com/
+- Facebook: https://www.facebook.com/vcvrack/
 - Twitter: https://twitter.com/vcvrack
 - Github issue tracker (features, bugs, and developer discussions): https://github.com/VCVRack/Rack/issues
 - Facebook group: https://www.facebook.com/groups/vcvrack/
