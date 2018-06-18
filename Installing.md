@@ -13,7 +13,7 @@ Run the installer, and launch Rack from the Start Menu.
 
 ### Linux
 
-Unzip the zip file. With your terminal, `cd` into the Rack directory, and run `./Rack.sh`.
+Unzip the zip file. Run `./Rack`.
 
 ## Installing plugins
 
