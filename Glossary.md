@@ -23,6 +23,12 @@ Advanced Linux Sound Architecture.
 http://alsa-project.org/main/index.php/Main_Page
 https://en.wikipedia.org/wiki/Advanced_Linux_Sound_Architecture
 
+## JACK
+
+JACK Audio Connection Kit. A sound and MIDI server and client with advanced routing capabilities.
+
+http://www.jackaudio.org/
+
 ## API
 
 Application Programming Interface.
