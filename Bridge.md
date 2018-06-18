@@ -1,12 +1,9 @@
 # VCV Bridge
 
 Rack is a standalone DAW-like application and not a VST/AU plugin because of the major limitations of these formats.
-It is common to think of physical modular synthesizers as entire self-contained DAWs, and many people use Rack as a complete DAW to compose music and build patches without other software.
+It is common to think of physical modular synthesizers as entire self-contained DAWs, so many people use Rack as a complete DAW to compose music and build patches without other software.
 
 However, *VCV Bridge* allows audio and MIDI to be transferred between Rack and your DAW through the included VST/AU Bridge plugin.
-Currently VCV Bridge is only a VST/AU effect plugin (Mac and 32/64-bit Windows) for using Rack as a send/return on a DAW track.
-
-*Note: VSTi/AU instrument plugins, MIDI, and DAW clock transport are coming soon in a later Rack 0.6.x update.*
 
 The setup order between Rack and your DAW does not matter.
 
@@ -22,11 +19,20 @@ The 16 automation parameters in the VST/AU Bridge plugin simply generate MIDI-CC
 ### Setting up Bridge in your DAW
 
 - Make sure the VST or AU Bridge plugin is installed, and launch your DAW.
-- Add the "VCV Bridge" effect plugin to an audio track.
-- Open the plugin parameters (e.g. by clicking the plugin's triangle arrow in Ableton Live) to reveal the Bridge port setting and 16 automation parameters.
+- Add the "VCV Bridge" plugin to a track.
+- Open the plugin parameters to reveal the Bridge port setting and 16 automation parameters.
 
 #### Ableton Live
-TODO
+
+Add a "VCV-Bridge" plugin to a MIDI track and open the automation parameters by clicking the triangle icon next to the plugin's name.
+*Bridge* will send MIDI and receive audio from Rack.
+
+To send audio to Rack, select the Bridge's track under the "Audio To" menu on another track, and optionally select the channel pair (1/2, 3/4, 5/6, or 6/7).
+
+To record audio from Rack, create a new audio track and select the Bridge's track and optionally the channel pair under the "Audio From" menu.
+Make sure "Monitor" is set to "In" on the Bridge's track to enable audio output even when it is not record-enabled.
+
+![Ableton Live VCV Bridge](images/Bridge Live.png)
 
 #### Cubase
 TODO

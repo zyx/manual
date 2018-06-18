@@ -218,4 +218,5 @@ Although the impulse response is infinitely long, restricting it to a finite ran
 	- profiling
 	- mathematical optimization
 	- vector instructions
+	- memory access
 	- compiler optimization
