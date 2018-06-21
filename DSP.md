@@ -182,11 +182,10 @@ $$ y(t) = (h \ast x)(t) = \int_{-\infty}^\infty h(\tau) x(t - \tau) d\tau $$
 where $h(t)$ is the *impulse response* of our filter.
 
 The signal $h(t)$ is the result of processing a [delta function](https://en.wikipedia.org/wiki/Dirac_delta_function) through our filter, since $\delta(t)$ is the "identity" function of convolution, i.e. $h(t) = (h \ast \delta)(t)$.
-Clapping your hands or popping a balloon (both good approximations of $\delta$) in a large cathedral will generate a very sophisticated impulse response, which can be recorded and processed in a FIR filter algorithm to reproduce arbitrary sounds as if they were performed in the cathedral.
+Clapping your hands or popping a balloon (both good approximations of $\delta$) in a large cathedral will generate a very sophisticated impulse response, which can be recorded as $h(t)$ and processed in a FIR filter algorithm to reproduce arbitrary sounds as if they were performed in the cathedral.
 
 Repeating this process in the digital realm gives us the discrete convolution.
 $$ y_k = \sum_{n=-\infty}^\infty h_n x_{k-n} $$
-Note that $h_n$ is both non-causal (nonzero for negative $t$ or $n$) and infinitely long, which is addressed later.
 
 
 #### Brickwall filter
@@ -203,6 +202,13 @@ The inverse Fourier transform of $H(f)$ is
 $$ h(t) = 2 f_c \operatorname{sinc}(2 f_c t) $$
 where $\operatorname{sinc}(x) = \sin(\pi x) / (\pi x)$ is the [normalized sinc function](https://en.wikipedia.org/wiki/Sinc_function).
 Although the impulse response is infinitely long, restricting it to a finite range $[-T, T]$ and shifting it forward by $T$ produces a finite causal impulse response that can be solved by a fast FIR algorithm to produce a close approximation of an ideal brickwall filter.
+
+
+### Windows
+
+The impulse response $h_n$ is defined for all integers $n$, so it is both non-causal (requires knowledge of future $x(t)$ to compute $y(t)$) and infinitely long.
+
+*TODO*
 
 
 ### To-do
