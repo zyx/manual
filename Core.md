@@ -6,13 +6,13 @@
 
 ## Modules
 1. [Audio](https://github.com/patman023/manual/blob/master/Core.md#audio)
-2. [MIDI Interfaces](https://github.com/patman023/manual/blob/master/Core.md#Midi-Interfaces)
-   a. [MIDI-1](https://github.com/patman023/manual/blob/master/Core.md#MIDI-1)
-   b. [MIDI-4](https://github.com/patman023/manual/blob/master/Core.md#MIDI-4)
-   c. [MIDI-CC](https://github.com/patman023/manual/blob/master/Core.md#MIDI-CC)
-   d. [MIDI-Trig](https://github.com/patman023/manual/blob/master/Core.md#MIDI-Trig)
-3. [Blank](https://github.com/patman023/manual/blob/master/Core.md#Blank)
-4. [Notes](https://github.com/patman023/manual/blob/master/Core.md#Notes)
+2. [MIDI Interfaces](https://github.com/patman023/manual/blob/master/Core.md#midi-Interfaces)
+   a. [MIDI-1](https://github.com/patman023/manual/blob/master/Core.md#midi-1)
+   b. [MIDI-4](https://github.com/patman023/manual/blob/master/Core.md#midi-4)
+   c. [MIDI-CC](https://github.com/patman023/manual/blob/master/Core.md#midi-cc)
+   d. [MIDI-Trig](https://github.com/patman023/manual/blob/master/Core.md#midi-trig)
+3. [Blank](https://github.com/patman023/manual/blob/master/Core.md#blank)
+4. [Notes](https://github.com/patman023/manual/blob/master/Core.md#notes)
    
 ### Audio
 ![Core Audio](images/Core/Audio.m.png)
