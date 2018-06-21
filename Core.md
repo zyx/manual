@@ -7,10 +7,10 @@
 ## Modules
 1. [Audio](https://github.com/patman023/manual/blob/master/Core.md#audio)
 2. [MIDI Interfaces](https://github.com/patman023/manual/blob/master/Core.md#midi-Interfaces)
-   a. [MIDI-1](https://github.com/patman023/manual/blob/master/Core.md#midi-1)
-   b. [MIDI-4](https://github.com/patman023/manual/blob/master/Core.md#midi-4)
-   c. [MIDI-CC](https://github.com/patman023/manual/blob/master/Core.md#midi-cc)
-   d. [MIDI-Trig](https://github.com/patman023/manual/blob/master/Core.md#midi-trig)
+   - a. [MIDI-1](https://github.com/patman023/manual/blob/master/Core.md#midi-1)
+   - b. [MIDI-4](https://github.com/patman023/manual/blob/master/Core.md#midi-4)
+   - c. [MIDI-CC](https://github.com/patman023/manual/blob/master/Core.md#midi-cc)
+   - d. [MIDI-Trig](https://github.com/patman023/manual/blob/master/Core.md#midi-trig)
 3. [Blank](https://github.com/patman023/manual/blob/master/Core.md#blank)
 4. [Notes](https://github.com/patman023/manual/blob/master/Core.md#notes)
    
@@ -42,6 +42,7 @@ A good balance can be found by increasing the block size until no audio "glitche
 Note: Using multiple Audio modules is experimental and may crash Rack or render unstable audio.
 Most DAWs avoid this feature entirely by restricting audio to a single input and a single output device for stability reasons, but if using multiple audio devices in Rack works with your configuration, more power to you!
 
+---
 ### MIDI Interfaces
 
 Each MIDI interface module (described below) supports the following drivers.
@@ -61,6 +62,7 @@ The *computer keyboard* MIDI driver generates MIDI notes when keys are presses w
 Using two rows of keys, the virtual MIDI keyboard spans approximately 2½ octaves and can be shifted down and up with the <code>&#96;</code> and `1` keys.
 Currently only the QWERTY (US) layout is supported, but other keyboard layouts may function similarly.
 
+---
 #### MIDI-1
 ![Core MIDI-1](images/Core/MIDI-1.m.png)
 
@@ -71,6 +73,7 @@ The **CV** output generates a 1V/oct pitch signal of the last held MIDI note.
 **CLK1** and **CLK2** generate triggers specified by the division set by right-clicking on the panel and selecting the *CLK 1 rate* or *CLK 2 rate*.
 **STRT**, **STOP**, and **CONT** generate triggers when the MIDI hardware or DAW host (for VCV Bridge) sends a start, stop, or continue event.
 
+---
 #### MIDI-4
 ![Core MIDI-4](images/Core/MIDI-4.m.png)
 
@@ -84,6 +87,7 @@ Right-click the panel to select the polyphony mode to specify the behavior in ma
 
 Remember that MIDI interfaces can be used simultaneously with the same driver, for example if global controls like pitch and mod wheel are needed along with polyphonic controls.
 
+---
 #### MIDI-CC
 ![Core MIDI-CC](images/Core/MIDI-CC.m.png)
 
@@ -95,6 +99,7 @@ Each output can be assigned a particular CC number by clicking on the digital di
 A **LRN** indicator is displayed to represent that the port is in "learn" mode.
 Either type a number or move a controller to set the CC number.
 
+---
 #### MIDI-Trig
 ![Core MIDI-Trig](images/Core/MIDI-Trig.m.png)
 
@@ -104,12 +109,15 @@ For MIDI sequencers and drum machines that send immediate note ON/OFF messages i
 To generate a CV signal corresponding to the velocity of the note instead of 10V, right-click on the panel and enable *Velocity* mode.
 This is useful for setting the amplitude of percussive sounds for MIDI controllers with velocity-capable pads, for example.
 
+---
+---
 ### Blank
 ![Core Blank](images/Core/Blank.m.png)
 
 Useful for adding space between modules in your rack.
 You can resize the panel by dragging the edges horizontally, with a minimum size of 3HP.
 
+---
 ### Notes
 ![Core Notes](images/Core/Notes.m.png)
 
