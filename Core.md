@@ -1,8 +1,19 @@
 # Core
 
-The *Core* plugin is actually not a plugin at all.
-It's integrated into the Rack application itself, but you can add Core modules to your rack just like normal modules.
+*Core* modules are how Rack interfaces with your computer's audio drivers, external audio interface devices, physical and virtual MIDI devices, and (through *Bridge*) other DAWs.
 
+*Core* modules are a part of the overall Rack program, and thus do not appear in the [Plugin Manager](https://vcvrack.com/plugins.html). 
+
+## Modules
+1. [Audio](https://github.com/patman023/manual/blob/master/Core.md#audio)
+2. [MIDI Interfaces](https://github.com/patman023/manual/blob/master/Core.md#Midi-Interfaces)
+   a. [MIDI-1](https://github.com/patman023/manual/blob/master/Core.md#MIDI-1)
+   b. [MIDI-4](https://github.com/patman023/manual/blob/master/Core.md#MIDI-4)
+   c. [MIDI-CC](https://github.com/patman023/manual/blob/master/Core.md#MIDI-CC)
+   d. [MIDI-Trig](https://github.com/patman023/manual/blob/master/Core.md#MIDI-Trig)
+3. [Blank](https://github.com/patman023/manual/blob/master/Core.md#Blank)
+4. [Notes](https://github.com/patman023/manual/blob/master/Core.md#Notes)
+   
 ### Audio
 ![Core Audio](images/Core/Audio.m.png)
 
@@ -97,7 +108,7 @@ This is useful for setting the amplitude of percussive sounds for MIDI controlle
 ![Core Blank](images/Core/Blank.m.png)
 
 Useful for adding space between modules in your rack.
-You can resize the panel by dragging the edges horizontally, with a minimum size of 2HP.
+You can resize the panel by dragging the edges horizontally, with a minimum size of 3HP.
 
 ### Notes
 ![Core Notes](images/Core/Notes.m.png)
