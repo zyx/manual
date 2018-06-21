@@ -5,14 +5,14 @@
 *Core* modules are a part of the overall Rack program, and thus do not appear in the [Plugin Manager](https://vcvrack.com/plugins.html). 
 
 ## Modules
-1. [Audio](https://github.com/patman023/manual/blob/master/Core.md#audio)
-2. [MIDI Interfaces](https://github.com/patman023/manual/blob/master/Core.md#midi-Interfaces)
-   - a. [MIDI-1](https://github.com/patman023/manual/blob/master/Core.md#midi-1)
-   - b. [MIDI-4](https://github.com/patman023/manual/blob/master/Core.md#midi-4)
-   - c. [MIDI-CC](https://github.com/patman023/manual/blob/master/Core.md#midi-cc)
-   - d. [MIDI-Trig](https://github.com/patman023/manual/blob/master/Core.md#midi-trig)
-3. [Blank](https://github.com/patman023/manual/blob/master/Core.md#blank)
-4. [Notes](https://github.com/patman023/manual/blob/master/Core.md#notes)
+1. [Audio](Core.md#audio)
+2. [MIDI Interfaces](Core.md#midi-Interfaces)
+   - a. [MIDI-1](Core.md#midi-1)
+   - b. [MIDI-4](Core.md#midi-4)
+   - c. [MIDI-CC](Core.md#midi-cc)
+   - d. [MIDI-Trig](Core.md#midi-trig)
+3. [Blank](Core.md#blank)
+4. [Notes](Core.md#notes)
    
 ### Audio
 ![Core Audio](images/Core/Audio.m.png)
