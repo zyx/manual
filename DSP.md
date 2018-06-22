@@ -5,16 +5,24 @@ One of its many applications is to generate and process audio from virtual/digit
 
 There are many online resources and books for learning DSP.
 
-- [Digital signal processing Wikipedia](https://en.wikipedia.org/wiki/Digital_signal_processing)
-- [DSPRelated.com](https://www.dsprelated.com/)
-- [Signal Processing Stack Exchange](https://dsp.stackexchange.com/)
-- [Digital Signal Processing MIT OpenCourseWare](https://ocw.mit.edu/resources/res-6-008-digital-signal-processing-spring-2011/)
-- [The Scientist and Engineer's Guide to Digital Signal Processing](http://dspguide.com/) by Steven W. Smith
-- [The Art of VA Filter Design](http://www.native-instruments.com/fileadmin/ni_media/downloads/pdf/VAFilterDesign_2.0.0a.pdf) by Vadim Zavalishin (PDF)
+- [Digital signal processing Wikipedia](https://en.wikipedia.org/wiki/Digital_signal_processing): An neutral overview of the entire field.
+- [Julius O. Smith III Online Books](https://ccrma.stanford.edu/~jos/) ([Index](https://ccrma.stanford.edu/~jos/GlobalJOSIndex.html)): Thousands of topics on audio DSP and relevant mathematics, neatly organized into easy-to-digest but sufficiently deep pages and examples.
+	- [Mathematics of the Discrete Fourier Transform (DFT)](https://ccrma.stanford.edu/~jos/mdft/)
+	- [Introduction to Digital Filters](https://ccrma.stanford.edu/~jos/filters/)
+	- [Physical Audio Signal Processing](https://ccrma.stanford.edu/~jos/pasp/)
+	- [Spectral Audio Signal Processing](https://ccrma.stanford.edu/~jos/sasp/)
+- [Signal Processing Stack Exchange](https://dsp.stackexchange.com/): Questions and answers by thousands of DSP amateurs and professionals.
+- [DSPRelated.com](https://www.dsprelated.com/): Articles, news, and blogs of both fundamental and modern DSP topics.
+- [The Scientist and Engineer's Guide to Digital Signal Processing](http://dspguide.com/) by Steven W. Smith: Free online book about general DSP topics.
+- [Digital Signal Processing MIT OpenCourseWare](https://ocw.mit.edu/resources/res-6-008-digital-signal-processing-spring-2011/): Video lectures and notes covering the basics of DSP.
+- [The Art of VA Filter Design](http://www.native-instruments.com/fileadmin/ni_media/downloads/pdf/VAFilterDesign_2.0.0a.pdf) (PDF) by Vadim Zavalishin: Huge collection of deep topics in digital/analog filter design and analog filter modeling.
+- [KVR Audio Forum - DSP and Plug-in Development](http://www.kvraudio.com/forum/viewforum.php?f=33): Music DSP and software development discussions.
 
-Below are my mindless ramblings of various topics with a focus on DSP for modular synthesizers.
-Eventually this will become organized, but it is currently a *work-in-progress*.
-If anything here is inaccurate, you can [edit it yourself](https://github.com/VCVRack/manual) or [open an issue](https://github.com/VCVRack/manual/issues) in the manual's source repository.
+
+The following topics are targeted toward modular synthesizer signal processing, in which designing small synthesizer components is the main objective.
+
+This document is currently a *work-in-progress*.
+Remember that if anything here is inaccurate, you can [edit it yourself](https://github.com/VCVRack/manual) or [open an issue](https://github.com/VCVRack/manual/issues) in the manual's source repository.
 Image credits are from Wikipedia.
 
 ### Signals
@@ -206,7 +214,7 @@ Although the impulse response is infinitely long, restricting it to a finite ran
 
 ### Windows
 
-The impulse response $h_n$ is defined for all integers $n$, so it is both non-causal (requires knowledge of future $x(t)$ to compute $y(t)$) and infinitely long.
+The impulse response $h_n$ is defined for all integers $n$, so it is both non-causal (requires future knowledge of $x(t)$ to compute $y(t)$) and infinitely long.
 
 *TODO*
 
