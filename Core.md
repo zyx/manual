@@ -62,7 +62,7 @@ The *computer keyboard* MIDI driver generates MIDI notes when keys are presses w
 Using two rows of keys, the virtual MIDI keyboard spans approximately 2½ octaves and can be shifted down and up with the <code>&#96;</code> and `1` keys.
 Currently only the QWERTY (US) layout is supported, but other keyboard layouts may function similarly.
 
-![QWERTY](images/core/QWERTY.png)
+![QWERTY](images/Core/QWERTY.png)
 
 
 #### MIDI-1
