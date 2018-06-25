@@ -1,4 +1,4 @@
-# VCV Bridge
+# Bridge
 
 Rack is a standalone DAW-like application and not a VST/AU plugin because of the major limitations of these formats.
 It is common to think of physical modular synthesizers as entire self-contained DAWs, so many people use Rack as a complete DAW to compose music and build patches without other software.
@@ -9,12 +9,12 @@ The setup order between Rack and your DAW does not matter.
 
 ### Setting up Bridge in Rack
 
-- Add an Audio or MIDI module to Rack from the [Core](Core.md) plugin, and select "Bridge" from the driver dropdown list.
+- Add an Audio or MIDI module to Rack from the [Core](Core.html) plugin, and select "Bridge" from the driver dropdown list.
 - Open the device menu to select the Bridge port.
 
 Up to 8 channels of audio entering the Bridge effect plugin are routed to the INPUT section of the Audio module in Rack and then back to the effect plugin.
 
-The 16 automation parameters in the VST/AU Bridge plugin simply generate MIDI-CC messages 0-15, so you can use a [Core MIDI-CC](Core.md#midi-cc) interface to convert them to 0-10 V signals in Rack.
+The 16 automation parameters in the VST/AU Bridge plugin simply generate MIDI-CC messages 0-15, so you can use a [Core MIDI-CC](Core.html#midi-cc) interface to convert them to 0-10 V signals in Rack.
 
 ### Setting up Bridge in your DAW
 
@@ -32,7 +32,7 @@ To send audio to Rack, select the Bridge's track under the "Audio To" menu on an
 To record audio from Rack, create a new audio track and select the Bridge's track and optionally the channel pair under the "Audio From" menu.
 Make sure "Monitor" is set to "In" on the Bridge's track to enable audio output even when it is not record-enabled.
 
-![Ableton Live VCV Bridge](images/Bridge Live.png)
+![Ableton Live VCV Bridge](images/BridgeLive.png)
 
 #### Cubase
 TODO

@@ -1,0 +1,20 @@
+
+### Communities
+
+- [VCVRack.com](https://vcvrack.com/)
+- [Facebook page](https://www.facebook.com/vcvrack/)
+- [Twitter](https://twitter.com/vcvrack)
+- [Github issue tracker (features, bugs, and developer discussions)](https://github.com/VCVRack/Rack/issues)
+- [Facebook user group](https://www.facebook.com/groups/vcvrack/)
+- [Facebook developer group](https://www.facebook.com/groups/2035785263299933/)
+- [Facebook French user group](https://www.facebook.com/groups/2069785583250645/)
+- [Switched On Rack blog](http://www.switchedonrack.com/)
+- [MuffWiggler thread](https://www.muffwiggler.com/forum/viewtopic.php?t=186899)
+- [KVR Audio thread](https://www.kvraudio.com/forum/viewtopic.php?f=23&t=489230)
+- [Hispasonic thread (Español)](https://www.hispasonic.com/foros/foro-vcv-rack/516252)
+- [Patchstorage](https://patchstorage.com/platform/vcv-rack/)
+- [Discord](https://discord.gg/wxa89Mh)
+- [Reddit](https://www.reddit.com/r/vcvrack/)
+- [Twitch](https://www.twitch.tv/communities/vcvrackcommunity)
+- [Slack developers chat](https://vcvrackdevelopers.slack.com/join/shared_invite/enQtMzczNzY2NDUzMTczLWM2Mjg0ZjEzNDQ2YTEwYjFiZTA3MzE4NTRjMjg5ZjRkZDAwMDk5M2I4NmIzYmEyZGY1NGQ4YWE4NzkzZjlhMmI)
+- [IRC](http://webchat.freenode.net?channels=%23VCVRack)

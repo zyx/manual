@@ -4,14 +4,14 @@ The *Core* plugin (built into Rack itself) includes utilities and interfaces for
 
 
 #### Modules
-- [Audio](Core.md#audio)
-- [MIDI Interfaces](Core.md#midi-interfaces)
-	- [MIDI-1](Core.md#midi-1)
-	- [MIDI-4](Core.md#midi-4)
-	- [MIDI-CC](Core.md#midi-cc)
-	- [MIDI-Trig](Core.md#midi-trig)
-- [Blank](Core.md#blank)
-- [Notes](Core.md#notes)
+- [Audio](#audio)
+- [MIDI Interfaces](#midi-interfaces)
+	- [MIDI-1](#midi-1)
+	- [MIDI-4](#midi-4)
+	- [MIDI-CC](#midi-cc)
+	- [MIDI-Trig](#midi-trig)
+- [Blank](#blank)
+- [Notes](#notes)
 
 
 ### Audio

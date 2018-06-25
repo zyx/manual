@@ -1,14 +1,13 @@
+SPHINXOPTS    =
+SPHINXBUILD   = sphinx-build
+SOURCEDIR     = .
+BUILDDIR      = _build
 
-build:
-	gitbook build
 
-all: build
+all: html
 
-run:
-	gitbook serve --port 8080
+upload: html
+	rsync _build/html vcvrack.com:vcvrack.com/manual/ -ruvz --delete
 
-pdf: build
-	gitbook pdf . _book/VCV-Rack-manual.pdf
-
-upload: all
-	rsync _book/ vcvrack.com:vcvrack.com/manual/ -ruvz --delete
+%:
+	@$(SPHINXBUILD) -M $@ "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS)
