@@ -79,7 +79,7 @@ High-quality ADCs may include digital upsampling before reconstruction.
 [Dithering](https://en.wikipedia.org/wiki/Dither) may be done but is mostly unnecessary for bit depths higher than 16.
 
 Of course, noise may also be introduced in each of these steps.
-Fortunately, modern DACs and ADCs as cheap as &#36;2-5 per chip can digitize and reconstruct a signal with a variation beyond human recognizability, with signal-to-noise (SNR) ratios and total harmonic distortion (THD) lower than -90dBr.
+Fortunately, modern DACs and ADCs as cheap as $2-5 per chip can digitize and reconstruct a signal with a variation beyond human recognizability, with signal-to-noise (SNR) ratios and total harmonic distortion (THD) lower than -90dBr.
 
 
 ### Aliasing
