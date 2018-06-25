@@ -101,5 +101,3 @@ If you wish to sell your plugin on the [VCV Store](https://vcvrack.com/plugins.h
 
 Since Rack is currently in Beta and moving very quickly, breaking changes may be made to the Rack plugin API.
 Subscribe to the [Plugin API Updates Thread](https://github.com/VCVRack/Rack/issues/258) to receive notifications when the Rack API changes or a discussion about a change is being held.
-
-
