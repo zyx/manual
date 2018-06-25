@@ -2,8 +2,6 @@
 VCV Rack Manual
 ===========================================
 
-test :math:`a^2 + b^2 = c^2` test
-
 The VCV Rack manual is under active development.
 
 Edit this manual at https://github.com/VCVRack/manual.
@@ -42,4 +40,3 @@ Table of Contents
 
    Communities.md
    Glossary.md
-   https://github.com/VCVRack/manual
