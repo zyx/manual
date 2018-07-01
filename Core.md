@@ -26,13 +26,13 @@ The **INPUT** section sends up to 8 Rack signals to a hardware audio device for 
 - ASIO on Windows
 - ALSA on Linux
 - JACK on Linux
-- [VCV Bridge](Bridge.md)
+- [VCV Bridge](Bridge.html)
 
 After a driver is selected, a particular **device** can be chosen for the driver.
 If the device has more than 8 inputs or outputs, you can select the desired range of outputs, offset by a factor of 8.
 
 The **sample rate** is the number of audio samples per second for the audio device to process.
-Note that this rate is different than Rack's internal sample rate set from the [toolbar](Toolbar.md), which determines the number of samples per second for virtual Rack modules to process.
+Note that this rate is different than Rack's internal sample rate set from the [toolbar](Toolbar.html), which determines the number of samples per second for virtual Rack modules to process.
 If set to different rates, sample rate conversion will occur, resulting in slightly higher CPU usage, slightly less audio fidelity, and slightly more latency.
 
 The **block size** sets the number of samples to store in the audio buffer before releasing to the audio device.
@@ -50,7 +50,7 @@ Each MIDI interface module (described below) supports the following drivers.
 - Windows MIDI on Windows
 - ALSA on Linux
 - JACK on Linux
-- [VCV Bridge](Bridge.md)
+- [VCV Bridge](Bridge.html)
 - Gamepad
 - Computer keyboard
 

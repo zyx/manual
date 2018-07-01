@@ -68,9 +68,9 @@ FFT algorithms exist in many libraries, like [pffft](https://bitbucket.org/jpomm
 ### Sampling
 
 The [Nyquist–Shannon sampling theorem](https://en.wikipedia.org/wiki/Nyquist%E2%80%93Shannon_sampling_theorem) states that a signal with no frequency components higher than half the sample rate \\(f_{sr}\\) can be sampled and reconstructed without losing information.
-In other words, if you bandlimit a signal (with a brickwall lowpass filter at \\(f_{sr}/2\\)) and sample points at \\(f_{sr}\\), you can reconstruct the bandlimited signal by finding the unique signal which passes through all points and has no frequency components higher than \\(f_{sr}/2\\).
+In other words, if you bandlimit a signal (with a brick-wall lowpass filter at \\(f_{sr}/2\\)) and sample points at \\(f_{sr}\\), you can reconstruct the bandlimited signal by finding the unique signal which passes through all points and has no frequency components higher than \\(f_{sr}/2\\).
 
-In practice, digital-to-analog converters (DACs) apply an approximation of a brickwall lowpass filter to remove frequencies higher than \\(f_{sr}/2\\) from the signal.
+In practice, digital-to-analog converters (DACs) apply an approximation of a brick-wall lowpass filter to remove frequencies higher than \\(f_{sr}/2\\) from the signal.
 The signal is integrated for a small fraction of the sample time \\(1/f_{sr}\\) to obtain an approximation of the amplitude at a point in time, and this measurement is quantized to the nearest digital value.
 
 Analog-to-digital converters (ADCs) convert a digital value to an amplitude and hold it for a fraction of the sample time.
@@ -179,7 +179,7 @@ A disadvantage of the FFT FIR method is that the signal must be delayed by \\(N\
 You can combine the naive and FFT methods into a hybrid approach with the [overlap-add](https://en.wikipedia.org/wiki/Overlap%E2%80%93add_method) or [overlap-save](https://en.wikipedia.org/wiki/Overlap%E2%80%93save_method) methods, allowing you to process smaller blocks of size \\(M < N\\) at a slightly worse \\(O((N/M) \log M)\\) average computations per sample.
 
 
-### Impulse responses
+#### Impulse responses
 
 Sometimes we need to simulate non-rational transfer functions.
 Consider a general transfer function \\(H(f)\\), written in terms of \\(f\\) rather than \\(s\\) for simplicity.
@@ -196,25 +196,24 @@ Repeating this process in the digital realm gives us the discrete convolution.
 \\[ y_k = \sum_{n=-\infty}^\infty h_n x_{k-n} \\]
 
 
-#### Brickwall filter
+#### Brick-wall filter
 
 An example of a non-rational transfer function is the ideal lowpass filter that fully attenuates all frequencies higher than \\(f_c\\) and passes all frequencies below \\(f_c\\).
 Including [negative frequencies](https://en.wikipedia.org/wiki/Negative_frequency), its transfer function is
-$$
+\\[
 H(f) = \begin{cases}
-	1 & \text{if } -f_c \leq f \leq f_c \\
+	1 & \text{if } -f_c \leq f \leq f_c \\\\
 	0 & \text{otherwise}
 \end{cases}
-$$
+\\]
 The inverse Fourier transform of \\(H(f)\\) is
 \\[ h(t) = 2 f_c \operatorname{sinc}(2 f_c t) \\]
 where \\(\operatorname{sinc}(x) = \sin(\pi x) / (\pi x)\\) is the [normalized sinc function](https://en.wikipedia.org/wiki/Sinc_function).
-Although the impulse response is infinitely long, restricting it to a finite range \\([-T, T]\\) and shifting it forward by \\(T\\) produces a finite causal impulse response that can be solved by a fast FIR algorithm to produce a close approximation of an ideal brickwall filter.
 
 
-### Windows
+#### Windows
 
-The impulse response \\(h_n\\) is defined for all integers \\(n\\), so it is both non-causal (requires future knowledge of \\(x(t)\\) to compute \\(y(t)\\)) and infinitely long.
+Like the brick-wall filter above, many impulse responses \\(h_n\\) are defined for all integers \\(n\\), so they are both non-causal (requires future knowledge of \\(x(t)\\) to compute \\(y(t)\\)) and infinitely long.
 
 *TODO*
 

@@ -35,11 +35,11 @@ My word of advice: *mind the aliasing*.
 ### Panel
 
 Design your module's panel with a vector graphics editor and save it to the `res/` directory as an SVG file.
-[Inkscape](https://inkscape.org/en/) is recommended, but [Adobe Illustrator](https://www.adobe.com/products/illustrator.html), [Affinity Designer](https://affinity.serif.com/en-gb/designer/), [Gravit Designer](https://www.designer.io/), etc. may also work.
+[Inkscape](https://inkscape.org/en/) is recommended, but [Adobe Illustrator](https://www.adobe.com/products/illustrator.html), [Affinity Designer](https://affinity.serif.com/en-gb/designer/), [Gravit Designer](https://www.designer.io/), etc. may also work with certain SVG export settings.
 Make sure the path to the .svg file is correctly specified in the `setPanel(SVG::Load(...))` function in your `ModuleWidget` constructor.
 Rack renders SVGs at 75 DPI, and the standard Eurorack 1HP module size is 128.5mm x 5.08mm, 5.06" x 0.2", or 380px x 15px.
 
-Note: The Rack renderer is currently only capable of rendering path and group objects with solid fill and stroke. Gradients are experimental and might not work correctly. Text must be converted to paths. Clipping masks, clones, symbols, CSS outside style attributes, etc. are not supported.
+Note: The Rack renderer is currently only capable of rendering path and group objects with solid fill and stroke. Gradients are experimental and might not work correctly. Text must be converted to paths. Clipping masks, clones, symbols, CSS other than a few style attributes, etc. are not supported.
 
 ### Component Widgets
 
@@ -48,7 +48,7 @@ Helper functions `createParam()`, `createInput()`, and `createOutput()` are used
 Rack Widgets are defined in `include/widgets.hpp` and `include/app.hpp`, and helpers are found in `include/rack.hpp`.
 
 Note: Widgets from `include/components.hpp` using Component Library SVG graphics are licensed under CC BY-NC 4.0 and are free to use for noncommercial purposes.
-Contact contact@grayscale.info for information about licensing for commercial use.
+Contact contact@vcvrack.com for information about licensing for commercial use.
 
 ### Naming
 

@@ -43,11 +43,11 @@ html_theme_options = {
 }
 
 html_context = {
-    "display_github": True, # Integrate GitHub
-    "github_user": "VCVRack", # Username
-    "github_repo": "manual", # Repo name
-    "github_version": "master", # Version
-    "conf_py_path": "/", # Path in the checkout to the docs root
+    "display_github": True,
+    "github_user": "VCVRack",
+    "github_repo": "manual",
+    "github_version": "master",
+    "conf_py_path": "/",
 }
 
 html_logo = 'images/logo.png'

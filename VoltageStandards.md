@@ -33,10 +33,12 @@ An easy way to hold a trigger for this duration is to use `PulseGenerator` from 
 
 Gates should produce **10V** when active.
 
-### Pitch
+### Pitch and frequencies
 
-Most Eurorack manufacturers use the **1V/octave** standard.
-The relationship between frequency \\(f\\) and voltage \\(V\\) is \\(f = f_0 \cdot 2^{V}\\), where \\(f_0\\) is an arbitrary baseline set by a pitch knob or the note C4 (MIDI note 60, \\(f_0 =\\) 261.626 Hz).
+Modules should use the **1V/oct** (volt per octave) standard for CV control of frequency information.
+The relationship between frequency \\(f\\) and voltage \\(V\\) is \\(f = f_0 \cdot 2^{V}\\), where \\(f_0\\) is an arbitrary baseline specified by a frequency parameter.
+With the frequency knob at its default position, audio-rate oscillators should have a baseline of the note C4 (MIDI note 60, \\(f_0 =\\) 261.626 Hz).
+Low-frequency oscillators and clock generators should use 120 BPM (\\(f_0 =\\) 2 Hz).
 
 ### NaNs and Infinity
 

@@ -6,8 +6,8 @@ The VCV Rack manual is under active development.
 
 Edit this manual at https://github.com/VCVRack/manual.
 
-Table of Contents
-----------------------
+Rack
+----
 
 .. toctree::
    :maxdepth: 1
@@ -36,7 +36,7 @@ Table of Contents
 
 .. toctree::
    :maxdepth: 1
-   :caption: Index
+   :caption: Appendix
 
    Communities.md
    Glossary.md

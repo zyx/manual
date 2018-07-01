@@ -11,7 +11,7 @@ Before writing a single line of code, most features and bug fixes require
 
 Instead, there are many other areas where contributions are much appreciated.
 - Dependencies of Rack. Especially [nanovg](https://github.com/memononen/nanovg)'s performance, [rtaudio](https://github.com/thestk/rtaudio)/[rtmidi](https://github.com/thestk/rtmidi)'s stability and compatibility, and maybe even touch support in [GLFW](https://github.com/glfw/glfw). You would be helping many more projects than just Rack.
-- Your own Rack [plugin](PluginDevelopmentTutorial.md)
+- Your own Rack [plugin](PluginDevelopmentTutorial.html)
 - Maintaining the Rack plugin ecosystem by [curating](https://github.com/VCVRack/community/issues/352), [updating](https://github.com/VCVRack/community/issues/269), and [reviewing](https://github.com/VCVRack/community/issues/354) plugins
 - Edits to the [VCV Rack manual](https://github.com/VCVRack/manual).
 
