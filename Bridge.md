@@ -3,7 +3,7 @@
 Rack is a standalone DAW-like application and not a VST/AU plugin because of the major limitations of these formats.
 It is common to think of physical modular synthesizers as entire self-contained DAWs, so many people use Rack as a complete DAW to compose music and build patches without other software.
 
-However, *VCV Bridge* allows audio and MIDI to be transferred between Rack and your DAW through the included VST/AU Bridge plugin.
+However, *VCV Bridge* allows audio, MIDI, DAW transport, and DAW clocks to be transferred between Rack and your DAW through the included VST/AU Bridge plugin.
 
 The setup order between Rack and your DAW does not matter.
 

@@ -324,15 +324,16 @@ Most people now call this architecture x86_64 or the somewhat non-descriptive "6
 
 The most important additions to this architecture are the [single instruction, multiple data (SIMD)](https://en.wikipedia.org/wiki/SIMD) extensions, which allow multiple values to be placed in a vector of registers and processed (summed, multiplied, etc) in a similar number of cycles as processing a single value.
 These extensions are necessary for battling the slowing down of increases in cycle speed (currently around 3GHz for desktop CPUs) due to reaching the size limits of transistors, so failure to exploit these features may cause your code to run with pre-2004 speed.
-A few important ones include
+A few important ones including their introduction date are as follows.
 
-- [MMX](https://en.wikipedia.org/wiki/MMX_(instruction_set)) (1996)
-- [SSE](https://en.wikipedia.org/wiki/Streaming_SIMD_Extensions) (1999)
-- [SSE2](https://en.wikipedia.org/wiki/SSE2) (2001)
-- [SSE3](https://en.wikipedia.org/wiki/SSE3) (2004)
-- [SSE4](https://en.wikipedia.org/wiki/SSE4) (2006)
-- [AVX](https://en.wikipedia.org/wiki/Advanced_Vector_Extensions) (2008)
-- [FMA](https://en.wikipedia.org/wiki/FMA_instruction_set) (2011)
+- [MMX](https://en.wikipedia.org/wiki/MMX_(instruction_set)) (1996) For processing up to 64 bits of packed integers.
+- [SSE](https://en.wikipedia.org/wiki/Streaming_SIMD_Extensions) (1999) For processing up to 128 bits of packed floats and integers.
+- [SSE2](https://en.wikipedia.org/wiki/SSE2) (2001) Extends SSE functionality and fully replaces MMX.
+- [SSE3](https://en.wikipedia.org/wiki/SSE3) (2004) Slightly extends SSE2 functionality.
+- [SSE4](https://en.wikipedia.org/wiki/SSE4) (2006) Extends SSE3 functionality.
+- [AVX](https://en.wikipedia.org/wiki/Advanced_Vector_Extensions) (2008) For processing up to 256 bits of single or double precision floats.
+- [FMA](https://en.wikipedia.org/wiki/FMA_instruction_set) (2011) For computing \\(ab+c\\) for up to 256 bits of floats.
+- [AVX-512](https://en.wikipedia.org/wiki/AVX-512) For processing up to 512 bits of single or double precision floats.
 
 You can see which instructions these extensions provide with the [Intel Intrinsics Guide](https://software.intel.com/sites/landingpage/IntrinsicsGuide/) or the complete [Intel Software Developer’s Manuals](https://software.intel.com/en-us/articles/intel-sdm) and [AMD Programming Reference](https://developer.amd.com/resources/developer-guides-manuals/).
 
