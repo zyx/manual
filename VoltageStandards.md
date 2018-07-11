@@ -5,11 +5,11 @@ You can measure absolute voltage levels using modules like Fundamental Scope.
 
 Rack attempts to model Eurorack standards as accurately as possible, but this is a problem for two reasons: there are very few actual "standards" in Eurorack (The only rule is that you can always find a module which breaks the rule), and there are a few differences between digital (finite sample rate) and analog (infinite sample rate).
 
-### Audio and Modulation
+## Audio and Modulation
 
 Audio outputs are typically **±5V** (before bandlimiting is applied), and CV modulation sources are typically **0 to 10V** (unipolar CV) or **±5V** (bipolar CV).
 
-### Output Saturation
+## Output Saturation
 
 In Eurorack, power supplies supply **-12 to 12V**.
 No voltage should be generated beyond this range, since it would be mostly impossible to obtain in Eurorack.
@@ -20,7 +20,7 @@ It is much better to allow voltages outside this range rather than use hard clip
 
 If your module is capable of applying >1x gain to an input, it is a good idea to saturate the output.
 
-### Triggers and gates
+## Triggers and Gates
 
 In Eurorack, many modules are triggered by reaching a particular rising slope threshold.
 However, because of the [Gibbs phenomenon](https://en.wikipedia.org/wiki/Gibbs_phenomenon), a digital emulation will falsely retrigger many times if the trigger source is bandlimited (e.g. by using a virtual VCO square wave as a trigger input or a hardware trigger through an audio interface.)
@@ -33,13 +33,14 @@ An easy way to hold a trigger for this duration is to use `PulseGenerator` from 
 
 Gates should produce **10V** when active.
 
-### Pitch and frequencies
+## Pitch and Frequencies
 
 Modules should use the **1V/oct** (volt per octave) standard for CV control of frequency information.
-The relationship between frequency \\(f\\) and voltage \\(V\\) is \\(f = f_0 \cdot 2^{V}\\), where \\(f_0\\) is an arbitrary baseline specified by a frequency parameter.
-With the frequency knob at its default position, audio-rate oscillators should have a baseline of the note C4 (MIDI note 60, \\(f_0 =\\) 261.626 Hz).
+In this standard, the relationship between frequency \\(f\\) and voltage \\(V\\) is \\(f = f_0 \cdot 2^{V}\\), where \\(f_0\\) is the baseline frequency.
+Your module might have a frequency knob which may offset \\(V\\).
+Audio-rate oscillators should use a baseline of the note C4 (MIDI note 60, \\(f_0 =\\) 261.626 Hz).
 Low-frequency oscillators and clock generators should use 120 BPM (\\(f_0 =\\) 2 Hz).
 
-### NaNs and Infinity
+## NaNs and Infinity
 
 If your module might produce [NaNs](https://en.wikipedia.org/wiki/NaN) or infinite values with finite input, e.g. an unstable IIR filter or reverb, it should check and return 0 if this happens: `isfinite(out) ? out : 0.f`.

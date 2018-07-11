@@ -1,9 +1,9 @@
 # ABI/API Version
 
-The ABI of Rack is its machine-readable list of symbols (functions, globals, and classes) that can only be accessed in specific ways.
-Rack's API consists of C and C++ headers (`.h` and `.hpp` files) that define how the ABI can be used.
+An ABI is a machine-readable list of symbols (functions, globals, and classes) that can only be called, accessed, and used in specific ways.
+An API consists of C and C++ headers (`.h` and `.hpp` files) that define how the ABI can be used.
 
-Rack plugins must be compiled against a particular *major version* of Rack, so that when Rack loads them, they link to Rack's symbols correctly.
+Rack plugins must be compiled against a particular *major version* of Rack to match its ABI, so that when Rack loads them, they link to Rack's symbols correctly.
 The major version is `X` in the version name `vX.Y` (or `v0.X.Y` for beta versions).
 
 

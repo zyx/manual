@@ -25,7 +25,7 @@ This document is currently a *work-in-progress*.
 Remember that if anything here is inaccurate, you can [edit it yourself](https://github.com/VCVRack/manual) or [open an issue](https://github.com/VCVRack/manual/issues) in the manual's source repository.
 Image credits are from Wikipedia.
 
-### Signals
+## Signals
 
 A *signal* is a function \\(x(t): \mathbb{R} \rightarrow \mathbb{R}\\) of amplitudes (voltages, sound pressure levels, etc.) defined on a time continuum, and a *sequence* is a function \\(x(n): \mathbb{Z} \rightarrow \mathbb{R}\\) defined only at integer points, often written as \\(x_n\\).
 In other words, a signal is an infinitely long continuum of values with infinite time detail, and a sequence is an infinitely long stream of samples at evenly-spaced isolated points in time.
@@ -113,7 +113,7 @@ Anti-aliasing is required for many processes, including waveform generation, wav
 It is sometimes *not* required for reverb, linear filters, audio-rate FM of sine signals (which is why primitive digital chips in the 80's were able to sound reasonably good), adding signals, and most other linear processes.
 
 
-### Linear filters
+## Linear filters
 
 A linear filter is a operation that applies gain depending on a signal's frequency content, defined by
 \\[Y(s) = H(s) X(s)\\]
@@ -150,7 +150,7 @@ A linear filter is stable (its [impulse response](https://en.wikipedia.org/wiki/
 
 We should now have all the tools we need to digitally implement any linear analog filter response \\(H(s)\\) and vise-versa.
 
-#### IIR filters
+### IIR filters
 
 An infinite impulse response (IIR) filter is a digital filter that implements all possible rational transfer functions.
 By multiplying the denominator of the rational \\(H(z)\\) definition above on both sides and applying it to an input \\(x_k\\) and output \\(y_k\\), we obtain the difference relation
@@ -163,7 +163,7 @@ For \\(N, M = 2\\), this is a [biquad filter](https://en.wikipedia.org/wiki/Digi
 
 \\[H(z) = \frac{b_0 + b_1 z^{-1} + b_2 z^{-2}}{1 + a_1 z^{-1} + a_2 z^{-2}}\\]
 
-#### FIR filters
+### FIR filters
 
 A finite impulse response (FIR) filter is a specific case of an IIR filter with \\(M = 0\\) (a transfer function denominator of 1). For an input and output signal, the difference relation is
 \\[y_k = \sum_{n=0}^N b_n x_{k-n}\\]
@@ -179,7 +179,7 @@ A disadvantage of the FFT FIR method is that the signal must be delayed by \\(N\
 You can combine the naive and FFT methods into a hybrid approach with the [overlap-add](https://en.wikipedia.org/wiki/Overlap%E2%80%93add_method) or [overlap-save](https://en.wikipedia.org/wiki/Overlap%E2%80%93save_method) methods, allowing you to process smaller blocks of size \\(M < N\\) at a slightly worse \\(O((N/M) \log M)\\) average computations per sample.
 
 
-#### Impulse responses
+### Impulse responses
 
 Sometimes we need to simulate non-rational transfer functions.
 Consider a general transfer function \\(H(f)\\), written in terms of \\(f\\) rather than \\(s\\) for simplicity.
@@ -196,7 +196,7 @@ Repeating this process in the digital realm gives us the discrete convolution.
 \\[ y_k = \sum_{n=-\infty}^\infty h_n x_{k-n} \\]
 
 
-#### Brick-wall filter
+### Brick-wall filter
 
 An example of a non-rational transfer function is the ideal lowpass filter that fully attenuates all frequencies higher than \\(f_c\\) and passes all frequencies below \\(f_c\\).
 Including [negative frequencies](https://en.wikipedia.org/wiki/Negative_frequency), its transfer function is
@@ -211,25 +211,132 @@ The inverse Fourier transform of \\(H(f)\\) is
 where \\(\operatorname{sinc}(x) = \sin(\pi x) / (\pi x)\\) is the [normalized sinc function](https://en.wikipedia.org/wiki/Sinc_function).
 
 
-#### Windows
+### Windows
 
 Like the brick-wall filter above, many impulse responses \\(h_n\\) are defined for all integers \\(n\\), so they are both non-causal (requires future knowledge of \\(x(t)\\) to compute \\(y(t)\\)) and infinitely long.
 
 *TODO*
 
 
-## To-do
+### Minimum phase systems
+*TODO*
 
-- digital filters
-	- windows
-- oscillators
-	- minimum phase filters
-	- minBLEP/polyBLEP
-- analog circuit modeling
-	- integration techniques
-- optimization (will wait for https://github.com/VCVRack/manual/issues/3 to be completed)
-	- profiling
-	- mathematical optimization
-	- vector instructions
-	- memory access
-	- compiler optimization
+#### MinBLEP
+*TODO*
+
+#### PolyBLEP
+*TODO*
+
+## Circuit modeling
+
+While not directly included the field of DSP, analog circuit modeling is necessary for emulating the sound and behavior of analog signal processors with digital algorithms.
+Instead of evaluating a theoretical model of a signal processing concept, circuit modeling algorithms simulate the voltage state of physical electronics (which itself might have been built to approximate a signal processing concept.)
+Each component of a circuit can be modeled with as little or as much detail as desired, of course with trade-offs in complexity and computational time.
+
+Before attempting to model an circuit, it is a good idea to write down the schematic and understand how it works in the analog domain.
+This allows you to easily omit large sections of the circuit that offer nothing in sound character but add unnecessary effort in the modeling process.
+
+### Nodal analysis
+*TODO*
+
+### Numerical methods for ODEs
+
+A system of ODEs (ordinary differential equations) is a vector equation of the form
+\\[ \vec{x}'(t) = f(t, \vec{x}). \\]
+Higher order ODEs like \\(x'\'(t) = -x(t)\\) are supported by defining intermediate variables like \\(x_1 = x'\\) and writing
+\\[
+	\begin{bmatrix} x \\\\ x_1 \end{bmatrix}'(t)
+	= \begin{bmatrix} x_1 \\\\ -x \end{bmatrix}.
+\\]
+
+The study of numerical methods deals with the computational solution for this general system.
+Although this is a huge field, it is usually not required to learn beyond the basics for audio synthesis due to tight CPU constraints and leniency for the solution's accuracy.
+
+The simplest computational method is [forward Euler](https://en.wikipedia.org/wiki/Euler_method).
+If the state \\(\vec{x}\\) is known at time \\(t\\) and you wish to approximate it at \\(\Delta t\\) in the future, let
+\\[ \vec{x}(t + \Delta t) \rightarrow \vec{x}(t) + \Delta t f(t, \vec{x}). \\]
+More points can be obtained by iterating this approximation.
+It is first-order, so its error scales proportionally with \\(\Delta t\\).
+The [Runge-Kutta](https://en.wikipedia.org/wiki/Runge%E2%80%93Kutta_methods) methods are common higher-order approximations at the expense of evaluating \\(\vec{f}(t, \vec{x})\\) more times per timestep.
+For example, the fourth-order RK4 method has an error proportional to \\((\Delta t)^4\\), so error is drastically reduced with smaller timesteps compared to forward Euler.
+
+
+## Optimization
+
+After implementing an idea in code, you may find that its runtime is too high, reducing the number of possible simultaneous instances or increasing CPU usage and laptop fan speeds.
+There are several ways you can improve your code's performance, which are listed below in order of importance.
+
+
+### Profiling
+
+Inexperienced programmers typically waste lots of time focusing on the performance of their code while they write it.
+This is known as pre-optimization and can increase development time by large factors.
+In fact,
+"premature optimization is the root of all evil (or at least most of it) in programming" ---Donald Knuth, *Computer Programming as an Art (1974)*.
+
+I will make another claim: Regardless of the complexity of an program, there is usually a single, small bottleneck.
+This might be an FFT or the evaluation of a transcendental function like `sin()`.
+If a bottleneck is responsible for 90% of total runtime, the best you can do by optimizing other code is a 10% reduction of runtime.
+My advice is to optimize the bottleneck and forget everything else.
+
+It is difficult to guess which part of your code is a bottleneck, even for leading programming experts, since the result may be a complete surprise due to the immense complexity of compiler optimization and hardware implementation.
+You must profile your code to answer this correctly.
+
+There are many profilers available.
+
+- [perf](https://perf.wiki.kernel.org/index.php/Main_Page) for Linux. Launch with `perf record --call-graph dwarf -o perf.data ./myprogram`.
+- [Hotspot](https://github.com/KDAB/hotspot) for visualizing perf output, not a profiler itself.
+- [gperftools](https://github.com/gperftools/gperftools)
+- [gprof](https://sourceware.org/binutils/docs/gprof/)
+- [Valgrind](http://www.valgrind.org/) for memory, cache, branch-prediction, and call-graph profiling.
+
+Once profile data is measured, you can view the result in a flame graph, generated by your favorite profiler visualization software.
+The width of each block, representing a function in the call tree, is proportional to the function's runtime, so you can easily spot bottlenecks.
+
+![flame graph of VCV Rack](images/flamegraph.png)
+
+
+### Mathematical optimization
+
+If a bottleneck of your code is the evaluation of some mathematical concept, it may be possible to obtain huge speedups of 10,000 or more by simply using another mathematical method.
+If overhauling the method is not an option (perhaps you are using the best known algorithm), speedups are still possible through a bag of tricks.
+
+- Store frequently re-evaluated values in variables so they are evaluated just once.
+- Move expensive functions to [lookup tables](https://en.wikipedia.org/wiki/Lookup_table).
+- Approximate functions with polynomials.
+- Reorder nested `for` loops to "transpose" the algorithm.
+
+Remember that it is important to profile your code before and after any change in hopes of improving performance, otherwise it is easy to fool yourself that a particular method is faster.
+
+### Compiler optimization
+
+[Compiler Explorer](https://godbolt.org/) (Note that Rack plugins use compile flags `-O3 -march=nocona -ffast-math`.)
+*TODO*
+
+### Memory access
+*TODO*
+
+### Vector instructions
+
+In 2000, AMD released the [AMD64](https://en.wikipedia.org/wiki/X86-64#History_2) processor instruction set providing 64-bit wide registers and a few extensions to the existing [x86](https://en.wikipedia.org/wiki/X86) instruction set.
+Intel then adopted this instruction set in a line of Xeon multicore processors codenamed [Nocona](https://en.wikipedia.org/wiki/Xeon#Nocona_and_Irwindale) in 2004 and called it Intel 64.
+Most people now call this architecture x86_64 or the somewhat non-descriptive "64-bit".
+
+The most important additions to this architecture are the [single instruction, multiple data (SIMD)](https://en.wikipedia.org/wiki/SIMD) extensions, which allow multiple values to be placed in a vector of registers and processed (summed, multiplied, etc) in a similar number of cycles as processing a single value.
+These extensions are necessary for battling the slowing down of increases in cycle speed (currently around 3GHz for desktop CPUs) due to reaching the size limits of transistors, so failure to exploit these features may cause your code to run with pre-2004 speed.
+A few important ones include
+
+- [MMX](https://en.wikipedia.org/wiki/MMX_(instruction_set)) (1996)
+- [SSE](https://en.wikipedia.org/wiki/Streaming_SIMD_Extensions) (1999)
+- [SSE2](https://en.wikipedia.org/wiki/SSE2) (2001)
+- [SSE3](https://en.wikipedia.org/wiki/SSE3) (2004)
+- [SSE4](https://en.wikipedia.org/wiki/SSE4) (2006)
+- [AVX](https://en.wikipedia.org/wiki/Advanced_Vector_Extensions) (2008)
+- [FMA](https://en.wikipedia.org/wiki/FMA_instruction_set) (2011)
+
+You can see which instructions these extensions provide with the [Intel Intrinsics Guide](https://software.intel.com/sites/landingpage/IntrinsicsGuide/) or the complete [Intel Software Developer’s Manuals](https://software.intel.com/en-us/articles/intel-sdm) and [AMD Programming Reference](https://developer.amd.com/resources/developer-guides-manuals/).
+
+Luckily, with flags like `-march=nocona` or `-march=native` on GCC/Clang, the compiler is able to emit optimized instructions to exploit a set of allowed extensions if the code is written in a way that allows vectorization.
+If the optimized code is unsatisfactory and you wish to write these instructions yourself, see [x86 Built-in Functions](https://gcc.gnu.org/onlinedocs/gcc-8.1.0/gcc/x86-Built-in-Functions.html#x86-Built-in-Functions) in the GCC manual.
+Remember that some of your targeted CPUs might not support modern extensions such as SSE4 or AVX, so you can check for support during runtime with GCC's `__builtin_cpu_supports` and branch into a fallback implementation if necessary.
+It is often preferred to use the more universal `_mm_add_ps`-like function names for instructions rather than GCC's `__builtin_ia32_addps`-like names, so GCC offers a header file [x86intrin.h](https://github.com/gcc-mirror/gcc/blob/master/gcc/config/i386/x86intrin.h) to provide these aliases.

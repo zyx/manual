@@ -7,7 +7,7 @@ However, *VCV Bridge* allows audio and MIDI to be transferred between Rack and y
 
 The setup order between Rack and your DAW does not matter.
 
-### Setting up Bridge in Rack
+## Setting up Bridge in Rack
 
 - Add an Audio or MIDI module to Rack from the [Core](Core.html) plugin, and select "Bridge" from the driver dropdown list.
 - Open the device menu to select the Bridge port.
@@ -16,13 +16,13 @@ Up to 8 channels of audio entering the Bridge effect plugin are routed to the IN
 
 The 16 automation parameters in the VST/AU Bridge plugin simply generate MIDI-CC messages 0-15, so you can use a [Core MIDI-CC](Core.html#midi-cc) interface to convert them to 0-10 V signals in Rack.
 
-### Setting up Bridge in your DAW
+## Setting up Bridge in your DAW
 
 - Make sure the VST or AU Bridge plugin is installed, and launch your DAW.
 - Add the "VCV Bridge" plugin to a track.
 - Open the plugin parameters to reveal the Bridge port setting and 16 automation parameters.
 
-#### Ableton Live
+### Ableton Live
 
 Add a "VCV-Bridge" plugin to a MIDI track and open the automation parameters by clicking the triangle icon next to the plugin's name.
 *Bridge* will send MIDI and receive audio from Rack.
@@ -34,14 +34,14 @@ Make sure "Monitor" is set to "In" on the Bridge's track to enable audio output 
 
 ![Ableton Live VCV Bridge](images/BridgeLive.png)
 
-#### Cubase
+### Cubase
 TODO
 
-#### FL Studio
+### FL Studio
 TODO
 
-#### Propellerhead Reason
+### Propellerhead Reason
 TODO
 
-#### REAPER
+### REAPER
 TODO

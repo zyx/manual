@@ -1,13 +1,13 @@
 # Plugin Development Tutorial
 
-### Prerequisites
+## Prerequisites
 
 - Familiarity with C++ is required.
 - Follow the [Setting up your development environment](https://github.com/VCVRack/Rack#setting-up-your-development-environment) section of the Rack README.
 - If you would like to build Rack from source, continue to the [https://github.com/VCVRack/Rack#building](Building) section of the Rack README.
 - If you would like to save time, you may skip building Rack and use the [Rack SDK](https://github.com/VCVRack/Rack/issues/258#issuecomment-376293898) instead. You can then run your plugin with an official build of Rack.
 
-### Template Plugin
+## Template Plugin
 
 Clone the [VCV Template plugin](https://github.com/VCVRack/Template) in a `plugins/` directory to get started. Familiarize yourself with the file structure.
 
@@ -20,19 +20,19 @@ Clone the [VCV Template plugin](https://github.com/VCVRack/Template) in a `plugi
 
 The Template plugin implements a simple sine VCO, demonstrating inputs, outputs, parameters, and other concepts.
 
-### Inputs, Outputs, Parameters, and Lights
+## Inputs, Outputs, Parameters, and Lights
 
 Decide how many components you need on the panel of your module.
 Change the names of inputs, outputs, params, and lights in the enums in the `MyModule` class of `MyModule.cpp`.
 
-### DSP
+## DSP
 
 Write the DSP code of your module in the `MyModule::step()` function, using the values from the `params`, `inputs`, and `outputs` vectors.
 Rack includes a work-in-progress DSP framework in the `include/dsp/` directory that you may use.
 Writing a high quality audio processor is easier said than done, but there are many fantastic books and online resources on audio DSP that will teach you what you need to know.
 My word of advice: *mind the aliasing*.
 
-### Panel
+## Panel
 
 Design your module's panel with a vector graphics editor and save it to the `res/` directory as an SVG file.
 [Inkscape](https://inkscape.org/en/) is recommended, but [Adobe Illustrator](https://www.adobe.com/products/illustrator.html), [Affinity Designer](https://affinity.serif.com/en-gb/designer/), [Gravit Designer](https://www.designer.io/), etc. may also work with certain SVG export settings.
@@ -41,7 +41,7 @@ Rack renders SVGs at 75 DPI, and the standard Eurorack 1HP module size is 128.5m
 
 Note: The Rack renderer is currently only capable of rendering path and group objects with solid fill and stroke. Gradients are experimental and might not work correctly. Text must be converted to paths. Clipping masks, clones, symbols, CSS other than a few style attributes, etc. are not supported.
 
-### Component Widgets
+## Component Widgets
 
 Add widgets to the panel including params (knobs, buttons, switches, etc.), input ports, and output ports.
 Helper functions `createParam()`, `createInput()`, and `createOutput()` are used to construct a particular `Widget` subclass, set its (x, y) position, range of values, and default value.
@@ -50,7 +50,7 @@ Rack Widgets are defined in `include/widgets.hpp` and `include/app.hpp`, and hel
 Note: Widgets from `include/components.hpp` using Component Library SVG graphics are licensed under CC BY-NC 4.0 and are free to use for noncommercial purposes.
 Contact contact@vcvrack.com for information about licensing for commercial use.
 
-### Naming
+## Naming
 
 Eventually, you will need to change the name of your plugin from "Template" to something of your choice.
 
@@ -62,7 +62,7 @@ To guarantee uniqueness, it is a good idea to prefix the slug by your name, alia
 - Change references of `#include "Template.hpp"` in each of the source files.
 - In the `Makefile`, change the `SLUG` and `VERSION`.
 
-### Versioning
+## Versioning
 
 The version string of your plugin should follow the form **MAJOR.MINOR.REVISION** and is placed in your plugin's Makefile.
 
@@ -75,7 +75,7 @@ For example, *MyPlugin 1.4.2* would be compatible with all *Rack 1.X* versions.
 
 After releasing a version of your plugin, it is recommended to add a git tag to your repository with `git tag X.Y.Z`.
 
-### Licenses
+## Licenses
 
 Don't forget to edit the `LICENSE.txt` file to choose a license of your choice, unless you want to release your plugin into the public domain (CC0).
 
@@ -84,20 +84,20 @@ Before releasing your plugin, read the [Rack licenses](https://github.com/VCVRac
 If you are considering "porting" a hardware module to the VCV Rack platform, it is a good idea to ask the creator first.
 It may be illegal, immoral, or cause unpleasant relationships to copy certain intellectual property without permission.
 
-### Packaging
+## Packaging
 
 Make sure the VERSION and SLUG are correct in your Makefile, and run `make dist`.
 A ZIP package is generated in `dist/` for your architecture.
 
 If you do not have all platforms for building, other plugin developers will be happy to help you by simply obtaining your source and running `make dist` themselves.
 
-### Releasing
+## Releasing
 
 To list your plugin on the [VCV Plugin Manager](https://vcvrack.com/plugins.html), see the [VCV community repository README](https://github.com/VCVRack/community#for-plugin-developers).
 
 If you wish to sell your plugin on the [VCV Store](https://vcvrack.com/plugins.html), email contact@vcvrack.com for details.
 
-### Maintaining
+## Maintaining
 
 Since Rack is currently in Beta and moving very quickly, breaking changes may be made to the Rack plugin API.
 Subscribe to the [Plugin API Updates Thread](https://github.com/VCVRack/Rack/issues/258) to receive notifications when the Rack API changes or a discussion about a change is being held.

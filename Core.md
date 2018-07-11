@@ -2,8 +2,6 @@
 
 The *Core* plugin (built into Rack itself) includes utilities and interfaces for interfacing between virtual and hardware realms.
 
-
-#### Modules
 - [Audio](#audio)
 - [MIDI Interfaces](#midi-interfaces)
 	- [MIDI-1](#midi-1)
@@ -14,7 +12,7 @@ The *Core* plugin (built into Rack itself) includes utilities and interfaces for
 - [Notes](#notes)
 
 
-### Audio
+## Audio
 ![Core Audio](images/Core/Audio.m.png)
 
 The *Audio* module merges the virtual Rack world with the physical hardware world.
@@ -43,7 +41,7 @@ Note: Using multiple Audio modules is experimental and may crash Rack or render 
 Most DAWs avoid this feature entirely by restricting audio to a single input and a single output device for stability reasons, but if using multiple audio devices in Rack works with your configuration, more power to you!
 
 
-### MIDI Interfaces
+## MIDI Interfaces
 
 Each MIDI interface module (described below) supports the following drivers.
 - Core MIDI on Mac
@@ -59,13 +57,11 @@ Gamepad buttons are mapped to MIDI note gates starting with `C-1`, `C#-1`, `D-1`
 Each joystick axis is mapped to MIDI CC messages starting with `CC0`, `CC1`, `CC2`, etc. with a nonstandard extension that allows negative CC values to be used.
 
 The *computer keyboard* MIDI driver generates MIDI notes when keys are presses while the Rack window is focused.
-Using two rows of keys, the virtual MIDI keyboard spans approximately 2½ octaves and can be shifted down and up with the <code>&#96;</code> and `1` keys.
+Using two rows of keys, the virtual MIDI keyboard spans approximately 2½ octaves and can be shifted down and up with the `` ` `` and `1` keys.
 Currently only the QWERTY (US) layout is supported, but other keyboard layouts may function similarly.
 
-![QWERTY](images/Core/QWERTY.svg)
 
-
-#### MIDI-1
+### MIDI-1
 ![Core MIDI-1](images/Core/MIDI-1.m.png)
 
 The **CV** output generates a 1V/oct pitch signal of the last held MIDI note.
@@ -76,7 +72,7 @@ The **CV** output generates a 1V/oct pitch signal of the last held MIDI note.
 **STRT**, **STOP**, and **CONT** generate triggers when the MIDI hardware or DAW host (for VCV Bridge) sends a start, stop, or continue event.
 
 
-#### MIDI-4
+### MIDI-4
 ![Core MIDI-4](images/Core/MIDI-4.m.png)
 
 MIDI-4 contains a subset of the outputs from MIDI-1, except that it handles up to four simultaneous notes.
@@ -90,7 +86,7 @@ Right-click the panel to select the polyphony mode to specify the behavior in ma
 Remember that MIDI interfaces can be used simultaneously with the same driver, for example if global controls like pitch and mod wheel are needed along with polyphonic controls.
 
 
-#### MIDI-CC
+### MIDI-CC
 ![Core MIDI-CC](images/Core/MIDI-CC.m.png)
 
 Each output maps a MIDI CC (Continuous Controller) messages from 0 to 127 to a CV signal from 0V to 10V.
@@ -102,7 +98,7 @@ A **LRN** indicator is displayed to represent that the port is in "learn" mode.
 Either type a number or move a controller to set the CC number.
 
 
-#### MIDI-Trig
+### MIDI-Trig
 ![Core MIDI-Trig](images/Core/MIDI-Trig.m.png)
 
 MIDI-Trig is similar to MIDI-CC, except that it generates 10V gate signals when a particular note is held.
@@ -112,14 +108,14 @@ To generate a CV signal corresponding to the velocity of the note instead of 10V
 This is useful for setting the amplitude of percussive sounds for MIDI controllers with velocity-capable pads, for example.
 
 
-### Blank
+## Blank
 ![Core Blank](images/Core/Blank.m.png)
 
 Useful for adding space between modules in your rack.
 You can resize the panel by dragging the edges horizontally, with a minimum size of 3HP.
 
 
-### Notes
+## Notes
 ![Core Notes](images/Core/Notes.m.png)
 
 Useful for adding patch notes, section titles for organization, instructions, and author information to your patches.

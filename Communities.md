@@ -1,5 +1,5 @@
 
-### Communities
+# VCV Rack Communities
 
 - [VCVRack.com](https://vcvrack.com/)
 - [Facebook page](https://www.facebook.com/vcvrack/)
@@ -14,6 +14,7 @@
 - [Hispasonic thread (Español)](https://www.hispasonic.com/foros/foro-vcv-rack/516252)
 - [Patchstorage](https://patchstorage.com/platform/vcv-rack/)
 - [Discord](https://discord.gg/wxa89Mh)
+- [Switched On Rack collaboration albums](https://switchedonrack.bandcamp.com/)
 - [Reddit](https://www.reddit.com/r/vcvrack/)
 - [Twitch](https://www.twitch.tv/communities/vcvrackcommunity)
 - [Slack developers chat](https://vcvrackdevelopers.slack.com/join/shared_invite/enQtMzczNzY2NDUzMTczLWM2Mjg0ZjEzNDQ2YTEwYjFiZTA3MzE4NTRjMjg5ZjRkZDAwMDk5M2I4NmIzYmEyZGY1NGQ4YWE4NzkzZjlhMmI)
