@@ -3,7 +3,7 @@
 Rack is a standalone DAW-like application and not a VST/AU plugin because of the major limitations of these formats.
 It is common to think of physical modular synthesizers as entire self-contained DAWs, so many people use Rack as a complete DAW to compose music and build patches without other software.
 
-However, *VCV Bridge* allows audio, MIDI, DAW transport, and DAW clocks to be transferred between Rack and your DAW through the included VST/AU Bridge plugin.
+However, *VCV Bridge* allows audio, MIDI, DAW transport, and DAW clocks to be transferred between Rack and your DAW through the included VST/AU instrument/effect Bridge plugins.
 
 The setup order between Rack and your DAW does not matter.
 
@@ -19,7 +19,9 @@ The 16 automation parameters in the VST/AU Bridge plugin simply generate MIDI-CC
 ## Setting up Bridge in your DAW
 
 - Make sure the VST or AU Bridge plugin is installed, and launch your DAW.
-- Add the "VCV Bridge" plugin to a track.
+- Add the "VCV Bridge" instrument or "VCV Bridge fx" effect plugin to a track.
+	- The instrument plugin is easier for sending MIDI to Rack, although it also supports audio input if supported by your DAW.
+	- The effect plugin is easier for sending audio to Rack, although it also supports MIDI input if supported by your DAW.
 - Open the plugin parameters to reveal the Bridge port setting and 16 automation parameters.
 
 ### Ableton Live

@@ -52,9 +52,9 @@ Each MIDI interface module (described below) supports the following drivers.
 - Gamepad
 - Computer keyboard
 
-The *gamepad* MIDI driver allows USB video game controllers to be used for CV and gate sources, as inexpensive alternatives to actual MIDI controllers.
+The *gamepad* MIDI driver allows USB video game controllers to be used for CV and gate sources, as an inexpensive alternative to MIDI controllers.
 Gamepad buttons are mapped to MIDI note gates starting with `C-1`, `C#-1`, `D-1`, etc.
-Each joystick axis is mapped to MIDI CC messages starting with `CC0`, `CC1`, `CC2`, etc. with a nonstandard extension that allows negative CC values to be used.
+Joystick axes are mapped to MIDI CC messages starting with `CC0`, `CC1`, `CC2`, etc. with a nonstandard MIDI extension that allows negative CC values to be used.
 
 The *computer keyboard* MIDI driver generates MIDI notes when keys are presses while the Rack window is focused.
 Using two rows of keys, the virtual MIDI keyboard spans approximately 2½ octaves and can be shifted down and up with the `` ` `` and `1` keys.
