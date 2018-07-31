@@ -4,19 +4,19 @@
 
 Download Rack on the [VCV Rack website](https://vcvrack.com/).
 
-### Mac
+### Installing on Mac
 
 Open the DMG image and copy the Rack app to your Applications folder.
 
 If you wish to use [VCV Bridge](Bridge.md), copy `VCV-Bridge.vst` to the VST folder and/or the `VCV-Bridge.component` Audio Unit to the Components folder.
 
-### Windows
+### Installing on Windows
 
 Run the installer.
 
 If you wish to use [VCV Bridge](Bridge.md), make sure the VST feature is checked for your architecture (32- or 64-bit) and specify the location to install it in the next few steps.
 
-### Linux
+### Installing on Linux
 
 Unzip the zip file.
 
@@ -43,18 +43,19 @@ Note: Do not download the plugin via GitHub's green "Clone or download" button. 
 
 ## Running Rack
 
-### Mac
+### Running on Mac
 
 Launch Rack from the Applications folder or the dock.
 On modern Mac versions, you may need to right click the application and click "Open" when launching for the first time.
 
-### Windows
+### Running on Windows
 
 Click on Rack in the Start Menu.
 
-### Linux
+### Running on Linux
 
-Double click the `Rack` binary or launch from the command line.
+Double click the `Rack` binary.
+Or with the command-line, `cd` into the `Rack` directory and run `./Rack`.
 
 ### Command line usage
 

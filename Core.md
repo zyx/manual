@@ -19,11 +19,11 @@ The *Audio* module merges the virtual Rack world with the physical hardware worl
 The **INPUT** section sends up to 8 Rack signals to a hardware audio device for playback, and the **OUTPUT** section sends up to 8 hardware signals into Rack.
 
 *Audio* currently supports the following **drivers**.
-- Core Audio on Mac
-- WASAPI on Windows
-- ASIO on Windows
-- ALSA on Linux
-- JACK on Linux
+- [Core Audio](https://developer.apple.com/library/content/documentation/MusicAudio/Conceptual/CoreAudioOverview/WhatisCoreAudio/WhatisCoreAudio.html) on Mac
+- [WASAPI](https://msdn.microsoft.com/en-us/library/windows/desktop/dd371455%28v=vs.85%29.aspx) on Windows
+- [ASIO](https://en.wikipedia.org/wiki/Audio_Stream_Input/Output) on Windows
+- [ALSA](http://alsa-project.org/main/index.php/Main_Page) on Linux
+- [JACK](http://www.jackaudio.org/) on Linux
 - [VCV Bridge](Bridge.html)
 
 After a driver is selected, a particular **device** can be chosen for the driver.

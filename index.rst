@@ -39,4 +39,4 @@ Rack
    :caption: Appendix
 
    Communities.md
-   Glossary.md
+   About.md
