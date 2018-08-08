@@ -70,10 +70,10 @@ FFT algorithms exist in many libraries, like [pffft](https://bitbucket.org/jpomm
 The [Nyquist–Shannon sampling theorem](https://en.wikipedia.org/wiki/Nyquist%E2%80%93Shannon_sampling_theorem) states that a signal with no frequency components higher than half the sample rate \\(f_{sr}\\) can be sampled and reconstructed without losing information.
 In other words, if you bandlimit a signal (with a brick-wall lowpass filter at \\(f_{sr}/2\\)) and sample points at \\(f_{sr}\\), you can reconstruct the bandlimited signal by finding the unique signal which passes through all points and has no frequency components higher than \\(f_{sr}/2\\).
 
-In practice, digital-to-analog converters (DACs) apply an approximation of a brick-wall lowpass filter to remove frequencies higher than \\(f_{sr}/2\\) from the signal.
+In practice, analog-to-digital converters (ADCs) apply an approximation of a brick-wall lowpass filter to remove frequencies higher than \\(f_{sr}/2\\) from the signal.
 The signal is integrated for a small fraction of the sample time \\(1/f_{sr}\\) to obtain an approximation of the amplitude at a point in time, and this measurement is quantized to the nearest digital value.
 
-Analog-to-digital converters (ADCs) convert a digital value to an amplitude and hold it for a fraction of the sample time.
+Digital-to-analog converters (DACs) convert a digital value to an amplitude and hold it for a fraction of the sample time.
 A [reconstruction filter](https://en.wikipedia.org/wiki/Reconstruction_filter) is applied, producing a signal close to the original bandlimited signal.
 High-quality ADCs may include digital upsampling before reconstruction.
 [Dithering](https://en.wikipedia.org/wiki/Dither) may be done but is mostly unnecessary for bit depths higher than 16.
