@@ -31,6 +31,7 @@ Rack
    :maxdepth: 1
    :caption: Rack Development
 
+   Building.md
    Contributing.md
    Version.md
 

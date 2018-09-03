@@ -38,7 +38,7 @@ Gates should produce **10V** when active.
 Modules should use the **1V/oct** (volt per octave) standard for CV control of frequency information.
 In this standard, the relationship between frequency \\(f\\) and voltage \\(V\\) is \\(f = f_0 \cdot 2^{V}\\), where \\(f_0\\) is the baseline frequency.
 Your module might have a frequency knob which may offset \\(V\\).
-Audio-rate oscillators should use a baseline of the note C4 (MIDI note 60, \\(f_0 =\\) 261.626 Hz).
+Audio-rate oscillators should use a baseline of the note C4 ("middle C", MIDI note 60, \\(f_0 =\\) 261.626 Hz).
 Low-frequency oscillators and clock generators should use 120 BPM (\\(f_0 =\\) 2 Hz).
 
 ## NaNs and Infinity

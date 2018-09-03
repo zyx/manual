@@ -1,5 +1,5 @@
 
-# VCV Rack Communities
+# Communities
 
 - [VCVRack.com](https://vcvrack.com/)
 - [Facebook page](https://www.facebook.com/vcvrack/)
