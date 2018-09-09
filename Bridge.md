@@ -18,7 +18,7 @@ The 16 automation parameters in the VST/AU Bridge plugin simply generate MIDI-CC
 
 ## Setting up Bridge in your DAW
 
-- Make sure the VST or AU Bridge plugin is installed, and launch your DAW.
+- Make sure the VST or AU Bridge plugin is installed, and launch your DAW. See the [installation instructions](https://vcvrack.com/manual/Installing.html#installing-rack) for more information about installing the VST on your platform.
 - Add the "VCV Bridge" instrument or "VCV Bridge fx" effect plugin to a track.
 	- The instrument plugin is easier for sending MIDI to Rack, although it also supports audio input if supported by your DAW.
 	- The effect plugin is easier for sending audio to Rack, although it also supports MIDI input if supported by your DAW.
