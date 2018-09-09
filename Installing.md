@@ -8,19 +8,19 @@ Download Rack on the [VCV Rack website](https://vcvrack.com/).
 
 Open the DMG image and copy the Rack app to your Applications folder.
 
-If you wish to use [VCV Bridge](Bridge.md), copy `VCV-Bridge.vst` to the VST folder and/or the `VCV-Bridge.component` Audio Unit to the Components folder.
+If you wish to use [VCV Bridge](Bridge.html), copy `VCV-Bridge.vst` to the VST folder and/or the `VCV-Bridge.component` Audio Unit to the Components folder.
 
 ### Installing on Windows
 
 Run the installer.
 
-If you wish to use [VCV Bridge](Bridge.md), make sure the VST feature is checked for your architecture (32- or 64-bit) and specify the location to install it in the next few steps.
+If you wish to use [VCV Bridge](Bridge.html), make sure the VST feature is checked for your architecture (32- or 64-bit) and specify the location to install it in the next few steps.
 
 ### Installing on Linux
 
 Unzip the zip file.
 
-If you wish to use [VCV Bridge](Bridge.md), copy the `Bridge/VCV-Bridge.so` VST plugin to your system's VST search location such as `/usr/lib/vst`.
+If you wish to use [VCV Bridge](Bridge.html), copy the `Bridge/VCV-Bridge.so` VST plugin to your system's VST search location such as `/usr/lib/vst`.
 
 ## Installing plugins
 
