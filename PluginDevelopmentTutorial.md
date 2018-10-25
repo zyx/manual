@@ -5,7 +5,7 @@
 - Familiarity with C++ is required.
 - [Set up your development environment](Building.html#setting-up-your-development-environment).
 - If you would like to build Rack from source, follow [Building Rack](Building.html#building-rack).
-- If you would like to save time, you may skip building Rack and use the [Rack SDK](https://github.com/VCVRack/Rack/issues/258#issuecomment-376293898) instead. You can then run your plugin with an official build of Rack.
+- If you would like to save time, you may skip building Rack and use the [Rack SDK](https://github.com/VCVRack/Rack/issues/258#issuecomment-405119759) instead. You can then run your plugin with an official build of Rack.
 
 ## Template Plugin
 
