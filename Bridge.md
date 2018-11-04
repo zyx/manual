@@ -46,4 +46,16 @@ TODO
 TODO
 
 ### REAPER
-TODO
+Right-click in the REAPER Track Control Panel (underneath the main toolbar, to the left of the Arrange area). Select "Insert virtual instrument on new track...". Locate "VCV Bridge" in your VST or VSTi folders. Select the 32- or 64-bit version of VCV Bridge per your own preferences and REAPER flavor. (If desired, you can also insert the VCV Bridge into an existing track by clicking the FX button for the track.)
+
+When REAPER brings up the "Build Routing Confirmation" dialog, click "No" if you just want the bridge to make a typical set of stereo outputs available to REAPER, and "Yes" if you want to create eight discrete mono audio channels. REAPER will create eight additional audio tracks labeled "Output 1-8" if you select "Yes" at this dialog. Otherwise, it will only create a single track for MIDI and audio. 
+
+(You can also manually create additional tracks / channels, and route the audio from the track containing the bridge insert into these additional tracks. This enables simultaneous live capture of VCV inbound MIDI and outbound audio on separate REAPER tracks.)
+
+The bridge insert defaults to port 1 in REAPER. Make sure your MIDI and audio modules in Rack are all set to communicate with Bridge, and that the port settings in those Rack modules also match the intended port number from your REAPER bridge track or channel. 
+
+You should now be able to play Rack via your MIDI controller from the armed bridge channel in REAPER. REAPER auto-maps and -arms the track for MIDI input, and also enables record monitoring, when the track is created with "Insert virtual instrument on new track." If you added VCV Bridge to your REAPER project another way, you may need to arm the track and turn record monitoring on. 
+
+To record audio from Rack, right-click on the record arm button for the track that you want to capture Rack's output audio from the bridge, and select "Record: output" --> "Record: (whatever_audio_format_is_desired)". 
+
+*Note:* If REAPER is already open with a VCV bridge instance created, and VCV is opened second with a patch that already contains MIDI and/or audio modules set to anything other than Bridge send/receive, VCV Rack may crash on startup or patch load, even if the VCV Bridge insert is currently bypassed in REAPER. You may need to close REAPER and specifically select Bridge mode in your Rack audio / MIDI setup first before attempting to bridge. 
