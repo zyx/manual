@@ -5,6 +5,7 @@
 - [Facebook page](https://www.facebook.com/vcvrack/)
 - [Twitter](https://twitter.com/vcvrack)
 - [Github issue tracker (features, bugs, and developer discussions)](https://github.com/VCVRack/Rack/issues)
+- [Youtube](https://www.youtube.com/c/VCVRack)
 - [Facebook user group](https://www.facebook.com/groups/vcvrack/)
 - [Facebook developer group](https://www.facebook.com/groups/2035785263299933/)
 - [Facebook French user group](https://www.facebook.com/groups/2069785583250645/)
