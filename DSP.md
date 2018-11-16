@@ -6,7 +6,7 @@ One of its many applications is to generate and process audio from virtual/digit
 There are many online resources and books for learning DSP.
 
 - [Digital signal processing Wikipedia](https://en.wikipedia.org/wiki/Digital_signal_processing): An overview of the entire field.
-- [Seeing circles, sines, and signals](https://jackschaedler.github.io/circles-sines-signals/): A visual and interactive introduction to DSP.
+- [Seeing Circles, Sines, and Signals](https://jackschaedler.github.io/circles-sines-signals/): A visual and interactive introduction to DSP.
 - [Julius O. Smith III Online Books](https://ccrma.stanford.edu/~jos/) ([Index](https://ccrma.stanford.edu/~jos/GlobalJOSIndex.html)): Thousands of topics on audio DSP and relevant mathematics, neatly organized into easy-to-digest but sufficiently deep pages and examples.
 	- [Mathematics of the Discrete Fourier Transform (DFT)](https://ccrma.stanford.edu/~jos/mdft/)
 	- [Introduction to Digital Filters](https://ccrma.stanford.edu/~jos/filters/)
