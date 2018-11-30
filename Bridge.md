@@ -40,7 +40,12 @@ Make sure "Monitor" is set to "In" on the Bridge's track to enable audio output 
 TODO
 
 ### FL Studio
-TODO
+In FL Studio Add a "VCV-Bridge" Channel. Inside Channel settings, navigate to Processing tab and check "Make bridged" and "Use fixed size buffers" (this is to be fixed sooner or later). For each output in VCV you will need separate Channel listening to separate port, as there's no option to handle many Wrapper inputs in FL Studio. 
+VCV needs to be started *after* adding initial bridge in FL Studio, otherwise you won't hear any sound nor send any notes.
+To send notes - in VCV - add MIDI-1 mapped to respective Port inside Channel in FL Studio.
+To receive sound - in VCV - add SOUND, mapped to respective Port, Inputs 1-2 will send stereo sound to Wrapper in FL Studio.
+
+Rendering notice: It was noticed, that it is impossible to render with ASIO (Presonus AudioBox ASIO) enabled, as it renders with tons of overloads and spikes. It is advised to try rendering with default audio driver with maximal possible latency.
 
 ### Propellerhead Reason
 TODO
