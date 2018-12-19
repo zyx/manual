@@ -17,6 +17,4 @@
 - [Discord](https://discord.gg/wxa89Mh)
 - [Switched On Rack collaboration albums](https://switchedonrack.bandcamp.com/)
 - [Reddit](https://www.reddit.com/r/vcvrack/)
-- [Twitch](https://www.twitch.tv/communities/vcvrackcommunity)
-- [Slack developers chat](https://join.slack.com/t/vcvrackdevelopers/shared_invite/enQtMzczNzY2NDUzMTczLWM2Mjg0ZjEzNDQ2YTEwYjFiZTA3MzE4NTRjMjg5ZjRkZDAwMDk5M2I4NmIzYmEyZGY1NGQ4YWE4NzkzZjlhMmI)
 - [IRC](http://webchat.freenode.net?channels=%23VCVRack)
