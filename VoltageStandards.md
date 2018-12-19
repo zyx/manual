@@ -25,7 +25,7 @@ If your module is capable of applying >1x gain to an input, it is a good idea to
 In Eurorack, many modules are triggered by reaching a particular rising slope threshold.
 However, because of the [Gibbs phenomenon](https://en.wikipedia.org/wiki/Gibbs_phenomenon), a digital emulation will falsely retrigger many times if the trigger source is bandlimited (e.g. by using a virtual VCO square wave as a trigger input or a hardware trigger through an audio interface.)
 
-Thus, trigger inputs in Rack a [Schmitt trigger](https://en.wikipedia.org/wiki/Schmitt_trigger) with a low threshold of about **0.1V** and a high threshold of around **1 to 2V**.
+Trigger inputs in Rack should be triggered by a [Schmitt trigger](https://en.wikipedia.org/wiki/Schmitt_trigger) with a low threshold of about **0.1V** and a high threshold of around **1 to 2V**.
 Rack plugins can implement this using `SchmittTrigger` from `digital.hpp` with `schmittTrigger.process(rescale(x, 0.1f, 2.f, 0.f, 1.f))`
 
 Trigger sources should produce **10V** with a duration of 1 millisecond.
