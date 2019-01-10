@@ -2,6 +2,7 @@
 # Communities
 
 - [VCVRack.com](https://vcvrack.com/)
+- [Forum](https://community.vcvrack.com/)
 - [Facebook page](https://www.facebook.com/vcvrack/)
 - [Twitter](https://twitter.com/vcvrack)
 - [Github issue tracker (features, bugs, and developer discussions)](https://github.com/VCVRack/Rack/issues)

@@ -46,7 +46,8 @@ See **Performance** above.
 
 ## I found a bug.
 
-Search [Rack's issue tracker](https://github.com/VCVRack/Rack/issues?q=is%3Aissue) to check whether someone else has posted a similar issue. If you think your problem is unique (unlikely but possible), you may open an issue or email contact@vcvrack.com with a detailed report containing the following information.
+Search [Rack's issue tracker](https://github.com/VCVRack/Rack/issues?q=is%3Aissue) to check whether someone else has posted a similar issue.
+If you believe the problem has never been reported before, [open an issue](https://github.com/VCVRack/Rack/issues/new/choose) on GitHub, or email contact@vcvrack.com if you don't want to register a GitHub account, with a detailed report containing the following information.
 
 - Your operating system and version
 - The Rack version
@@ -56,12 +57,14 @@ Search [Rack's issue tracker](https://github.com/VCVRack/Rack/issues?q=is%3Aissu
 
 ## I have a feature request.
 
-After searching [Rack's issue tracker](https://github.com/VCVRack/Rack/issues?q=is%3Aissue), you may open an issue or email contact@vcvrack.com with the following information.
+Search [Rack's issue tracker](https://github.com/VCVRack/Rack/issues?q=is%3Aissue) to check whether someone else has posted a similar feature request.
+If you believe the feature has never been posted before, [open an issue](https://github.com/VCVRack/Rack/issues/new/choose) on GitHub, or email contact@vcvrack.com if you don't want to register a GitHub account, with a detailed report containing the following information.
 
 - Your proposal, with consideration for how it fits into Rack's existing features
 - A possible workflow or diagram (if your request involves multiple steps or UI states, e.g. dragging multiple modules simultaneously).
 
-Depending on the usefulness of your request, it may take 15 minutes or 24 months for your feature to be added, or the issue may be closed if there is little total benefit compared to the cost of implementation (time saved or spent using the feature, divided by the time to develop the feature).
+Your feature request may be addressed during the next period of new feature design of Rack.
+If your request is judged to be not sufficiently useful to other users, it may be closed.
 
 ## How do I load a default patch when selecting File > New?
 
@@ -74,3 +77,14 @@ Save a patch to `<Rack local directory>/template.vcv`, and it will be loaded aft
 - Linux: `~/.Rack/`
 
 When running Rack in development mode, it is your current working directory instead.
+
+## Will Rack be ported to iOS or Android?
+
+It is not planned. Many issues would need to be addressed.
+- Tablet and phone users don't normally use mice, so a touch driver would need to be written.
+- There is no user-managed filesystem on iOS, and forcing users to mess with the filesystem is bad UX on Android, so plugin folders and patch files would need to be managed entirely by Rack itself.
+- There is no OpenGL on mobile devices, so the OpenGL ES driver would need to be used and tested.
+- RtAudio and RtMidi don't have iOS Core Audio/MIDI or Android HAL/OpenSL ES backends, so they would need to be added and tested.
+- Apple does not allow apps distributed through the store to download and execute code, so either all plugins would need to be included in the distributable, or it could only be distributed on jailbroken iOS devices, which is an absurd user requirement.
+- Such a port would be very expensive to develop, if possible at all, so it would need to be sold commercially. Some plugins (proprietary, GPL, etc) would need special licensing agreements in order to be included in the package, which would increase the product's cost to pay for them or simply decrease the size of the third-party plugin collection.
+- The friction for a developer to build and test their plugins on iOS/Android is significantly higher than the three desktop OS's, which may decrease their willingness to develop Rack plugins.

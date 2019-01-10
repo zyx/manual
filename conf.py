@@ -5,20 +5,12 @@ author = 'VCV'
 
 source_encoding = 'utf-8'
 
-
 extensions = [
-    'sphinx.ext.mathjax',
+    # 'sphinx.ext.mathjax',
+    'recommonmark',
 ]
 
 templates_path = ['_templates']
-
-from recommonmark.parser import CommonMarkParser
-
-source_parsers = {
-    '.md': CommonMarkParser,
-}
-
-source_suffix = ['.rst', '.md']
 
 master_doc = 'index'
 
@@ -34,6 +26,8 @@ pygments_style = 'sphinx'
 
 
 # Theme
+
+html_favicon = "favicon.png"
 
 html_theme = "sphinx_rtd_theme"
 
@@ -95,5 +89,5 @@ def setup(app):
     app.add_stylesheet("overrides.css")
     app.add_config_value('recommonmark_config', {
         'enable_math': True,
-        'enable_inline_math': True
+        'enable_inline_math': True,
     }, True)
