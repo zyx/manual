@@ -1,14 +1,21 @@
 
 project = 'VCV Rack'
-copyright = '2018, VCV'
+copyright = '2019, VCV'
 author = 'VCV'
 
 source_encoding = 'utf-8'
 
 extensions = [
-    # 'sphinx.ext.mathjax',
-    'recommonmark',
+    'sphinx.ext.mathjax',
 ]
+
+from recommonmark.parser import CommonMarkParser
+
+source_parsers = {
+    '.md': CommonMarkParser,
+}
+
+source_suffix = ['.rst', '.md']
 
 templates_path = ['_templates']
 

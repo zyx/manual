@@ -3,7 +3,7 @@
 ## Power meter
 
 When power meters are enabled, Rack measures the amount of time spent processing each module in **mS** (millisamples).
-This is a unit of time equal to `$0.001 / \text{sample rate}$`.
+This is a unit of time equal to \\(0.001 / \text{sample rate}\\).
 In many ways, this is analogous to the module power limit imposed by hardware modular synthesizers in mA (milliamperes).
 
 To maintain a stable audio clock, the total amount of time spent processing all modules must equal **1000 mS**.
