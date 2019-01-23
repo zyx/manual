@@ -38,7 +38,7 @@ pacman -S git wget gcc make cmake tar unzip zip curl
 *If the build fails for you, please report the issue with a detailed error message to help the portability of Rack.*
 
 Clone this repository with `git clone https://github.com/VCVRack/Rack.git` and `cd Rack`.
-Make sure there are no spaces in your absolute path, as this breaks many build systems.
+Make sure there are no spaces in your absolute path, as this breaks the Makefile-based build system.
 
 Clone submodules.
 

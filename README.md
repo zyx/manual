@@ -23,3 +23,9 @@ Build with
 	make html
 
 The output should be generated in `_build/html`.
+
+## License
+
+All documentation text in this repository is licensed under [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/).
+
+Images such as screenshots and logos are licensed by their respective owner.

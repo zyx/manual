@@ -84,7 +84,7 @@ Before releasing your plugin, read the [Rack licenses](https://github.com/VCVRac
 If you are considering "porting" a hardware module to the VCV Rack platform, it is a good idea to ask the creator first.
 It may be illegal, immoral, or cause unpleasant relationships to copy certain intellectual property without permission.
 
-## Packaging
+## Building
 
 Make sure the VERSION and SLUG are correct in your Makefile, and run `make dist`.
 A ZIP package is generated in `dist/` for your architecture.

@@ -6,12 +6,12 @@ One of its many applications is to generate and process audio from virtual/digit
 There are many online resources and books for learning DSP.
 
 - [Digital signal processing Wikipedia](https://en.wikipedia.org/wiki/Digital_signal_processing): An overview of the entire field.
-- [Seeing Circles, Sines, and Signals](https://jackschaedler.github.io/circles-sines-signals/): A visual and interactive introduction to DSP.
 - [Julius O. Smith III Online Books](https://ccrma.stanford.edu/~jos/) ([Index](https://ccrma.stanford.edu/~jos/GlobalJOSIndex.html)): Thousands of topics on audio DSP and relevant mathematics, neatly organized into easy-to-digest but sufficiently deep pages and examples.
 	- [Mathematics of the Discrete Fourier Transform (DFT)](https://ccrma.stanford.edu/~jos/mdft/)
 	- [Introduction to Digital Filters](https://ccrma.stanford.edu/~jos/filters/)
 	- [Physical Audio Signal Processing](https://ccrma.stanford.edu/~jos/pasp/)
 	- [Spectral Audio Signal Processing](https://ccrma.stanford.edu/~jos/sasp/)
+- [Seeing Circles, Sines, and Signals](https://jackschaedler.github.io/circles-sines-signals/): A visual and interactive introduction to DSP.
 - [The Scientist and Engineer's Guide to Digital Signal Processing](http://dspguide.com/) by Steven W. Smith: Free online book covering general DSP topics.
 - [The Art of VA Filter Design](http://www.native-instruments.com/fileadmin/ni_media/downloads/pdf/VAFilterDesign_2.0.0a.pdf) (PDF) by Vadim Zavalishin: Huge collection of deep topics in digital/analog filter design and analog filter modeling.
 - [DSPRelated.com](https://www.dsprelated.com/): Articles, news, and blogs about basic and modern DSP topics.
