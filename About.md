@@ -4,7 +4,7 @@ VCV was founded by Andrew Belt in 2016 and is based in Tennessee, USA.
 Its flagship product VCV Rack was released on September 10, 2017 at [Knobcon](https://knobcon.com/) after two years of development.
 It was based on an unreleased C++ modular audio engine written by Andrew in 2012.
 
-VCV collaborates with [Grayscale](http://grayscale.info/) to design the [Fundamental](https://vcvrack.com/Fundamental.html) plugin and commercial VCV modules.
+VCV collaborates with [Grayscale](http://grayscale.info/) to design the [Fundamental](https://vcvrack.com/Fundamental.html) plugin, commercial VCV modules, and the UI design of Rack.
 
 ## Mission
 

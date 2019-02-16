@@ -11,26 +11,32 @@ However, you need proper tools to build Rack and these dependencies.
 Install [Xcode](https://developer.apple.com/xcode/).
 Using [Homebrew](https://brew.sh/), install the build dependencies.
 ```
-brew install git wget cmake autoconf automake libtool
+brew install git wget cmake autoconf automake libtool jq
 ```
 
 ### Windows
 
-Install [MSYS2](http://www.msys2.org/) and launch the MinGW 64-bit shell (not the default MSYS shell).
+If you have an anti-virus program running, disable it.
+
+Install [MSYS2](http://www.msys2.org/) and launch the MinGW 64-bit shell from the Start menu, *not the default MSYS shell*.
 ```
-pacman -S git wget make tar unzip zip mingw-w64-x86_64-gcc mingw-w64-x86_64-cmake autoconf automake mingw-w64-x86_64-libtool
+pacman -Syu
+```
+Then restart the shell.
+```
+pacman -Su git wget make tar unzip zip mingw-w64-x86_64-gcc mingw-w64-x86_64-cmake autoconf automake mingw-w64-x86_64-libtool mingw-w64-x86_64-jq
 ```
 
 ### Linux
 
 On Ubuntu 16.04:
 ```
-sudo apt install git curl cmake libx11-dev libglu1-mesa-dev libxrandr-dev libxinerama-dev libxcursor-dev libxi-dev zlib1g-dev libasound2-dev libgtk2.0-dev libjack-jackd2-dev
+sudo apt install git curl cmake libx11-dev libglu1-mesa-dev libxrandr-dev libxinerama-dev libxcursor-dev libxi-dev zlib1g-dev libasound2-dev libgtk2.0-dev libjack-jackd2-dev jq
 ```
 
 On Arch Linux:
 ```
-pacman -S git wget gcc make cmake tar unzip zip curl
+pacman -S git wget gcc make cmake tar unzip zip curl jq
 ```
 
 ## Building Rack
@@ -38,18 +44,20 @@ pacman -S git wget gcc make cmake tar unzip zip curl
 *If the build fails for you, please report the issue with a detailed error message to help the portability of Rack.*
 
 Clone this repository with `git clone https://github.com/VCVRack/Rack.git` and `cd Rack`.
-Make sure there are no spaces in your absolute path, as this breaks the Makefile-based build system.
+Make sure there are no spaces in your absolute path, since this breaks the Makefile-based build system.
 
 Clone submodules.
 
 	git submodule update --init --recursive
 
 Build dependencies locally.
-You may add `-j$(nproc)` to your make commands to parallelize builds across all CPU cores.
+You may add `-j4` (or your number of logical cores) to your `make` commands to parallelize builds.
+This may take 15-60 minutes.
 
 	make dep
 
 Build Rack.
+This may take 1-5 minutes.
 
 	make
 
