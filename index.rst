@@ -24,6 +24,7 @@ Rack
    :caption: Plugin Development
 
    PluginDevelopmentTutorial.md
+   PanelTutorial.md
    VoltageStandards.md
    DSP.md
 
