@@ -5,9 +5,10 @@ You can measure absolute voltage levels using modules like Fundamental Scope.
 
 Rack attempts to model Eurorack standards as accurately as possible, but this is a problem for two reasons: there are very few actual "standards" in Eurorack (The only rule is that you can always find a module which breaks the rule), and there are a few differences between digital (finite sample rate) and analog (infinite sample rate).
 
-## Audio and Modulation
+## Levels
 
-Audio outputs are typically **±5V** (before bandlimiting is applied), and CV modulation sources are typically **0 to 10V** (unipolar CV) or **±5V** (bipolar CV).
+Signals should typically be \\(10V_{pp}\\) (peak-to-peak).
+This means that audio outputs should typically be **±5V** (before bandlimiting is applied), and CV modulation sources should typically be **0 to 10V** (unipolar CV) or **±5V** (bipolar CV).
 
 ## Output Saturation
 
