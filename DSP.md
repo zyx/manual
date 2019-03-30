@@ -350,7 +350,7 @@ If overhauling the method is not an option (perhaps you are using the best known
 
 - Store frequently re-evaluated values in variables so they are evaluated just once.
 - Move expensive functions to [lookup tables](https://en.wikipedia.org/wiki/Lookup_table).
-- Approximate functions with polynomials.
+- Approximate functions with polynomials or rational functions, using [Horner's method](https://en.wikipedia.org/wiki/Horner%27s_method), [Estrin's scheme](https://en.wikipedia.org/wiki/Estrin%27s_scheme), and/or [Padé approximants](https://en.wikipedia.org/wiki/Pad%C3%A9_approximant).
 - Reorder nested `for` loops to "transpose" the algorithm.
 
 Remember that it is important to profile your code before and after any change in hopes of improving performance, otherwise it is easy to fool yourself that a particular method is faster.

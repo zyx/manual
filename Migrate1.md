@@ -2,14 +2,47 @@
 
 **This document is a draft. It is not recommended to migrate plugins at this time. If you begin now, you will likely need to follow this guide again when the Rack v1 API is stable.**
 
+## Prerequisites
+
+Install new build dependencies.
+
+### Mac
+
+```bash
+brew install python jq
+```
+
+### Windows
+
+```bash
+pacman -S python mingw-w64-x86_64-jq
+```
+
+### Linux
+
+On Ubuntu 16.04:
+```bash
+sudo apt install jq
+```
+
+On Arch Linux:
+```bash
+pacman -S python jq
+```
+
 ## The easy way: using the `rack0.hpp` compatibility header
 
 Change `#include "rack.hpp"` to `#include "rack0.hpp"`
 
 Create a `plugin.json` manifest file for your plugin using the `helper.py` script included in the Rack SDK.
+```bash
+python <Rack SDK>/helper.py createmanifest
+```
+
+Add a module entry to `plugin.json` for each module in your plugin.
 When prompted, don't overwrite the module .cpp file.
 ```bash
-python <Rack SDK>/helper.py createmodule <slug>
+python <Rack SDK>/helper.py createmodule <module slug>
 ```
 
 Remove `SLUG` and `VERSION` from the `Makefile`, and remove `	p->slug = ...` and `p->version = ...` from your plugin's main `.cpp` file, since they are now defined in `plugin.json`.

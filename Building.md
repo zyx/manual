@@ -10,7 +10,7 @@ However, you need proper tools to build Rack and these dependencies.
 
 Install [Xcode](https://developer.apple.com/xcode/).
 Using [Homebrew](https://brew.sh/), install the build dependencies.
-```
+```bash
 brew install git wget cmake autoconf automake libtool jq
 ```
 
@@ -19,23 +19,23 @@ brew install git wget cmake autoconf automake libtool jq
 If you have an anti-virus program running, disable it.
 
 Install [MSYS2](http://www.msys2.org/) and launch the MinGW 64-bit shell from the Start menu, *not the default MSYS shell*.
-```
+```bash
 pacman -Syu
 ```
 Then restart the shell.
-```
+```bash
 pacman -Su git wget make tar unzip zip mingw-w64-x86_64-gcc mingw-w64-x86_64-cmake autoconf automake mingw-w64-x86_64-libtool mingw-w64-x86_64-jq
 ```
 
 ### Linux
 
 On Ubuntu 16.04:
-```
+```bash
 sudo apt install git curl cmake libx11-dev libglu1-mesa-dev libxrandr-dev libxinerama-dev libxcursor-dev libxi-dev zlib1g-dev libasound2-dev libgtk2.0-dev libjack-jackd2-dev jq
 ```
 
 On Arch Linux:
-```
+```bash
 pacman -S git wget gcc make cmake tar unzip zip curl jq
 ```
 
