@@ -1,5 +1,15 @@
 # Installing & Running
 
+## System Requirements
+
+VCV Rack is free software, so you may simply install it to check if it works.
+However, if you are experiencing performance issues, make sure you have the following.
+- Operating system: MacOS 10.7+, Windows 7+, or Linux (Ubuntu 16.04+, etc)
+- CPU: Intel/AMD 64-bit processor from \~2011 or later
+- Graphics: Dedicated Nvidia/AMD graphics card from \~2013 or later. Integrated (non-dedicated) graphics such as Intel HD/Iris are not recommended and cause significantly increased CPU usage.
+- RAM: 1GB+
+- Disk space: 1GB+
+
 ## Installing Rack
 
 Download Rack on the [VCV Rack website](https://vcvrack.com/).

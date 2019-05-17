@@ -27,6 +27,8 @@ Rack
    PanelTutorial.md
    VoltageStandards.md
    DSP.md
+   Migrate1.md
+   PluginLicensing.md
 
 .. toctree::
    :maxdepth: 1

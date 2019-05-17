@@ -8,8 +8,7 @@ However, you need proper tools to build Rack and these dependencies.
 
 ### Mac
 
-Install [Xcode](https://developer.apple.com/xcode/).
-Using [Homebrew](https://brew.sh/), install the build dependencies.
+Install [Homebrew](https://brew.sh/), and install the build dependencies.
 ```bash
 brew install git wget cmake autoconf automake libtool jq
 ```

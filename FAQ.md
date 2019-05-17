@@ -1,28 +1,5 @@
 # FAQ
 
-## When will Rack 1.0 be ready?
-
-Rack is currently in Beta (thus the version 0.x), so by using it, you are an "early tester".
-Don't worry, Rack 1.0 will also be free open-source software.
-
-In order for Rack to earn its "1.0" designation, it must improve in the following three fronts.
-
-### Compatibility
-Since I am an "indie developer", I cannot yet afford to test Rack on every combination of hardware on the market.
-With the introduction of commercial VCV plugin sales, I will soon be able to invest in hardware that is known to have compatibility problems with Rack.
-If you are willing to lend me hardware to test, email contact@vcvrack.com for details.
-
-### Stability
-Rack is not ready to be trusted for live use, although some musicians have used it successfully in live performances.
-In order for Rack to be considered "stable", it must produce audio with no clicks or pops on modern hardware for several minutes and must crash less than once per several days of continuous use.
-Currently, stability in Rack is the most developed among these three fronts.
-
-### Performance
-Depending on your CPU and graphics card, Rack may consume high CPU/GPU resources and therefore increase your laptop's fan speed.
-I am aware of this, so there is no need to inform me.
-
-To answer the original question, there is currently no time estimate for 1.0.
-
 ## My audio interface / MIDI device doesn't work.
 
 Make sure the device drivers are up to date for your operating system.
@@ -95,7 +72,21 @@ It is not planned. There are many issues with such a project.
 
 ## Why does the Audio module from Core consume so much CPU?
 
-The CPU meter measures the time spent processing each module.
+The CPU meter measures the time spent processing each module, not the limited "resource" of CPU power.
 In order for playback timing to be consistent, your audio device, and thus the Audio module, waits until all samples in the current audio buffer are played before moving onto the next audio buffer.
 Otherwise, your device's DAC and ADC would play and record at very inconsistent and incorrect sample rates.
 While waiting, the engine thread is put to sleep, so no energy is consumed by the thread.
+
+## Is VCV Rack available as a VST/AU/AAX plugin for DAWs?
+
+Not at this time.
+Shortly after Rack 2.0 releases, Rack will also be available as a 64-bit VST2 plugin for around $99.
+VST3/AU/AAX versions might be released afterwards.
+All Rack v2 plugins will be compatible with the plugin version of Rack.
+The primary "standalone" version of Rack v2 will continue to be free/open-source.
+
+## Does VCV Rack work with touch screens?
+
+Rack's window library GLFW does not support [touch input](https://github.com/glfw/glfw/issues/42), so Rack relies on the operating system to control the mouse cursor using the touch screen.
+This means that multi-touch gestures do not work.
+However, you can set `"allowCursorLock"` to `false` in the `settings.json` file in Rack's local directory to improve knob moving gestures.

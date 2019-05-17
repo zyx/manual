@@ -1,5 +1,7 @@
 # Panel Tutorial
 
+**Note: This tutorial is for designing Rack v1 panels. For Rack v0.6 panels, see the [Plugin Development Tutorial](PluginDevelopmentTutorial.html#panel).**
+
 ## Setup
 
 Install [Inkscape](https://inkscape.org/), a cross-platform open-source vector graphics editor, to create SVG panels for Rack modules.
@@ -29,6 +31,14 @@ Plugins which use other people's work unfairly will not be accepted into the [VC
 
 Don't hesitate to ask the [VCV community](https://community.vcvrack.com/c/development) for design help.
 You may find several graphic designers seeking programmers for collaboration.
+
+## SVG limitations
+
+The [SVG standard](https://en.wikipedia.org/wiki/Scalable_Vector_Graphics) is so broad, no renderer fully supports the entire format.
+Rack's SVG renderer does not support the following features.
+- **Text and fonts.** All text objects must be converted to paths. This can be achieved in Inkscape with *Path > Object to Path*. As a benefit, this avoids license issues with embedding proprietary fonts.
+- **Gradients.** Simple two-color linear gradients may work, but more advanced features are not a priority since VCV recommends to avoid gradients altogether.
+- **CSS.** Although, most `fill-*` and `stroke-*` properties are supported in inline style attributes.
 
 ## Adding components
 

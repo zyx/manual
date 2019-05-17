@@ -6,7 +6,7 @@ It was based on an unreleased C++ modular audio engine written by Andrew in 2012
 
 VCV collaborates with [Grayscale](http://grayscale.info/) to design the [Fundamental](https://vcvrack.com/Fundamental.html) plugin, commercial VCV modules, and the UI design of Rack.
 
-## Mission
+## Mission Statement
 
 We believe that no human should be excluded from learning any musical instrument, and the [modular synthesizer](https://en.wikipedia.org/wiki/Modular_synthesizer) is possibly the most excluding instrument on the planet---even more so than the harp or the marimba---due to its cost.
 Yet, it is possible to emulate synthesizer modules in software, in both sound and interaction behavior, providing a similar platform for creation that can be equally gratifying as hardware.
