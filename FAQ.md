@@ -23,8 +23,8 @@ See **Performance** above.
 
 ## I found a bug.
 
-Search [Rack's issue tracker](https://github.com/VCVRack/Rack/issues?q=is%3Aissue) to check whether someone else has posted a similar issue.
-If you believe the problem has never been reported before, [open an issue](https://github.com/VCVRack/Rack/issues/new/choose) on GitHub with a detailed report containing the following information.
+Search [Rack's issue tracker](https://github.com/VCVRack/Rack/issues?q=is%3Aissue) to check if someone else has posted a similar issue.
+If you believe the problem has never been reported before, [create a GitHub account](https://github.com/) (it's free) and [open an issue](https://github.com/VCVRack/Rack/issues/new/choose) with a detailed report containing the following information.
 
 - Your operating system and version
 - The Rack version
@@ -34,13 +34,13 @@ If you believe the problem has never been reported before, [open an issue](https
 
 ## I have a feature request.
 
-Search [Rack's issue tracker](https://github.com/VCVRack/Rack/issues?q=is%3Aissue) to check whether someone else has posted a similar feature request.
-If you believe the feature has never been posted before, [open an issue](https://github.com/VCVRack/Rack/issues/new/choose) on GitHub with a detailed report containing the following information.
+Search [Rack's issue tracker](https://github.com/VCVRack/Rack/issues?q=is%3Aissue) to check if someone else has posted a similar feature request.
+If you believe the feature has never been requested before, [create a GitHub account](https://github.com/) (it's free) and [open an issue](https://github.com/VCVRack/Rack/issues/new/choose) with a detailed report containing the following information.
 
 - Your proposal, with consideration for how it fits into Rack's existing features
 - A possible workflow or diagram (if your request involves multiple steps or UI states, e.g. dragging multiple modules simultaneously).
 
-Your feature request may be addressed during the next period of new feature design of Rack.
+Your feature request may be addressed during the next iteration of feature design of Rack.
 If your request is judged to be not sufficiently useful to other users, it may be closed.
 
 ## How do I load a default patch when selecting File > New?

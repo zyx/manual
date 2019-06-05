@@ -24,7 +24,6 @@ The **INPUT** section sends up to 8 Rack signals to a hardware audio device for 
 - [ASIO](https://en.wikipedia.org/wiki/Audio_Stream_Input/Output) on Windows
 - [ALSA](http://alsa-project.org/main/index.php/Main_Page) on Linux
 - [JACK](http://www.jackaudio.org/) on Linux
-- [VCV Bridge](Bridge.html)
 
 After a driver is selected, a particular **device** can be chosen for the driver.
 If the device has more than 8 inputs or outputs, you can select the desired range of outputs, offset by a factor of 8.
@@ -48,7 +47,6 @@ Each MIDI interface module (described below) supports the following drivers.
 - Windows MIDI on Windows
 - ALSA on Linux
 - JACK on Linux
-- [VCV Bridge](Bridge.html)
 - Gamepad
 - Computer keyboard
 
@@ -71,7 +69,7 @@ The **CV** output generates a 1V/oct pitch signal of the last held MIDI note.
 **VEL** generates a CV signal from 0V to 10V of the velocity, **AFT** generates aftertouch CV (channel pressure, not polyphonic aftertouch), **PW** generates pitch wheel CV from -5V to 5V, and **MW** generates mod wheel CV.
 **RTRG** generates a 1 ms trigger when a new note is pressed.
 **CLK1** and **CLK2** generate triggers specified by the division set by right-clicking on the panel and selecting the *CLK 1 rate* or *CLK 2 rate*.
-**STRT**, **STOP**, and **CONT** generate triggers when the MIDI hardware or DAW host (for VCV Bridge) sends a start, stop, or continue event.
+**STRT**, **STOP**, and **CONT** generate triggers when the MIDI device sends a start, stop, or continue event.
 
 
 ### MIDI-4

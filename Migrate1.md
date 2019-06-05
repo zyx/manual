@@ -3,7 +3,7 @@
 This is a step-by-step guide for migrating plugins using the Rack v0.6 API to Rack v1.
 There are three phases of porting.
 - **Phase 1**: Quickly produces a valid Rack v1 plugin.
-- **Phase 2**: Modernizes your plugin by replacing deprecated v0.6 function calls with new v1 functions.
+- **Phase 2**: Modernizes the code by replacing deprecated v0.6 function calls with new v1 functions.
 - **Phase 3**: Takes advantage of new Rack v1 features such as parameter labels and polyphony.
 
 ## Prerequisites
@@ -27,7 +27,7 @@ pacman -S mingw-w64-x86_64-jq python3
 
 ### Linux
 
-On Ubuntu 18.04:
+On Ubuntu 18.04+:
 ```bash
 sudo apt install jq python3
 ```
@@ -97,6 +97,7 @@ perl -i -pe 's/Port::create/createPort/g' src/*
 perl -i -pe 's/Port::OUTPUT/PortWidget::OUTPUT/g' src/*
 perl -i -pe 's/Port::INPUT/PortWidget::INPUT/g' src/*
 perl -i -pe 's/Widget::create/createWidget/g' src/*
+perl -i -pe 's/MenuEntry::create\(\)/new MenuEntry/g' src/*
 perl -i -pe 's/MenuLabel::create/createMenuLabel/g' src/*
 perl -i -pe 's/MenuItem::create/createMenuItem/g' src/*
 ```
@@ -119,6 +120,7 @@ The event API has been overhauled in v1.
 If you use `on*()` event handler methods in your custom widgets, see [event.hpp](https://github.com/VCVRack/Rack/blob/v1/include/event.hpp) and [widget/Widget.hpp](https://github.com/VCVRack/Rack/blob/v1/include/widget/Widget.hpp) for new methods and event classes.
 
 Once completed, your plugin may compile, although many deprecation warnings may appear.
+If there are too many warnings to see the errors, you may temporarily add `FLAGS += -w` to your `Makefile`.
 
 ### 1.9
 
@@ -187,6 +189,7 @@ perl -i -pe 's/\bassetPlugin\b/asset::plugin/g' src/*
 perl -i -pe 's/\brandomUniform\b/random::uniform/g' src/*
 perl -i -pe 's/\brandomNormal\b/random::normal/g' src/*
 perl -i -pe 's/\brandomu32\b/random::u32/g' src/*
+perl -i -pe 's/\bstringf\b/string::f/g' src/*
 ```
 
 ### 2.7
@@ -204,7 +207,7 @@ perl -i -pe 's/(outputs\[.*?\])\.active/$1.isConnected()/g' src/*
 
 Add the `dsp::` namespace to dsp classes.
 ```bash
-perl -i -pe 's/\b(quadraticBipolar|cubic|quarticBipolar|quintic|sqrtBipolar|exponentialBipolar|BooleanTrigger|SchmittTrigger|PulseGenerator|RealFFT|ComplexFFT|RCFilter|PeakFilter|SlewLimiter|ExponentialSlewLimiter|ExponentialFilter|RealTimeConvolver|MinBlepGenerator|stepEuler|stepRK2|stepRK4|SampleRateConverter|Decimator|Upsampler|RingBuffer|DoubleRingBuffer|AppleRingBuffer|VuMeter|hann|hannWindow|blackman|blackmanWindow|blackmanNuttall|blackmanNuttallWindow|blackmanHarris|blackmanHarrisWindow)\b/dsp::$1/g' src/*
+perl -i -pe 's/\b(quadraticBipolar|cubic|quarticBipolar|quintic|sqrtBipolar|exponentialBipolar|BooleanTrigger|SchmittTrigger|PulseGenerator|RealFFT|ComplexFFT|RCFilter|PeakFilter|SlewLimiter|ExponentialSlewLimiter|ExponentialFilter|RealTimeConvolver|MinBlepGenerator|stepEuler|stepRK2|stepRK4|SampleRateConverter|Decimator|Upsampler|RingBuffer|DoubleRingBuffer|AppleRingBuffer|VuMeter|hann|hannWindow|blackman|blackmanWindow|blackmanNuttall|blackmanNuttallWindow|blackmanHarris|blackmanHarrisWindow|Frame|VUMeter)\b/dsp::$1/g' src/*
 ```
 
 ### 2.9
@@ -235,7 +238,7 @@ in the `MyModule` constructor, and change the original line to
 
 You can automate this process by running
 ```bash
-perl -nle 'print "configParam($1);" while /createParam.*?module, (.*?)\)/g' src/*
+perl -nle 'print "configParam($1, \"\");" while /createParam.*?module, (.*?)\)/g' src/*
 ```
 and copying the respective groups of lines into each module's `Module` constructor.
 Then remove the arguments with
@@ -249,6 +252,6 @@ Now make sure your plugin compiles.
 
 You are now ready to add optional Rack v1 features to your plugin.
 
-You may add parameters labels, units, and nonlinear scaling to be displayed when users right-click on a parameter or enable *View > Parameter tooltips*. See [Module::configParam()](https://github.com/VCVRack/Rack/blob/v1-gpl/include/engine/Module.hpp#L94-L95).
+You may add parameters labels, units, and nonlinear scaling to be displayed when users right-click on a parameter or enable *View > Parameter tooltips*. See [Module::configParam()](https://github.com/VCVRack/Rack/blob/v1/include/engine/Module.hpp#L94-L95).
 
-If you with to add support for polyphonic cables, see [How polyphonic cables will work in Rack v1](https://community.vcvrack.com/t/how-polyphonic-cables-will-work-in-rack-v1/1464) and [engine/Port.hpp](https://github.com/VCVRack/Rack/blob/v1-gpl/include/engine/Port.hpp).
+If you with to add support for polyphonic cables, see [How polyphonic cables will work in Rack v1](https://community.vcvrack.com/t/how-polyphonic-cables-will-work-in-rack-v1/1464), [Making your monophonic module polyphonic](https://community.vcvrack.com/t/how-polyphonic-cables-will-work-in-rack-v1/1464/39), and [engine/Port.hpp](https://github.com/VCVRack/Rack/blob/v1/include/engine/Port.hpp).

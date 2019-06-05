@@ -7,8 +7,8 @@ However, if you are experiencing performance issues, make sure you have the foll
 - Operating system: MacOS 10.7+, Windows 7+, or Linux (Ubuntu 16.04+, etc)
 - CPU: Intel/AMD 64-bit processor from \~2011 or later
 - Graphics: Dedicated Nvidia/AMD graphics card from \~2013 or later. Integrated (non-dedicated) graphics such as Intel HD/Iris are not recommended and cause significantly increased CPU usage.
-- RAM: 1GB+
-- Disk space: 1GB+
+- RAM: 1GB
+- Disk space: 1GB
 
 ## Installing Rack
 
@@ -72,5 +72,6 @@ Or with the command-line, `cd` into the `Rack` directory and run `./Rack`.
 To launch Rack from the command line, `cd` into Rack's directory, and run `./Rack`.
 
 - `-d`: Enables development mode
-- `-g <path>`: Sets Rack's global directory
-- `-l <path>`: Sets Rack's local directory
+- `-g <dir>`: Sets Rack's global directory
+- `-l <dir>`: Sets Rack's local directory
+- `<patch filename>`: Loads a patch file

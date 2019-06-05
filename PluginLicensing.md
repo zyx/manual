@@ -1,19 +1,15 @@
 # Plugin Licensing
 
-**This document is a draft. It is currently not in effect, so everything here is bogus now, but it may eventually become the guide for plugin licensing in the future.**
-
-VCV Rack is open-source software, but you should still familiarize yourself with the [VCV Rack licenses](https://github.com/VCVRack/Rack/blob/v1-gpl/LICENSE.md) before releasing your plugin, to avoid misuse of intellectual property. If in doubt, send any licensing questions to contact@vcvrack.com.
-
+VCV Rack is open-source/free software, but you should still familiarize yourself with the [VCV Rack licenses](https://github.com/VCVRack/Rack/blob/v1/LICENSE.md) before releasing your plugin, to avoid misuse of intellectual property. If in doubt, send your licensing questions to contact@vcvrack.com.
 
 ### I want to release my plugin under the [GNU General Public License v3.0](https://www.gnu.org/licenses/gpl-3.0.en.html) (GPLv3).
 
 Since Rack is licensed under GPLv3, you may license your plugin under GPLv3 as well.
 You may do anything with your plugin that the GPLv3 allows, including selling it without a commercial license (below) as long as you release the source code under GPLv3.
 
-### I want to release my plugin non-commercially under non-GPLv3 terms.
+### I want to release my plugin under a different open-source license or freeware.
 
-This is the most common choice among plugin developers.
-Rack offers a [VCV Rack Non-Commercial Plugin License Exception](https://github.com/VCVRack/Rack/blob/v1-gpl/LICENSE.md) which allows you to license your plugin under any terms you want, as long as it is offered free of charge.
+Rack offers a [VCV Rack Non-Commercial Plugin License Exception](https://github.com/VCVRack/Rack/blob/v1/LICENSE.md) which allows you to license your plugin under any terms you want, as long as it is offered free of charge.
 You may choose:
 - **Open-source**. [BSD 3-clause](https://opensource.org/licenses/BSD-3-Clause), [MIT](https://opensource.org/licenses/MIT), and [CC0](https://creativecommons.org/publicdomain/zero/1.0/) are popular licenses.
 - **Closed-source freeware**.
@@ -34,7 +30,7 @@ You can expedite the licensing processing by sending concepts and design mockups
 You may also wish to sell your plugin on the [VCV Store](https://vcvrack.com/plugins.html).
 Some benefits of distributing your plugin on the VCV Store:
 - Most Rack users are already familiar with the VCV Store checkout system.
-- Plugin updates are automatically synchronized to users' Rack installations.
+- Plugin updates are automatically synchronized to users' computers.
 - VCV offers advanced technical support with the Rack SDK and DSP library.
 - You may supply VCV with either binary packages for Mac/Windows/Linux, or a source package which we will build for you.
 - Access to dashboard for managing customers' purchases and viewing real-time statistics.
