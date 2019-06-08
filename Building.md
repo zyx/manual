@@ -40,7 +40,7 @@ pacman -S git wget gcc gdb make cmake tar unzip zip curl jq
 
 ## Building Rack
 
-You do not need to build Rack to build plugins if you use the Rack SDK.
+*You do not need to build Rack to build plugins if you use the Rack SDK.*
 
 *If the build fails for you, please [report the issue](FAQ.html#i-found-a-bug) to help the portability of Rack.*
 

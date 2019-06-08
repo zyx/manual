@@ -1,5 +1,7 @@
 # Quick Start
 
+*TODO Update for v1*
+
 Once Rack is installed and launched *(see [Installing](Installing.html))*, you will see an empty rack with a toolbar.
 
 ![Initial patch](images/initialpatch.png)

@@ -15,7 +15,7 @@ Rack
    QuickStart.md
    Installing.md
    FAQ.md
-   Toolbar.md
+   MenuBar.md
    Core.md
 
 .. toctree::
@@ -34,7 +34,6 @@ Rack
    :caption: Rack Development
 
    Building.md
-   Contributing.md
    Version.md
 
 .. toctree::

@@ -62,7 +62,7 @@ If your module has polyphonic outputs, then it can be considered a "polyphonic m
 It is recommended to support up to 16 channels, which is the maximum that Rack allows.
 
 Typically each voice in your module can be abstracted into an "engine".
-The number of active engines \\(N\\) should be defined by the number of channels of the "main" input (e.g. 1V/oct input for VCOs, audio input for filters, gate input for envelope generators, etc).
+The number of active engines \\(N\\) should be defined by the number of channels of the "primary" input (e.g. 1V/oct input for VCOs, audio input for filters, gate input for envelope generators, etc).
 All other secondary inputs with \\(M\\) channels should follow these rules:
 - If monophonic (\\(M = 1\\)), its voltage should be copied to all engines.
 - If polyphonic with enough channels (\\(M \geq N\\)), each channel voltage should be used in its respective engine.

@@ -11,3 +11,7 @@ body, h1, h2, .rst-content .toctree-wrapper p.caption, h3, h4, h5, h6, legend {
 .wy-nav-content {
 	max-width: 1000px;
 }
+
+img.module-screenshot {
+	height: 380px !important;
+}

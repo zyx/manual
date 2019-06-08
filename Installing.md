@@ -2,11 +2,12 @@
 
 ## System Requirements
 
-VCV Rack is free software, so you may simply install it to check if it works.
-However, if you are experiencing performance issues, make sure you have the following.
+VCV Rack is free software, so you may simply download and run the software to see if it works.
+However, if you are experiencing performance issues, make sure you have at least the following hardware.
 - Operating system: MacOS 10.7+, Windows 7+, or Linux (Ubuntu 16.04+, etc)
 - CPU: Intel/AMD 64-bit processor from \~2011 or later
-- Graphics: Dedicated Nvidia/AMD graphics card from \~2013 or later. Integrated (non-dedicated) graphics such as Intel HD/Iris are not recommended and cause significantly increased CPU usage.
+- Graphics: Dedicated Nvidia/AMD graphics card from \~2013 or later.
+Integrated (non-dedicated) graphics such as Intel HD/Iris are not recommended and cause significantly increased CPU usage.
 - RAM: 1GB
 - Disk space: 1GB
 
@@ -16,21 +17,15 @@ Download Rack on the [VCV Rack website](https://vcvrack.com/).
 
 ### Installing on Mac
 
-Open the DMG image and copy the Rack app to your Applications folder.
-
-If you wish to use [VCV Bridge](Bridge.html), copy `VCV-Bridge.vst` to the VST folder and/or the `VCV-Bridge.component` Audio Unit to the Components folder.
+Download, unzip, and copy the Rack app to your Applications folder.
 
 ### Installing on Windows
 
 Run the installer.
 
-If you wish to use [VCV Bridge](Bridge.html), make sure the VST feature is checked for your architecture (32- or 64-bit) and specify the location to install it in the next few steps.
-
 ### Installing on Linux
 
 Unzip the zip file.
-
-If you wish to use [VCV Bridge](Bridge.html), copy the `Bridge/VCV-Bridge.so` VST plugin to your system's VST search location such as `/usr/lib/vst`.
 
 ## Installing plugins
 
@@ -56,7 +51,6 @@ Note: Do not download the plugin via GitHub's green "Clone or download" button. 
 ### Running on Mac
 
 Launch Rack from the Applications folder or the dock.
-On modern Mac versions, you may need to right click the application and click "Open" when launching for the first time.
 
 ### Running on Windows
 
@@ -69,9 +63,9 @@ Or with the command-line, `cd` into the `Rack` directory and run `./Rack`.
 
 ### Command line usage
 
-To launch Rack from the command line, `cd` into Rack's directory, and run `./Rack`.
-
-- `-d`: Enables development mode
-- `-g <dir>`: Sets Rack's global directory
-- `-l <dir>`: Sets Rack's local directory
-- `<patch filename>`: Loads a patch file
+To launch Rack from the command line, `cd` into Rack's directory, and run `./Rack`, optionally with the following options.
+- `<patch filename>`: Loads a patch file.
+- `-u <dir>`: Sets Rack's system directory.
+- `-s <dir>`: Sets Rack's user directory.
+- `-d`: Enables development mode.
+This sets the system and user directories to the current directory, uses the terminal (stderr) for logging, and disables the Plugin Manager to prevent overwriting plugins.
