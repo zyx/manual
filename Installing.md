@@ -41,7 +41,7 @@ Downloading plugins directly from the Plugin Manager website is not supported at
 
 *Install third-party plugins at your own risk. Like VST plugins, installing plugins from unknown sources may compromise your computer and personal information.*
 
-Download the plugin ZIP package from the vendor's website to `<Rack local directory>/plugins` (See [Where is the "Rack local directory"?](FAQ.html#where-is-the-rack-local-directory)). Rack will extract and load the plugin upon launch.
+Download the plugin ZIP package from the vendor's website to `<Rack user folder>/plugins` (See [Where is the "Rack user folder"?](FAQ.html#where-is-the-rack-user-folder)). Rack will extract and load the plugin upon launch.
 
 Note: Do not download the plugin via GitHub's green "Clone or download" button. These are source code ZIP packages and do not contain the compiled plugin binary. If the vendor distributes their plugin with GitHub, look in the "Releases" section for the compiled ZIP packages.
 
@@ -59,13 +59,13 @@ Click on Rack in the Start Menu.
 ### Running on Linux
 
 Double click the `Rack` binary.
-Or with the command-line, `cd` into the `Rack` directory and run `./Rack`.
+Or with the command-line, `cd` into the `Rack` folder and run `./Rack`.
 
 ### Command line usage
 
-To launch Rack from the command line, `cd` into Rack's directory, and run `./Rack`, optionally with the following options.
+To launch Rack from the command line, `cd` into Rack's folder, and run `./Rack`, optionally with the following options.
 - `<patch filename>`: Loads a patch file.
-- `-u <dir>`: Sets Rack's system directory.
-- `-s <dir>`: Sets Rack's user directory.
+- `-s <dir>`: Sets Rack's system folder.
+- `-u <dir>`: Sets Rack's user folder.
 - `-d`: Enables development mode.
-This sets the system and user directories to the current directory, uses the terminal (stderr) for logging, and disables the Plugin Manager to prevent overwriting plugins.
+This sets the system and user folders to the current working directory, uses the terminal (stderr) for logging, and disables the Plugin Manager to prevent overwriting plugins.

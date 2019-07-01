@@ -34,6 +34,8 @@ Prevents accidentally dragging modules.
 ### Zoom
 Adjusts the zoom level for the rack from 25-400%.
 Double-click to reset to 100%.
+
+You can also use Ctrl-`-` and Ctrl-`=` (or Cmd on Mac) to zoom, or Ctrl-scroll.
 ### Cable opacity
 Sets the transparency level for patch cables.
 Double-click to reset to 50%.
@@ -74,7 +76,7 @@ For example, a quad-core machine would likely maximize the number of modules by 
 Due to [simultaneous multithreading](https://en.wikipedia.org/wiki/Simultaneous_multithreading) such as [Intel Hyper-Threading](https://en.wikipedia.org/wiki/Hyper-threading), you may attempt to use up to twice as many threads as physical cores in your machine, but typically this results in worse performance with higher power usage.
 
 
-## Plugins
+## Library
 
 ### Login
 Logs into your VCV account registered at [vcvrack.com](https://vcvrack.com/).
@@ -91,4 +93,4 @@ Rack must be restarted to load new plugin updates.
 Opens [this manual](QuickStart.html).
 
 ### Open user folder
-Opens the [Rack user directory](FAQ.html#where-is-the-rack-user-directory) in Windows Explorer, Apple Finder, etc.
+Opens the [Rack user folder](FAQ.html#where-is-the-rack-user-folder) in Windows Explorer, Apple Finder, etc.

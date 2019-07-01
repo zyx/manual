@@ -1,13 +1,11 @@
-# Panel Tutorial
-
-**Note: This tutorial is for designing Rack v1 panels. For Rack v0.6 panels, see the [Plugin Development Tutorial](PluginDevelopmentTutorial.html#panel).**
+# Panel Guide
 
 ## Setup
 
-Install [Inkscape](https://inkscape.org/), a cross-platform open-source vector graphics editor, to create SVG panels for Rack modules.
+Install [Inkscape](https://inkscape.org/), a cross-platform open-source vector graphics editor, to create panels for Rack modules in the open [Scalable Vector Graphics (SVG)](https://en.wikipedia.org/wiki/Scalable_Vector_Graphics) format.
 
 - Create a new document.
-- Open the "Document Properties" panel (Shift+Ctrl+D), and make sure "Units" and "Display units" are set to "mm".
+- Open the "Document Properties" panel (Shift+Ctrl+D), and make sure "Units" and "Display units" are set to "mm" ("px" is not supported).
 - Set the height to 128.5 mm and the width to a desired multiple of 5.08 mm ([1 HP](http://www.doepfer.de/a100_man/a100m_e.htm) in Eurorack).
 
 ## Designing your panel
@@ -24,12 +22,11 @@ Design recommendations from VCV:
 	- Labels should succinctly state the purpose of knobs, switches, and ports.
 - Roughly follow the graphical density and text sizes of Fundamental modules.
 
-*Copyright and trademark advice:
-Don't use others' intellectual property (IP) without their permission.
-It may be illegal and/or make the owner of the IP upset.
-Plugins which use other people's work unfairly will not be accepted into the [VCV Plugin Manager](https://vcvrack.com/plugins.html).*
 
-Don't hesitate to ask the [VCV community](https://community.vcvrack.com/c/development) for design help.
+Do not use other people's intellectual property (IP) without their permission.
+See the [VCV Plugin Ethics Guidelines](PluginLicensing.html#vcv-plugin-ethics-guidelines).
+
+Don't hesitate to ask the [VCV Community](https://community.vcvrack.com/c/development) for design help.
 You may find several graphic designers seeking programmers for collaboration.
 
 ## SVG limitations
@@ -53,7 +50,7 @@ Instead, add placeholders so that the `helper.py` script can generate C++.
 	- Use the circle tool (F5) to position a placeholder by its center.
 		The size of the circle does not matter, only the center point.
 		A `create*Centered()` function call is generated in C++.
-	- Use the rectangle tool (F4) to to position a placeholder by its top-left point.
+	- Or use the rectangle tool (F4) to to position a placeholder by its top-left point.
 		This should only be used when the component's size needs to be defined on the panel, such as a rectangular LED display.
 		A `create*()` function call is generated in C++.
 - Set the color of each shape depending on the component's type.
@@ -65,6 +62,10 @@ Instead, add placeholders so that the `helper.py` script can generate C++.
 - To save time editing the .cpp file later, you may name each component to automatically generate names in C++.
 Open the "Object Properties" panel (Shift+Ctrl+O), select a component placeholder, and type in the "Label" field.
 Note that you must press "Set" or Enter to apply the new name.
-- Hide the components layer using the "Layers" panel and save the file to `res/<module slug>.svg`.
+- Hide the components layer using the eye icon in the "Layers" panel and save the file to `res/<module slug>.svg`.
 
-Run `<Rack SDK>/helper.py createmodule <module slug>` to automatically convert your panel into a template .cpp source file.
+Run
+```bash
+<Rack SDK>/helper.py createmodule <module slug> res/<module slug>.svg src/<module slug>.cpp
+```
+to automatically convert your panel into a template .cpp source file.

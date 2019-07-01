@@ -1,105 +1,142 @@
 # Plugin Development Tutorial
 
-*TODO Update for v1*
-
 ## Prerequisites
 
-- Familiarity with C++ is required.
-- [Set up your development environment](Building.html#setting-up-your-development-environment).
-- If you would like to build Rack from source, follow [Building Rack](Building.html#building-rack).
-- If you would like to save time, you may skip building Rack and use the [Rack SDK](https://github.com/VCVRack/Rack/issues/258#issuecomment-405119759) instead. You can then run your plugin with an official build of Rack.
+- Familiarity with C++, although creating Rack plugins is a great way to learn programming and C++.
+- Familiarity with navigating the command line (`cd`, `ls`, etc).
+- Familiarity with modular synthesizers. [Digital signal processing (DSP)](DSP.html) knowledge is only required if creating sound generators and processors.
+- Download and install [VCV Rack](https://vcvrack.com/Rack.html).
+- Download and extract the [Rack SDK](https://vcvrack.com/downloads/Rack-SDK-1.1.0.zip).
+This contains the Rack API headers and build system for compiling your plugin.
+- Follow the steps to [set up your build environment](Building.html#setting-up-your-development-environment) for your operating system.
+You do not need to build Rack from source if using the Rack SDK.
 
-## Template Plugin
+## Creating the template plugin
 
-Clone the [VCV Template plugin](https://github.com/VCVRack/Template) in a `plugins/` directory to get started. Familiarize yourself with the file structure.
+The `helper.py` script included in the Rack SDK is an easy way to create a plugin template.
+You can run it with no arguments to display documentation.
 
-- `Makefile`: The build system configuration file. Edit this to add compiler flags and custom targets.
-- `src/`: C++ and C source files
-	- `Template.cpp / Template.hpp`: Plugin-wide source and header for plugin initialization and configuration. Rename this to the name of your plugin.
-	- `MyModule.cpp`: A single module's source code. Duplicate this file for every module you wish to add. You may have multiple modules per file or multiple files for a single module, but one module per file is recommended.
-- `res/`: Resource directory for SVG graphics and anything else you need to `fopen()`
-- `LICENSE.txt`: The template itself is released into public domain (CC0), but you may wish to replace this with your own license.
+Decide on a [slug](Metadata.html#slug) for your plugin.
+We will use `MyPlugin` for this tutorial.
+Run
+```bash
+<Rack SDK folder>/helper.py createplugin MyPlugin
+```
+to create a folder called `MyPlugin/` in your current directory.
+Example session:
+```text
+Plugin name [MyPlugin]: My Plugin
+Version [1.0.0]:
+License (if open-source, use license identifier from https://spdx.org/licenses/) [proprietary]: CC0-1.0
+Brand (prefix for all module names) [My Plugin]:
+Author []: VCV
+Author email (optional) []: contact@vcvrack.com
+Author website URL (optional) []: https://vcvrack.com/
+Plugin website URL (optional) []:
+Manual website URL (optional) []:
+Source code URL (optional) []:
+Donate URL (optional) []:
+Manifest written to MyPlugin/plugin.json
+Created template plugin in MyPlugin/
+Initialized empty Git repository in /home/VCV/MyPlugin/.git/
+```
+You can change this metadata later by editing `plugin.json`. (See [Metadata](Metadata.html)).
 
-The Template plugin implements a simple sine VCO, demonstrating inputs, outputs, parameters, and other concepts.
+To test your build system, you may run `RACK_DIR=<Rack SDK folder> make` in the plugin directory.
+If it succeeds, an "empty" plugin will be built containing no modules.
+However, this is an good opportunity to check that your build environment is set up correctly.
 
-## Inputs, Outputs, Parameters, and Lights
+## Creating panels
 
-Decide how many components you need on the panel of your module.
-Change the names of inputs, outputs, params, and lights in the enums in the `MyModule` class of `MyModule.cpp`.
+For each module you wish to create, follow the [Panel Guide](Panel.html) to design an SVG panel graphic.
 
-## DSP
+For this tutorial, we will create a module with the slug `MyModule` and panel file [MyModule.svg](_static/MyModule.svg).
+Save this file to `res/` and run
+```bash
+<Rack SDK folder>/helper.py createmodule MyModule res/MyModule.svg src/MyModule.cpp
+```
+This will create a C++ file automatically from components in the SVG file.
+Example session:
+```text
+Module name [MyModule]: My Module
+One-line description (optional) []: Simple sine oscillator
+Tags (comma-separated, case-insensitive, see https://github.com/VCVRack/Rack/blob/v1/src/plugin.cpp#L511-L571 for list) []: VCO
+Added MyModule to plugin.json
+Panel found at res/MyModule.svg. Generating source file.
+Found 1 params, 1 inputs, 1 outputs, 0 lights, and 0 custom widgets.
+Components extracted from res/MyModule.svgSource file generated at src/MyModule.cpp
 
-Write the DSP code of your module in the `MyModule::step()` function, using the values from the `params`, `inputs`, and `outputs` vectors.
-Rack includes a work-in-progress DSP framework in the `include/dsp/` directory that you may use.
-Writing a high quality audio processor is easier said than done, but there are many fantastic books and online resources on audio DSP that will teach you what you need to know.
-My word of advice: *mind the aliasing*.
+To enable the module, add
+extern Model *modelMyModule;
+to plugin.hpp, and add
+p->addModel(modelMyModule);
+to the init() function in plugin.cpp.
+```
+Open `MyModule.svg` with Inkscape, open the Layers panel, and hide the `components` layer to hide component placeholders.
 
-## Panel
+## Implementing the DSP kernel
 
-Design your module's panel with a vector graphics editor and save it to the `res/` directory as an SVG file.
-[Inkscape](https://inkscape.org/en/) is recommended, but [Adobe Illustrator](https://www.adobe.com/products/illustrator.html), [Affinity Designer](https://affinity.serif.com/en-gb/designer/), [Gravit Designer](https://www.designer.io/), etc. may also work with certain SVG export settings.
-Make sure the path to the .svg file is correctly specified in the `setPanel(SVG::Load(...))` function in your `ModuleWidget` constructor.
-Rack renders SVGs at 75 DPI, and the standard Eurorack 1HP module size is 128.5mm x 5.08mm, 5.06" x 0.2", or 380px x 15px.
+Rack modules have four basic components, as we saw in the [Panel Guide](Panel.html).
+- **Param**: Read with `params[...].getValue()`
+- **Input**: Read with `inputs[...].getVoltage()`
+- **Output**: Write with `outputs[...].setVoltage(voltage)`
+- **Light**: Write with `lights[...].setBrightness(brightness)`
 
-Note: The Rack renderer is currently only capable of rendering path and group objects with solid fill and stroke. Gradients are experimental and might not work correctly. Text must be converted to paths. Clipping masks, clones, symbols, CSS other than a few style attributes, etc. are not supported.
+In this tutorial, we will implement a simple sine oscillator with a **PITCH** param, 1V/oct **PITCH** input, **SINE** output, and a **BLINK** light that flashes at 1 Hz.
 
-## Component Widgets
+Open the generated `src/MyModule.cpp` source file and add the following member variables to the `Module` class.
+```cpp
+	float phase = 0.f;
+	float blinkPhase = 0.f;
+```
+These variables store the internal state of the module.
+Then add the following code to the `process()` function, which is called every audio frame (e.g. 44,100 times per second if the sample rate is 44,100 Hz).
+```cpp
+	void process(const ProcessArgs &args) override {
+		// Compute the frequency from the pitch parameter and input
+		float pitch = params[PITCH_PARAM].getValue();
+		pitch += inputs[PITCH_INPUT].getVoltage();
+		pitch = clamp(pitch, -4.f, 4.f);
+		// The default pitch is C4 = 261.6256f
+		float freq = dsp::FREQ_C4 * std::pow(2.f, pitch);
 
-Add widgets to the panel including params (knobs, buttons, switches, etc.), input ports, and output ports.
-Helper functions `createParam()`, `createInput()`, and `createOutput()` are used to construct a particular `Widget` subclass, set its (x, y) position, range of values, and default value.
-Rack Widgets are defined in `include/widgets.hpp` and `include/app.hpp`, and helpers are found in `include/rack.hpp`.
+		// Accumulate the phase
+		phase += freq * args.sampleTime;
+		if (phase >= 0.5f)
+			phase -= 1.f;
 
-Note: Widgets from `include/components.hpp` using Component Library SVG graphics are licensed under CC BY-NC 4.0 and are free to use for noncommercial purposes.
-Contact contact@vcvrack.com for information about licensing for commercial use.
+		// Compute the sine output
+		float sine = std::sin(2.f * M_PI * phase);
+		// Audio signals are typically +/-5V
+		// https://vcvrack.com/manual/VoltageStandards.html
+		outputs[SINE_OUTPUT].setVoltage(5.f * sine);
 
-## Naming
+		// Blink light at 1Hz
+		blinkPhase += args.sampleTime;
+		if (blinkPhase >= 1.f)
+			blinkPhase -= 1.f;
+		lights[BLINK_LIGHT].setBrightness(blinkPhase < 0.5f ? 1.f : 0.f);
+	}
+```
+Compile the plugin with `RACK_DIR=<Rack SDK folder> make`.
+If this succeeds, you can build a distributable plugin package with `RACK_DIR=<Rack SDK folder> make dist` or automatically install it to your Rack installation with `RACK_DIR=<Rack SDK folder> make install`.
+You should now be able to test your plugin by opening Rack and adding your module from the Module Browser.
 
-Eventually, you will need to change the name of your plugin from "Template" to something of your choice.
+## Beyond the tutorial
 
-Decide on a "slug" (case-sensitive unique identifier) for your plugin that only contains letters, numbers, and the characters `_-`.
-It should *NEVER* change after releasing your plugin, otherwise old patches will break, so choose the slug wisely.
-To guarantee uniqueness, it is a good idea to prefix the slug by your name, alias, or company name if available, e.g. "MyCompany-MyPlugin".
+The Rack API is very flexible for creating custom [DSP](DSP.html) algorithms and custom interactive widgets handling many types of events from the keyboard, mouse, etc.
+See the [Rack API headers](https://github.com/VCVRack/Rack/tree/v1/include) or the [Rack API documentation](https://vcvrack.com/docs/namespaces.html) for the full reference, or review the source code of the many open-source plugins if you prefer learning by example.
 
-- Rename `Template.cpp` and `Template.hpp`.
-- Change references of `#include "Template.hpp"` in each of the source files.
-- In the `Makefile`, change the `SLUG` and `VERSION`.
+The [Voltage Standards](VoltageStandards.html) article defines the behavior for handling signals in a consistent way.
 
-## Versioning
-
-The version string of your plugin should follow the form **MAJOR.MINOR.REVISION** and is placed in your plugin's Makefile.
-
-- Before *Rack 1.0*, the **MAJOR.MINOR** version should match the version of Rack your plugin is built for, e.g. **0.5**.
-You are free to choose the **REVISION** version of your plugin, but it recommended to start counting at **0**.
-For example, *MyPlugin 0.5.4* would be compatible with all *Rack 0.5.X* versions.
-- After *Rack 1.0*, the **MAJOR** version should match the version of Rack your plugin is built for, e.g. **1**.
-You are free to choose the **MINOR.REVISION** version of your plugin.
-For example, *MyPlugin 1.4.2* would be compatible with all *Rack 1.X* versions.
-
-After releasing a version of your plugin, it is recommended to add a git tag to your repository with `git tag X.Y.Z`.
-
-## Licenses
-
-Don't forget to edit the `LICENSE.txt` file to choose a license of your choice, unless you want to release your plugin into the public domain (CC0).
-
-Before releasing your plugin, read the [Rack licenses](https://github.com/VCVRack/Rack#licenses).
-
-If you are considering "porting" a hardware module to the VCV Rack platform, it is a good idea to ask the creator first.
-It may be illegal, immoral, or cause unpleasant relationships to copy certain intellectual property without permission.
-
-## Building
-
-Make sure the VERSION and SLUG are correct in your Makefile, and run `make dist`.
-A ZIP package is generated in `dist/` for your architecture.
-
-If you do not have all platforms for building, other plugin developers will be happy to help you by simply obtaining your source and running `make dist` themselves.
+You can find a wealth of information on the [Developer category](https://community.vcvrack.com/c/development) of the [VCV Community](https://community.vcvrack.com/) forum by searching or creating a new thread.
 
 ## Releasing
 
-To list your plugin on the [VCV Plugin Manager](https://vcvrack.com/plugins.html), see the [VCV community repository README](https://github.com/VCVRack/community#for-plugin-developers).
+Eventually you may want to release your hard work.
 
-If you wish to sell your plugin on the [VCV Store](https://vcvrack.com/plugins.html), email contact@vcvrack.com for details.
+See [Plugin Licensing](PluginLicensing.html) for information about following Rack's license, particularly if developing a commercial plugin.
+It is recommended to add a `LICENSE.txt` file to your plugin's root folder that specifies your preferred license (whether open-source or proprietary).
 
-## Maintaining
-
-Since Rack is currently in Beta and moving very quickly, breaking changes may be made to the Rack plugin API.
-Subscribe to the [Plugin API Updates Thread](https://github.com/VCVRack/Rack/issues/258) to receive notifications when the Rack API changes or a discussion about a change is being held.
+Review your `plugin.json` [metadata](Metadata.html) file for correctness, spelling, and capitalization.
+Finally, submit your plugin to the [VCV Library](https://github.com/VCVRack/library#adding-your-plugin-to-the-vcv-library-for-open-source-plugins) to allow users to easily download your plugin from their VCV account.

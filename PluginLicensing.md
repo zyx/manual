@@ -27,9 +27,9 @@ This license also includes permission to use the [Component Library](https://git
 It is recommended to contact VCV as early as possible in your development process to make sure the license agreement is ready well before you release your plugin.
 You can expedite the licensing processing by sending concepts and design mockups along with your license request.
 
-You may also wish to sell your plugin on the [VCV Plugin Manager](https://vcvrack.com/plugins.html).
-Some benefits of distributing your plugin on the VCV Plugin Manager:
-- Most Rack users are already familiar with the VCV Plugin Manager checkout system.
+You may also wish to sell your plugin on the [VCV Library](https://vcvrack.com/plugins.html).
+Some benefits of distributing your plugin on the VCV Library:
+- Most Rack users are already familiar with the VCV Library checkout system.
 - Plugin updates are automatically synchronized to users' computers.
 - VCV offers advanced technical support with the Rack SDK and DSP library.
 - You may supply VCV with either binary packages for Mac/Windows/Linux, or a source package which we will build for you.
@@ -39,7 +39,7 @@ Some benefits of distributing your plugin on the VCV Plugin Manager:
 
 - You may not clone the brand name, model name, logo, panel design, or layout of components (knobs, ports, switches, etc) of an existing hardware or software product without permission from its owner, regardless of whether these are covered under trademark/copyright law.
 
-It is recommended to follow these guidelines for all plugins, but you are not legally required to do so.
+It is recommended to follow these guidelines for all plugins, but you are not legally obligated to do so.
 However, it is a requirement for:
-- distributing your plugin on the [VCV Plugin Manager](https://vcvrack.com/plugins.html).
+- distributing your plugin on the [VCV Library](https://vcvrack.com/plugins.html).
 - obtaining a [commercial plugin license](#i-want-to-sell-my-plugin-commercially-under-non-gplv3-terms).

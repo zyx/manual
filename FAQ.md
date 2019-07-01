@@ -2,25 +2,18 @@
 
 ## I found a bug.
 
-Search [Rack's issue tracker](https://github.com/VCVRack/Rack/issues?q=is%3Aissue) to check if someone else has posted a similar issue.
-If you believe the problem has never been reported before, [create a GitHub account](https://github.com/) (it's free) and [open an issue](https://github.com/VCVRack/Rack/issues/new/choose) with a detailed report containing the following information.
-
-- Your operating system and version
-- The Rack version
-- The actions that trigger the problem
-- Any error messages that appear. Screenshots are helpful.
-- The hardware (e.g. audio interface, MIDI device, graphics card) related to your problem
+Search [Rack's issue tracker](https://github.com/VCVRack/Rack/issues?q=is%3Aissue) to check if someone else has posted a similar bug report.
+If you believe the problem has never been reported before, [create a GitHub account](https://github.com/) (it's free) and [open a bug report issue](https://github.com/VCVRack/Rack/issues/new?template=bug_report.md).
+You must fill out the issue template, or it will be closed.
 
 ## I have a feature request.
 
+All features added to Rack must begin with a well-written proposal.
+If approved, it is implemented, publicly tested with development builds, and released in a future Rack version.
+
 Search [Rack's issue tracker](https://github.com/VCVRack/Rack/issues?q=is%3Aissue) to check if someone else has posted a similar feature request.
-If you believe the feature has never been requested before, [create a GitHub account](https://github.com/) (it's free) and [open an issue](https://github.com/VCVRack/Rack/issues/new/choose) with a detailed report containing the following information.
-
-- Your proposal, with consideration for how it fits into Rack's existing features
-- A possible workflow or diagram (if your request involves multiple steps or UI states, e.g. dragging multiple modules simultaneously).
-
-Your feature request may be addressed during the next iteration of feature design of Rack.
-If your request is judged to be not sufficiently useful to other users, it may be closed.
+If you believe the feature has never been requested before, [create a GitHub account](https://github.com/) (it's free) and [open an feature request issue](https://github.com/VCVRack/Rack/issues/new?template=feature_request.md).
+You must fill out the issue template, or it will be closed.
 
 ## The graphics are rendered incorrectly, not at all, or Rack doesn't launch because of an "OpenGL error".
 
@@ -28,7 +21,7 @@ Rack requires at least OpenGL 2.0 with the `GL_EXT_framebuffer_object` extension
 If your graphics card supports this, make sure you've installed the latest graphics drivers, and restart Rack.
 If this does not fix it, see below for instructions on submitting a bug to Rack's issue tracker.
 
-## Where is the "Rack user directory"?
+## Where is the "Rack user folder"?
 
 - MacOS: `Documents/Rack/`
 - Windows: `My Documents/Rack/`
@@ -61,11 +54,11 @@ See [CPU timer](MenuBar.html#cpu-timer) for more info.
 
 ## Is VCV Rack available as a VST/AU/AAX plugin for DAWs?
 
-Not at this time.
-Shortly after Rack 2.0 releases, Rack will also be available as a 64-bit VST2 plugin for around $99.
+VCV Rack is a standalone application, not a plugin.
+Shortly after Rack v2 is released, estimated for Dec 2019, Rack will also be available as a 64-bit VST2 plugin for around $99.
 VST3/AU/AAX versions might be released afterwards.
 All Rack v2 plugins will be compatible with the plugin version of Rack.
-The primary "standalone" version of Rack v2 will continue to be free/open-source.
+The standalone version of Rack v2 will continue to be free/open-source.
 
 ## Does VCV Rack work with touch screens?
 

@@ -23,7 +23,8 @@ Rack
    :caption: Plugin Development
 
    PluginDevelopmentTutorial.md
-   PanelTutorial.md
+   Panel.md
+   Metadata.md
    VoltageStandards.md
    DSP.md
    Migrate1.md

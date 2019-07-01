@@ -10,6 +10,10 @@ Rack attempts to model Eurorack standards as accurately as possible, but this is
 Signals should typically be \\(10V_{pp}\\) (peak-to-peak).
 This means that audio outputs should typically be **±5V** (before bandlimiting is applied), and CV modulation sources should typically be **0 to 10V** (unipolar CV) or **±5V** (bipolar CV).
 
+Absolute decibel measurements (e.g. for VU meters) should be relative to 10V amplitude.
+For example, a ±10V signal is 0 dB, and a ±5V signal is approximately -6 dB.
+You may alternatively use **dBV** for measurements relative to 1V amplitude.
+
 ## Output Saturation
 
 In Eurorack, power supplies supply **-12 to 12V**.
@@ -58,7 +62,7 @@ If your module might produce [NaNs](https://en.wikipedia.org/wiki/NaN) or infini
 
 ## Polyphony
 
-If your module has polyphonic outputs, then it can be considered a "polyphonic module", so add the "Polyphonic" tag to the module's manifest.
+If your module supports polyphonic inputs or has polyphonic outputs, then it can be considered a "polyphonic module", so add the "Polyphonic" tag to the module's manifest.
 It is recommended to support up to 16 channels, which is the maximum that Rack allows.
 
 Typically each voice in your module can be abstracted into an "engine".

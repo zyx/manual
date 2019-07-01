@@ -60,7 +60,7 @@ Remove `SLUG` and `VERSION` from the `Makefile`, and remove `	p->slug = ...` and
 
 ### 1.4
 
-Change `#include "rack.hpp"` to `#include "rack0.hpp"` to access deprecated functions.
+Change `#include <rack.hpp>` to `#include <rack0.hpp>` to access deprecated functions.
 
 ### 1.5
 
@@ -110,9 +110,18 @@ perl -i -pe 's/toJson/dataToJson/g' src/*
 perl -i -pe 's/fromJson/dataFromJson/g' src/*
 ```
 
+### 1.6.4
+
+Add `config()` to the `Module` constructor, and add `setModule()` to the `ModuleWidget` constructor.
+```bash
+perl -i -pe 's/: Module\(NUM_PARAMS, NUM_INPUTS, NUM_OUTPUTS\) \{/{\n\t\tconfig(NUM_PARAMS, NUM_INPUTS, NUM_OUTPUTS);/g' src/*
+perl -i -pe 's/: Module\(NUM_PARAMS, NUM_INPUTS, NUM_OUTPUTS, NUM_LIGHTS\) \{/{\n\t\tconfig(NUM_PARAMS, NUM_INPUTS, NUM_OUTPUTS, NUM_LIGHTS);/g' src/*
+perl -i -pe 's/: ModuleWidget\(module\) \{/{\n\t\tsetModule(module);/g' src/*
+```
+
 ### 1.7
 
-If your plugin uses any of Rack's `dsp/*.hpp` headers, remove the `#include "dsp/..."` lines since they are now automatically included by `rack.hpp`.
+If your plugin uses any of Rack's `dsp/*.hpp` headers, remove the `#include <dsp/...>` lines since they are now automatically included by `rack.hpp`.
 
 ### 1.8
 
@@ -138,7 +147,7 @@ If your plugin is open-source, you may even ask the [VCV Repair Team](https://gi
 
 ### 2.1
 
-Once your plugin can be compiled, change `#include "rack0.hpp"` back to `#include "rack.hpp"`.
+Once your plugin can be compiled, change `#include <rack0.hpp>` back to `#include <rack.hpp>`.
 
 ### 2.2
 
@@ -212,11 +221,7 @@ perl -i -pe 's/\b(quadraticBipolar|cubic|quarticBipolar|quintic|sqrtBipolar|expo
 
 ### 2.9
 
-Add `config()` to the `Module` constructor, and add `setModule()` to the `ModuleWidget` constructor.
-```bash
-perl -i -pe 's/: Module\(NUM_PARAMS, NUM_INPUTS, NUM_OUTPUTS, NUM_LIGHTS\) \{/{\n\t\tconfig(NUM_PARAMS, NUM_INPUTS, NUM_OUTPUTS, NUM_LIGHTS);/g' src/*
-perl -i -pe 's/: ModuleWidget\(module\) \{/{\n\t\tsetModule(module);/g' src/*
-```
+*Moved to Phase 1.6.4.*
 
 ### 2.10
 

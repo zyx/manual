@@ -1,5 +1,7 @@
 # Bridge
 
+***Note: VCV Bridge is deprecated and unsupported. It will be removed in Rack v2. See [Is VCV Rack available as a VST/AU/AAX plugin for DAWs?](https://vcvrack.com/manual/FAQ.html#is-vcv-rack-available-as-a-vst-au-aax-plugin-for-daws)***
+
 Rack is a standalone DAW-like application and not a VST/AU plugin because of the major limitations of these formats.
 It is common to think of physical modular synthesizers as entire self-contained DAWs, so many people use Rack as a complete DAW to compose music and build patches without other software.
 

@@ -6,6 +6,10 @@ Before building Rack or Rack plugins, you must install build dependencies provid
 Rack's own dependencies (GLEW, glfw, etc) do not need to be installed on your system, since specific versions are compiled locally during the build process.
 However, you need proper tools to build Rack and these dependencies.
 
+<!--
+TODO add Python dependency
+-->
+
 ### Mac
 
 Install [Homebrew](https://brew.sh/), and install build dependencies.
@@ -18,17 +22,18 @@ brew install git wget cmake autoconf automake libtool jq
 If you have an anti-virus program running, disable it or it may interfere with the build process.
 
 Install [MSYS2](http://www.msys2.org/) and launch the MinGW 64-bit shell from the Start menu, *not the default MSYS shell*.
+Update the package manager itself:
 ```bash
 pacman -Syu
 ```
-Then restart the shell.
+Then restart the shell and install packages.
 ```bash
 pacman -Su git wget make tar unzip zip mingw-w64-x86_64-gcc mingw-w64-x86_64-gdb mingw-w64-x86_64-cmake autoconf automake mingw-w64-x86_64-libtool mingw-w64-x86_64-jq
 ```
 
 ### Linux
 
-On Ubuntu 18.04+:
+On Ubuntu 16.04+:
 ```bash
 sudo apt install git gdb curl cmake libx11-dev libglu1-mesa-dev libxrandr-dev libxinerama-dev libxcursor-dev libxi-dev zlib1g-dev libasound2-dev libgtk2.0-dev libjack-jackd2-dev jq
 ```
@@ -68,9 +73,11 @@ Run Rack.
 
 ## Building Rack plugins
 
+Complete the [Setting up your development environment](#setting-up-your-development-environment) section.
+
 Plugins can be built in two ways:
-- [Build Rack from source](#building-rack) and build plugins in the `plugins/` directory.
-- Download a build of Rack and the Rack SDK, and build plugins anywhere you like.
+- [Build Rack from source](#building-rack) and build plugins in the `plugins/` folder. (Recommended for advanced developers.)
+- Download an [official Rack build](https://vcvrack.com/Rack.html) and [Rack-SDK-1.1.0.zip](https://vcvrack.com/downloads/Rack-SDK-1.1.0.zip), and build plugins anywhere you like. (Easiest/fastest.)
 
 Download or clone the plugin source code, e.g.
 
@@ -81,16 +88,20 @@ Clone the git repo's submodules.
 	cd Fundamental
 	git submodule update --init --recursive
 
-Build the plugin.
+If using the Rack SDK, set the `RACK_DIR` environment variable by prefixing each of the following commands with `RACK_DIR=<Rack SDK dir>`.
+
+Build plugin dependencies. (Most plugins don't require this step.)
 
 	make dep
+
+Build the plugin.
+
 	make
 
-If using the Rack SDK, specify its location with
+Create a plugin ZIP package.
 
-	RACK_DIR=<Rack SDK dir> make dep
-	RACK_DIR=<Rack SDK dir> make
+	make dist
 
-To build, package, and install plugins to your Rack user directory in one step, run
+Or you may build, package, and install plugins to your [Rack user folder](FAQ.html#where-is-the-rack-user-folder) in one step.
 
 	make install
