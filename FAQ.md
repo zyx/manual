@@ -46,19 +46,22 @@ It is not planned. There are many issues with such a project.
 
 ## Why does VCV Audio consume so much CPU?
 
-The CPU meter measures the time spent processing each module, not the "resource" of CPU power.
-In order for playback timing to be consistent, your audio device, and therefore VCV Audio, waits until all samples in the current audio buffer are played before moving onto the next audio buffer.
-Otherwise, your device's DAC and ADC would play and record at very inconsistent and incorrect sample rates.
+The CPU timer measures the average *time* spent processing each sample, not the CPU *energy consumption* of modules.
+Since audio devices need to play audio at real-time (rather than as fast as the Rack engine can run), the VCV Audio modules need to wait for the last audio buffer to finish playing before sending a new audio buffer.
 While waiting, the engine thread is put to sleep, so no energy is consumed by the thread.
 See [CPU timer](MenuBar.html#cpu-timer) for more info.
 
 ## Is VCV Rack available as a VST/AU/AAX plugin for DAWs?
 
-VCV Rack is a standalone application, not a plugin.
-Shortly after Rack v2 is released, estimated for Dec 2019, Rack will also be available as a 64-bit VST2 plugin for around $99.
-VST3/AU/AAX versions might be released afterwards.
+VCV Rack is a standalone application, not a DAW plugin, since Rack can be fully considered a DAW itself.
+However, due to user demand, Rack will be available as a 64-bit VST2 plugin for around $99 shortly after Rack v2 is released around Dec 2019.
+VST3/AU/AAX/LV2 versions might be released afterwards, but this is not yet confirmed.
 All Rack v2 plugins will be compatible with the plugin version of Rack.
 The standalone version of Rack v2 will continue to be free/open-source.
+
+*VCV Bridge* was a VST2/AU plugin for bridging the standalone version of Rack with a DAW.
+However, users found it to be unreliable, so it is no longer distributed as of Rack v1.
+The audio/MIDI Bridge drivers will be removed in Rack v2.
 
 ## Does VCV Rack work with touch screens?
 

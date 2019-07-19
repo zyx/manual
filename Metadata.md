@@ -10,6 +10,7 @@ JSON paths are denoted in "flat format", as used by [jq](https://stedolan.github
 *String. Required.*
 
 The unique identifier for your plugin.
+Case-sensitive.
 Slugs may only contain letters `a-z` and `A-Z`, numbers `0-9`, hyphens `-`, and underscores `_`.
 
 After your plugin is released, the slug must *never* change, otherwise patch compatibility would be broken.
@@ -119,7 +120,7 @@ The human-readable name for the module.
 *Array of strings. Optional.*
 
 List of tags representing the functions and/or properties of the module.
-All tags must match the [list of allowed tags](https://github.com/VCVRack/Rack/blob/v1/src/plugin.cpp#L540) in Rack, case insensitive.
+All tags must match the [list of allowed tags](https://github.com/VCVRack/Rack/blob/v1/src/plugin.cpp#L540) in Rack, case-insensitive.
 
 ## `.modules[].description`
 

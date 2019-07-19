@@ -6,7 +6,7 @@
 - Familiarity with navigating the command line (`cd`, `ls`, etc).
 - Familiarity with modular synthesizers. [Digital signal processing (DSP)](DSP.html) knowledge is only required if creating sound generators and processors.
 - Download and install [VCV Rack](https://vcvrack.com/Rack.html).
-- Download and extract the [Rack SDK](https://vcvrack.com/downloads/Rack-SDK-1.1.0.zip).
+- Download and extract [Rack-SDK-1.1.1.zip](https://vcvrack.com/downloads/Rack-SDK-1.1.1.zip).
 This contains the Rack API headers and build system for compiling your plugin.
 - Follow the steps to [set up your build environment](Building.html#setting-up-your-development-environment) for your operating system.
 You do not need to build Rack from source if using the Rack SDK.

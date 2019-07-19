@@ -1,7 +1,7 @@
 # Voltage Standards
 
 In Rack, input and output values carried by patch cables are in voltage units (V).
-You can measure absolute voltage levels using modules like Fundamental Scope.
+You can measure absolute voltage levels using modules like VCV Scope.
 
 Rack attempts to model Eurorack standards as accurately as possible, but this is a problem for two reasons: there are very few actual "standards" in Eurorack (The only rule is that you can always find a module which breaks the rule), and there are a few differences between digital (finite sample rate) and analog (infinite sample rate).
 
@@ -58,7 +58,7 @@ Low-frequency oscillators and clock generators should use 120 BPM (\\(f_0\\) = 2
 
 ## NaNs and Infinity
 
-If your module might produce [NaNs](https://en.wikipedia.org/wiki/NaN) or infinite output values when given only finite input, e.g. an unstable IIR filter or reverb, it should check and return 0 if this happens: `std::isfinite(out) ? out : 0.f`.
+If your module might produce [NaNs](https://en.wikipedia.org/wiki/NaN) or infinite output values when given only finite input, e.g. an unstable IIR filter or reverb, it should check and return 0 when this happens: `std::isfinite(out) ? out : 0.f`.
 
 ## Polyphony
 

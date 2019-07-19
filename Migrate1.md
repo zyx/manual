@@ -1,4 +1,4 @@
-# Migrating v0.6 Plugins to Rack v1
+# Migrating v0.6 Plugins to v1
 
 This is a step-by-step guide for migrating plugins using the Rack v0.6 API to Rack v1.
 There are three phases of porting.

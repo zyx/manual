@@ -6,15 +6,11 @@ Before building Rack or Rack plugins, you must install build dependencies provid
 Rack's own dependencies (GLEW, glfw, etc) do not need to be installed on your system, since specific versions are compiled locally during the build process.
 However, you need proper tools to build Rack and these dependencies.
 
-<!--
-TODO add Python dependency
--->
-
 ### Mac
 
 Install [Homebrew](https://brew.sh/), and install build dependencies.
 ```bash
-brew install git wget cmake autoconf automake libtool jq
+brew install git wget cmake autoconf automake libtool jq python
 ```
 
 ### Windows
@@ -28,7 +24,7 @@ pacman -Syu
 ```
 Then restart the shell and install packages.
 ```bash
-pacman -Su git wget make tar unzip zip mingw-w64-x86_64-gcc mingw-w64-x86_64-gdb mingw-w64-x86_64-cmake autoconf automake mingw-w64-x86_64-libtool mingw-w64-x86_64-jq
+pacman -Su git wget make tar unzip zip mingw-w64-x86_64-gcc mingw-w64-x86_64-gdb mingw-w64-x86_64-cmake autoconf automake mingw-w64-x86_64-libtool mingw-w64-x86_64-jq python
 ```
 
 ### Linux
@@ -40,7 +36,7 @@ sudo apt install git gdb curl cmake libx11-dev libglu1-mesa-dev libxrandr-dev li
 
 On Arch Linux:
 ```bash
-pacman -S git wget gcc gdb make cmake tar unzip zip curl jq
+pacman -S git wget gcc gdb make cmake tar unzip zip curl jq python
 ```
 
 ## Building Rack
@@ -77,7 +73,7 @@ Complete the [Setting up your development environment](#setting-up-your-developm
 
 Plugins can be built in two ways:
 - [Build Rack from source](#building-rack) and build plugins in the `plugins/` folder. (Recommended for advanced developers.)
-- Download an [official Rack build](https://vcvrack.com/Rack.html) and [Rack-SDK-1.1.0.zip](https://vcvrack.com/downloads/Rack-SDK-1.1.0.zip), and build plugins anywhere you like. (Easiest/fastest.)
+- Download an [official Rack build](https://vcvrack.com/Rack.html) and [Rack-SDK-1.1.1.zip](https://vcvrack.com/downloads/Rack-SDK-1.1.1.zip), and build plugins anywhere you like. (Easiest/fastest.)
 
 Download or clone the plugin source code, e.g.
 

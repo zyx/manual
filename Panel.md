@@ -12,7 +12,7 @@ Install [Inkscape](https://inkscape.org/), a cross-platform open-source vector g
 
 Design the panel, or open an existing .pdf, .ai, .svg, etc file and copy-paste the contents into your new document.
 
-![](https://vcvrack.com/images/Fundamental/VCO.m.png)
+![](images/VCO.png)
 
 Design recommendations from VCV:
 - Avoid gradients and photorealism. Use a flat style for panels and components. This increases clarity at all zoom levels, which is important when several other modules are on-screen.
