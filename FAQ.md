@@ -67,4 +67,4 @@ The audio/MIDI Bridge drivers will be removed in Rack v2.
 
 Rack's window library GLFW does not support [touch input](https://github.com/glfw/glfw/issues/42), so Rack relies on the operating system to control the mouse cursor using the touch screen.
 This means that multi-touch gestures do not work.
-However, you can set `"allowCursorLock"` to `false` in `<Rack user dir>/settings.json` to improve touch cursor handling for knobs.
+However, you can disable the 'cursor locking' feature by disabling the 'Lock cursor while dragging' menu item in the View menu to improve touch cursor handling for knobs.
